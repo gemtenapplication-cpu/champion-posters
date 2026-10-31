@@ -1,0 +1,65 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:#F4F8FF;font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#2B83F628 2.5px,transparent 3px);background-size:40px 40px}
+.band{position:absolute;left:-120px;right:-120px;top:620px;height:290px;background:linear-gradient(90deg,#1F6FE5,#2B83F6 50%,#4DA3FF);transform:rotate(-6deg)}
+.logo{position:absolute;top:64px;left:50%;transform:translateX(-50%);width:600px}
+.cal{position:absolute;top:200px;left:50%;transform:translateX(-50%);display:flex;gap:16px}
+.day{width:150px;background:#fff;border:3px solid #0B0B0C;border-radius:16px;overflow:hidden;text-align:center;box-shadow:6px 6px 0 #2B83F6}
+.day b{display:block;background:#0B0B0C;color:#fff;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:6px;padding:8px 0}
+.day span{display:block;font-family:Orbitron;font-weight:900;font-size:24px;color:#1F6FE5;padding:12px 0}
+h1{position:absolute;top:340px;left:0;right:0;text-align:center;font-family:Orbitron;font-weight:900;font-size:92px;line-height:1.05;letter-spacing:1px}
+h1 em{font-style:normal;color:#2B83F6}
+.squad{position:absolute;top:620px;left:0;right:0;height:220px;display:flex;justify-content:center;align-items:flex-end;gap:26px}
+.pl{display:flex;flex-direction:column;align-items:center}
+.pl svg{display:block}
+.pl i{font-style:normal;margin-top:8px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:3px;color:#fff}
+.sub{position:absolute;top:995px;left:0;right:0;text-align:center;font-weight:700;font-size:40px;letter-spacing:1px}
+.sub span{color:#1F6FE5}
+.feat{position:absolute;top:1062px;left:70px;right:70px;display:flex;gap:18px}
+.f{flex:1;background:#fff;border:2px solid #D6E6FF;border-radius:18px;padding:14px 12px;text-align:center}
+.f b{display:block;font-family:Orbitron;font-weight:900;font-size:36px;color:#2B83F6}
+.f span{font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase}
+.bar{position:absolute;left:0;right:0;bottom:0;height:170px;background:#0B0B0C;color:#fff;display:flex;align-items:center;padding:0 70px;justify-content:space-between}
+.loc{font-weight:600;font-size:27px;line-height:1.3}
+.loc b{display:block;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:4px;color:#4DA3FF;margin-bottom:6px}
+.cta{background:#2B83F6;border-radius:14px;padding:16px 26px;text-align:center}
+.cta b{display:block;font-family:Orbitron;font-weight:900;font-size:26px;letter-spacing:3px}
+.cta span{font-weight:600;font-size:22px}
+.soon{position:absolute;top:1150px;left:0;right:0;text-align:center;font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:8px;color:#1F6FE5;display:none}
+</style></head><body>
+<div class="p">
+  <div class="dots"></div>
+  <div class="band"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="cal">
+    <div class="day"><b>SAT</b><span>PLAY</span></div>
+    <div class="day"><b>SUN</b><span>WIN</span></div>
+  </div>
+  <h1>WEEKEND?<br><em>SQUAD UP.</em></h1>
+  <div class="squad">
+    <!-- four generic player icons holding a simple controller -->
+    <div class="pl"><svg width="150" height="170" viewBox="0 0 150 170"><circle cx="75" cy="45" r="34" fill="#fff"/><path d="M15 170c0-45 27-70 60-70s60 25 60 70z" fill="#fff"/><rect x="38" y="112" width="74" height="34" rx="17" fill="#0B0B0C"/><circle cx="58" cy="129" r="6" fill="#4DA3FF"/><circle cx="92" cy="129" r="6" fill="#4DA3FF"/></svg></div>
+    <div class="pl"><svg width="170" height="200" viewBox="0 0 150 170"><circle cx="75" cy="45" r="34" fill="#0B0B0C"/><path d="M15 170c0-45 27-70 60-70s60 25 60 70z" fill="#0B0B0C"/><rect x="38" y="112" width="74" height="34" rx="17" fill="#fff"/><circle cx="58" cy="129" r="6" fill="#2B83F6"/><circle cx="92" cy="129" r="6" fill="#2B83F6"/></svg></div>
+    <div class="pl"><svg width="170" height="200" viewBox="0 0 150 170"><circle cx="75" cy="45" r="34" fill="#0B0B0C"/><path d="M15 170c0-45 27-70 60-70s60 25 60 70z" fill="#0B0B0C"/><rect x="38" y="112" width="74" height="34" rx="17" fill="#fff"/><circle cx="58" cy="129" r="6" fill="#2B83F6"/><circle cx="92" cy="129" r="6" fill="#2B83F6"/></svg></div>
+    <div class="pl"><svg width="150" height="170" viewBox="0 0 150 170"><circle cx="75" cy="45" r="34" fill="#fff"/><path d="M15 170c0-45 27-70 60-70s60 25 60 70z" fill="#fff"/><rect x="38" y="112" width="74" height="34" rx="17" fill="#0B0B0C"/><circle cx="58" cy="129" r="6" fill="#4DA3FF"/><circle cx="92" cy="129" r="6" fill="#4DA3FF"/></svg></div>
+  </div>
+  <div class="sub">Bring your crew. <span>Opening soon in Cumilla.</span></div>
+  <div class="feat">
+    <div class="f"><b>2</b><span>PS5 Stations</span></div>
+    <div class="f"><b>55"</b><span>Screens</span></div>
+    <div class="f"><b>30"</b><span>Gaming PC</span></div>
+  </div>
+  <div class="bar">
+    <div class="loc"><b>FIND US</b>IFIC Bank Building (4th Floor)<br>Ranir Bazar, Cumilla</div>
+    <div class="cta"><b>BOOK ONLINE</b><span>champion.gemten.com.bd</span></div>
+  </div>
+</div>
+</body></html>
