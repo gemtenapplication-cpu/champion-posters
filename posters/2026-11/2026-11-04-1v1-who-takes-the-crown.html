@@ -1,0 +1,89 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:#F4F8FF;font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+/* split arena background */
+.half{position:absolute;top:0;bottom:0;width:50%}
+.half.l{left:0;background:linear-gradient(160deg,#F4F8FF 0%,#E2EEFF 100%)}
+.half.r{right:0;background:linear-gradient(200deg,#FFFFFF 0%,#EEF4FF 100%)}
+.slash{position:absolute;top:-40px;left:520px;width:40px;height:1500px;background:linear-gradient(#2B83F6,#4DA3FF);transform:rotate(8deg);opacity:.18}
+.logo{position:absolute;top:60px;left:80px;width:430px}
+.tag{position:absolute;top:80px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#1F6FE5;border:2px solid #2B83F6;border-radius:40px;padding:10px 20px;background:#fff}
+.kick{position:absolute;top:200px;left:0;right:0;text-align:center;font-family:Orbitron;font-weight:700;font-size:24px;letter-spacing:10px;color:#1F6FE5}
+h1{position:absolute;top:244px;left:0;right:0;text-align:center;font-family:Orbitron;font-weight:900;font-size:96px;line-height:1.05;letter-spacing:1px}
+h1 em{font-style:normal;color:#2B83F6}
+/* versus panel */
+.vs{position:absolute;top:500px;left:70px;right:70px;height:420px}
+.pl{position:absolute;top:0;width:380px;height:420px;background:#fff;border:3px solid #0B0B0C;border-radius:28px;overflow:hidden}
+.pl.a{left:0;box-shadow:10px 10px 0 #2B83F6}
+.pl.b{right:0;box-shadow:-10px 10px 0 #0B0B0C}
+.pl .hd{font-family:Orbitron;font-weight:900;font-size:30px;letter-spacing:4px;padding:20px 26px;color:#fff}
+.pl.a .hd{background:linear-gradient(90deg,#1F6FE5,#2B83F6 60%,#4DA3FF)}
+.pl.b .hd{background:#0B0B0C;text-align:right}
+.pl svg{display:block;margin:34px auto 0}
+.pl .who{text-align:center;margin-top:26px;font-weight:700;font-size:32px;letter-spacing:2px;text-transform:uppercase}
+.pl .who span{color:#2B83F6}
+.mid{position:absolute;left:50%;top:110px;transform:translateX(-50%);width:200px;height:200px;border-radius:50%;background:#fff;border:3px solid #0B0B0C;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 14px #F4F8FFcc,0 0 60px #4DA3FF88;z-index:2}
+.mid img{width:78px}
+.mid b{font-family:Orbitron;font-weight:900;font-size:44px;line-height:1;margin-top:6px;color:#0B0B0C}
+.prompt{position:absolute;top:960px;left:0;right:0;text-align:center;font-weight:700;font-size:40px;line-height:1.2}
+.prompt span{color:#1F6FE5}
+.prompt small{display:block;font-weight:600;font-size:28px;color:#4A5568;margin-top:6px}
+.soon{position:absolute;top:1112px;left:0;right:0;text-align:center;font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:8px;color:#1F6FE5}
+.bar{position:absolute;left:0;right:0;bottom:0;height:170px;background:#0B0B0C;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 70px}
+.loc{font-weight:600;font-size:26px;line-height:1.25}
+.loc b{display:block;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:3px;color:#4DA3FF;margin-bottom:4px}
+.cta{text-align:right}
+.cta b{display:block;font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:4px;color:#4DA3FF;margin-bottom:6px}
+.cta span{display:inline-block;background:linear-gradient(90deg,#1F6FE5,#2B83F6 60%,#4DA3FF);border-radius:14px;padding:12px 22px;font-family:Orbitron;font-weight:700;font-size:24px;letter-spacing:1px}
+</style></head>
+<body>
+<div class="p">
+  <div class="half l"></div><div class="half r"></div><div class="slash"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">1 V 1</div>
+  <div class="kick">ONE SCREEN &middot; TWO PLAYERS</div>
+  <h1>WHO TAKES<br>THE <em>CROWN?</em></h1>
+
+  <div class="vs">
+    <div class="pl a">
+      <div class="hd">P1</div>
+      <svg width="240" height="170" viewBox="0 0 300 200">
+        <path d="M60 20h180c38 0 60 32 68 76l14 72c6 34-30 50-52 24l-32-40H82l-32 40c-22 26-58 10-52-24l14-72C20 52 22 20 60 20z" fill="#2B83F6"/>
+        <rect x="64" y="74" width="48" height="15" rx="4" fill="#fff"/>
+        <rect x="80" y="58" width="16" height="48" rx="4" fill="#fff"/>
+        <circle cx="214" cy="62" r="11" fill="#fff"/><circle cx="240" cy="86" r="11" fill="#fff"/>
+        <circle cx="188" cy="86" r="11" fill="#fff"/><circle cx="214" cy="110" r="11" fill="#fff"/>
+        <rect x="128" y="48" width="44" height="11" rx="5" fill="#1F6FE5"/>
+      </svg>
+      <div class="who">That's <span>you</span></div>
+    </div>
+    <div class="mid"><img src="../../brand/trophy-blue.png"><b>VS</b></div>
+    <div class="pl b">
+      <div class="hd">P2</div>
+      <svg width="240" height="170" viewBox="0 0 300 200">
+        <path d="M60 20h180c38 0 60 32 68 76l14 72c6 34-30 50-52 24l-32-40H82l-32 40c-22 26-58 10-52-24l14-72C20 52 22 20 60 20z" fill="#0B0B0C"/>
+        <rect x="64" y="74" width="48" height="15" rx="4" fill="#4DA3FF"/>
+        <rect x="80" y="58" width="16" height="48" rx="4" fill="#4DA3FF"/>
+        <circle cx="214" cy="62" r="11" fill="#4DA3FF"/><circle cx="240" cy="86" r="11" fill="#2B83F6"/>
+        <circle cx="188" cy="86" r="11" fill="#2B83F6"/><circle cx="214" cy="110" r="11" fill="#4DA3FF"/>
+        <rect x="128" y="48" width="44" height="11" rx="5" fill="#2C3442"/>
+      </svg>
+      <div class="who">Your <span>best friend</span></div>
+    </div>
+  </div>
+
+  <div class="prompt">Tag the friend you'd <span>beat 1v1</span><small>PS5 on a 55" screen. No excuses.</small></div>
+  <div class="soon">OPENING SOON &middot; PLAY + CONNECT + WIN</div>
+  <div class="bar">
+    <div class="loc"><b>IFIC BANK BUILDING</b>4th Floor, Ranir Bazar<br>Cumilla</div>
+    <div class="cta"><b>BOOK ONLINE</b><span>champion.gemten.com.bd</span></div>
+  </div>
+</div>
+</body></html>
