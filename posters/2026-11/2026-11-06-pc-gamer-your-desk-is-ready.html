@@ -1,0 +1,75 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(165deg,#FFFFFF 0%,#F4F8FF 50%,#E1EDFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.lines{position:absolute;inset:0;background-image:linear-gradient(#2B83F612 2px,transparent 2px),linear-gradient(90deg,#2B83F612 2px,transparent 2px);background-size:54px 54px}
+.glow{position:absolute;left:50%;top:560px;transform:translateX(-50%);width:980px;height:600px;border-radius:50%;background:radial-gradient(ellipse,#4DA3FF4D 0%,#4DA3FF00 70%)}
+.logo{position:absolute;top:60px;left:80px;width:430px}
+.tag{position:absolute;top:80px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#1F6FE5;border:2px solid #2B83F6;border-radius:40px;padding:10px 20px;background:#fff}
+.kick{position:absolute;top:210px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:250px;left:76px;font-family:Orbitron;font-weight:900;font-size:68px;line-height:1.15;letter-spacing:1px}
+h1 em{font-style:normal;color:#2B83F6}
+/* desk scene */
+.mon{position:absolute;top:500px;left:50%;transform:translateX(-50%);width:640px;height:380px;border-radius:26px;background:#0B0B0C;padding:16px;box-shadow:0 30px 60px #1F6FE533,14px 14px 0 #2B83F6}
+.scr{width:100%;height:100%;border-radius:14px;overflow:hidden;position:relative;background:linear-gradient(150deg,#1F6FE5 0%,#2B83F6 55%,#4DA3FF 100%)}
+.scr .g{position:absolute;inset:0;background-image:linear-gradient(#ffffff1f 2px,transparent 2px),linear-gradient(90deg,#ffffff1f 2px,transparent 2px);background-size:40px 40px}
+.scr .big{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff}
+.scr .big b{font-family:Orbitron;font-weight:900;font-size:120px;line-height:1;letter-spacing:2px}
+.scr .big b sup{font-family:Rajdhani;font-weight:700;font-size:100px;vertical-align:top;position:relative;top:-8px;margin-left:4px}
+.scr .big span{font-family:Orbitron;font-weight:700;font-size:24px;letter-spacing:10px;margin-top:10px}
+.neck{position:absolute;top:880px;left:50%;transform:translateX(-50%);width:70px;height:46px;background:linear-gradient(#2a2a2e,#0B0B0C)}
+.base{position:absolute;top:924px;left:50%;transform:translateX(-50%);width:240px;height:16px;border-radius:10px;background:#0B0B0C}
+.deskline{position:absolute;top:940px;left:70px;right:70px;height:6px;border-radius:4px;background:#C9DBF5}
+.kb{position:absolute;top:962px;left:250px;width:440px;height:96px;border-radius:16px;background:#fff;border:3px solid #0B0B0C;box-shadow:6px 6px 0 #2B83F6;padding:12px 14px;display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:20px;gap:6px}
+.kb i{display:block;border-radius:4px;background:#E4EEFC}
+.kb i.a{background:#2B83F6}
+.kb i.sp{grid-column:span 6;background:#D6E4FA}
+.ms{position:absolute;top:970px;left:730px;width:62px;height:90px;border-radius:31px;background:#fff;border:3px solid #0B0B0C;box-shadow:6px 6px 0 #2B83F6}
+.ms:before{content:"";position:absolute;left:50%;top:0;width:3px;height:36px;background:#0B0B0C;transform:translateX(-50%)}
+.ms:after{content:"";position:absolute;left:50%;top:14px;width:10px;height:16px;border-radius:5px;background:#2B83F6;transform:translateX(-50%)}
+/* fact chips */
+.chips{position:absolute;top:1092px;left:0;right:0;display:flex;justify-content:center;gap:18px}
+.chip{background:#fff;border:2px solid #D6E4FA;border-radius:18px;padding:10px 22px;font-weight:700;font-size:27px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:10px}
+.chip i{display:block;width:12px;height:12px;border-radius:50%;background:#2B83F6}
+.bar{position:absolute;left:0;right:0;bottom:0;height:170px;background:#0B0B0C;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 70px}
+.loc{font-weight:600;font-size:26px;line-height:1.25}
+.loc b{display:block;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:3px;color:#4DA3FF;margin-bottom:4px}
+.cta{text-align:right}
+.cta b{display:block;font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:4px;color:#4DA3FF;margin-bottom:6px}
+.cta span{display:inline-block;background:linear-gradient(90deg,#1F6FE5,#2B83F6 60%,#4DA3FF);border-radius:14px;padding:12px 22px;font-family:Orbitron;font-weight:700;font-size:24px;letter-spacing:1px}
+</style></head>
+<body>
+<div class="p">
+  <div class="lines"></div><div class="glow"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick">THE GAMING PC CORNER</div>
+  <h1>PC GAMER?<br><em>YOUR DESK IS READY.</em></h1>
+
+  <div class="mon"><div class="scr"><div class="g"></div><div class="big"><b>30<sup>"</sup></b><span>MONITOR</span></div></div></div>
+  <div class="neck"></div><div class="base"></div><div class="deskline"></div>
+  <div class="kb">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    <i></i><i></i><i class="a"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    <i></i><i class="a"></i><i class="a"></i><i class="a"></i><i></i><i class="sp"></i><i></i>
+  </div>
+  <div class="ms"></div>
+
+  <div class="chips">
+    <div class="chip"><i></i>1 Gaming PC</div>
+    <div class="chip"><i></i>30" Monitor</div>
+    <div class="chip"><i></i>+ 2 PS5 Stations</div>
+  </div>
+
+  <div class="bar">
+    <div class="loc"><b>FIND US</b>IFIC Bank Building (4th Floor)<br>Ranir Bazar, Cumilla</div>
+    <div class="cta"><b>BOOK ONLINE</b><span>champion.gemten.com.bd</span></div>
+  </div>
+</div>
+</body></html>
