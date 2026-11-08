@@ -1,0 +1,17 @@
+{
+  "model_id": "music_v1",
+  "composition_plan": {
+    "positive_global_styles": ["cinematic trailer music", "dark retro synthwave", "1980s Miami neon atmosphere", "analog synthesizers", "deep sub bass", "instrumental", "modern epic trailer hits", "polished mix"],
+    "negative_global_styles": ["vocals", "singing", "rap", "lyrics", "acoustic guitar", "lo-fi", "comedy"],
+    "sections": [
+      {"section_name": "Cold Open", "positive_local_styles": ["dark ambient drone", "deep sub bass swell", "suspense", "sparse", "slowly rising tension"], "negative_local_styles": ["drums", "melody"], "duration_ms": 4600, "lines": []},
+      {"section_name": "Sunset", "positive_local_styles": ["opens with a huge cinematic boom", "warm dreamy retro synth pads", "slow shimmering arpeggio", "golden hour sunset mood", "gated reverb"], "negative_local_styles": ["heavy drums"], "duration_ms": 6000, "lines": []},
+      {"section_name": "Title Build", "positive_local_styles": ["pulsing synthwave bassline enters", "building tension", "rising tom drums", "risers", "intensifying"], "negative_local_styles": [], "duration_ms": 9000, "lines": []},
+      {"section_name": "Break", "positive_local_styles": ["sudden drop to near silence", "then a massive low brass braam hit", "half-time", "heavy reverb tail"], "negative_local_styles": ["busy drums"], "duration_ms": 5400, "lines": []},
+      {"section_name": "Arena Groove", "positive_local_styles": ["full energetic dark synthwave groove", "punchy drums", "driving pulsing bass", "modern gaming energy", "confident"], "negative_local_styles": [], "duration_ms": 10000, "lines": []},
+      {"section_name": "Champion Reveal", "positive_local_styles": ["epic climax", "huge impact on the downbeat", "anthemic soaring synth lead", "triumphant"], "negative_local_styles": [], "duration_ms": 5600, "lines": []},
+      {"section_name": "Call To Action", "positive_local_styles": ["anthemic driving groove continues", "triumphant", "confident", "big drums"], "negative_local_styles": [], "duration_ms": 8000, "lines": []},
+      {"section_name": "Outro", "positive_local_styles": ["final massive hit", "long reverb tail", "fade to silence", "sustained synth pad"], "negative_local_styles": ["drums after the hit"], "duration_ms": 5400, "lines": []}
+    ]
+  }
+}
