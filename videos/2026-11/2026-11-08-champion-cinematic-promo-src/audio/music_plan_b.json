@@ -1,0 +1,109 @@
+{
+ "model_id": "music_v1",
+ "composition_plan": {
+  "positive_global_styles": [
+   "epic cinematic action trailer music",
+   "hybrid orchestral with heavy electronic bass",
+   "esports gaming arena hype",
+   "massive trailer drums",
+   "instrumental",
+   "140 bpm",
+   "modern loud punchy mix"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lofi",
+   "acoustic",
+   "jazz",
+   "cheerful pop",
+   "fade out"
+  ],
+  "sections": [
+   {
+    "section_name": "Cold Open",
+    "positive_local_styles": [
+     "very quiet and sparse",
+     "deep sub bass rumble",
+     "dark atmospheric pad",
+     "one deep boom",
+     "slow swell",
+     "leaves space for a voice-over"
+    ],
+    "negative_local_styles": [
+     "drums",
+     "hi-hats",
+     "ticking",
+     "percussion",
+     "melody",
+     "loud"
+    ],
+    "duration_ms": 3000,
+    "lines": []
+   },
+   {
+    "section_name": "Riser",
+    "positive_local_styles": [
+     "building tension under a deep voice-over",
+     "rising synth riser",
+     "snare roll accelerating",
+     "ends with a huge whoosh into the drop"
+    ],
+    "negative_local_styles": [
+     "quiet"
+    ],
+    "duration_ms": 3000,
+    "lines": []
+   },
+   {
+    "section_name": "Drop",
+    "positive_local_styles": [
+     "explosive full drop on the first beat",
+     "pounding taiko and trailer drums",
+     "distorted synth bass ostinato",
+     "brass stabs",
+     "fast staccato strings",
+     "maximum energy"
+    ],
+    "negative_local_styles": [
+     "quiet",
+     "ambient",
+     "breakdown"
+    ],
+    "duration_ms": 7000,
+    "lines": []
+   },
+   {
+    "section_name": "Climax",
+    "positive_local_styles": [
+     "even bigger and more intense",
+     "heroic brass melody",
+     "rapid percussion",
+     "relentless driving rhythm"
+    ],
+    "negative_local_styles": [
+     "quiet",
+     "breakdown",
+     "fade"
+    ],
+    "duration_ms": 6000,
+    "lines": []
+   },
+   {
+    "section_name": "Final Hits",
+    "positive_local_styles": [
+     "three huge staccato orchestral and drum hits",
+     "silence between hits",
+     "last hit is the biggest",
+     "long ringing reverb tail of the final hit"
+    ],
+    "negative_local_styles": [
+     "continuous drums",
+     "melody"
+    ],
+    "duration_ms": 6000,
+    "lines": []
+   }
+  ]
+ }
+}
