@@ -10,3 +10,4 @@ date | headline | angle | Metricool post id
 2026-11-05 | Skip the Wait. Book Your Slot. | book your slot online / 4-step how-to with phone booking mockup | 417275063
 2026-11-06 | PC Gamer? Your Desk Is Ready. | gaming PC corner / CSS monitor + keyboard desk scene, 30" monitor hero | 418477583
 2026-11-07 | Cumilla, Meet Your Arena. | Cumilla pride / map pin + radar with trophy, 4 fact labels around it | 419628056
+2026-11-08 | Every Champion Starts at Level 1. | trophy / become the champion: Level 1-2-3 podium (Rookie, Rival, Champion) with brand trophy, 3 fact pills | 420434015
