@@ -12,3 +12,4 @@ date | headline | angle | Metricool post id
 2026-11-07 | Cumilla, Meet Your Arena. | Cumilla pride / map pin + radar with trophy, 4 fact labels around it | 419628056
 2026-11-08 | Every Champion Starts at Level 1. | trophy / become the champion: Level 1-2-3 podium (Rookie, Rival, Champion) with brand trophy, 3 fact pills | 420434015
 2026-11-09 | Your Arena Is Loading. | countdown "opening soon" / game loading screen: segmented progress bar + system-check list (PS5 stations, PC, online booking, doors open: coming soon), follow-for-opening-day tip | 421314834
+2026-11-10 | PS5 or PC? Pick Your Side. | this-or-that comment poll / Team PS5 vs Team PC split cards (55" TV vs 30" monitor drawings, VS badge), "Comment PS5 or PC" bar | 422671183
