@@ -1,0 +1,82 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(180deg,#FFFFFF 0%,#F4F8FF 60%,#DCEAFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#2B83F614 2px,transparent 2px),linear-gradient(90deg,#2B83F614 2px,transparent 2px);background-size:54px 54px}
+.logo{position:absolute;top:60px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:205px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:245px;left:76px;font-family:Orbitron;font-weight:900;font-size:86px;line-height:1.1}
+h1 em{font-style:normal;color:#2B83F6}
+.side{position:absolute;top:500px;width:440px;height:520px;background:#fff;border-radius:30px;box-shadow:0 24px 50px #1F6FE526;padding:36px 34px;text-align:center}
+.l{left:80px;border:4px solid #2B83F6}
+.r{right:80px;border:4px solid #0B0B0C}
+.team{font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:6px;color:#1F6FE5}
+.r .team{color:#0B0B0C}
+.name{font-family:Orbitron;font-weight:900;font-size:76px;margin-top:6px}
+.l .name{color:#2B83F6}
+/* drawings */
+.art{height:170px;margin:14px 0 32px;display:flex;align-items:center;justify-content:center}
+.tv{width:280px;height:158px;border:9px solid #0B0B0C;border-radius:12px;background:linear-gradient(135deg,#4DA3FF,#1F6FE5);position:relative}
+.tv:after{content:"";position:absolute;bottom:-26px;left:105px;width:52px;height:16px;background:#0B0B0C;border-radius:0 0 6px 6px}
+.tv .size{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Orbitron;font-weight:900;font-size:46px;color:#fff}
+.mon{width:230px;height:140px;border:9px solid #0B0B0C;border-radius:10px;background:linear-gradient(135deg,#F4F8FF,#B9D6FF);position:relative}
+.mon .size{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Orbitron;font-weight:900;font-size:42px;color:#1F6FE5}
+.mon:after{content:"";position:absolute;bottom:-30px;left:92px;width:28px;height:22px;background:#0B0B0C}
+.kb{position:absolute;bottom:-46px;left:20px;width:172px;height:12px;border-radius:4px;background:#0B0B0C}
+.facts{list-style:none;text-align:left;margin-top:10px}
+.facts li{font-weight:700;font-size:31px;line-height:1.15;padding:13px 0 13px 40px;position:relative;border-top:2px dashed #2B83F633}
+.facts li:before{content:"";position:absolute;left:4px;top:23px;width:18px;height:18px;border-radius:5px;background:#2B83F6}
+.r .facts li:before{background:#0B0B0C}
+.vs{position:absolute;top:700px;left:470px;width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,#4DA3FF,#1F6FE5);border:8px solid #fff;box-shadow:0 14px 30px #1F6FE555;display:flex;align-items:center;justify-content:center;font-family:Orbitron;font-weight:900;font-size:46px;color:#fff;z-index:2}
+.cta{position:absolute;top:1060px;left:80px;right:80px;height:96px;border-radius:24px;background:#0B0B0C;color:#fff;display:flex;align-items:center;justify-content:center;gap:18px;font-family:Orbitron;font-weight:700;font-size:30px;letter-spacing:2px}
+.cta b{color:#4DA3FF;font-weight:900}
+.bub{width:46px;height:36px;border-radius:10px;background:#2B83F6;position:relative}
+.bub:after{content:"";position:absolute;bottom:-10px;left:10px;border:8px solid transparent;border-top-color:#2B83F6;border-left-color:#2B83F6}
+.foot{position:absolute;bottom:58px;left:80px;right:80px;display:flex;justify-content:space-between;align-items:flex-end}
+.loc{font-weight:700;font-size:28px;line-height:1.25}
+.loc span{display:block;font-family:Orbitron;font-size:17px;letter-spacing:5px;color:#1F6FE5;margin-bottom:4px}
+.web{text-align:right;font-weight:700;font-size:28px;line-height:1.25}
+.web span{display:block;font-family:Orbitron;font-size:17px;letter-spacing:5px;color:#1F6FE5;margin-bottom:4px}
+</style></head><body>
+<div class="p">
+  <div class="grid"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick">CHOOSE YOUR SIDE</div>
+  <h1>PS5 or PC?<br><em>Pick Your Side.</em></h1>
+
+  <div class="side l">
+    <div class="team">TEAM</div>
+    <div class="name">PS5</div>
+    <div class="art"><div class="tv"><div class="size">55"</div></div></div>
+    <ul class="facts">
+      <li>2 PS5 stations</li>
+      <li>55" big screens</li>
+    </ul>
+  </div>
+  <div class="vs">VS</div>
+  <div class="side r">
+    <div class="team">TEAM</div>
+    <div class="name">PC</div>
+    <div class="art"><div class="mon"><div class="size">30"</div><div class="kb"></div></div></div>
+    <ul class="facts">
+      <li>1 gaming PC</li>
+      <li>30" monitor</li>
+    </ul>
+  </div>
+
+  <div class="cta"><div class="bub"></div>Comment <b>PS5</b> or <b>PC</b></div>
+
+  <div class="foot">
+    <div class="loc"><span>FIND US</span>IFIC Bank Building (4th Floor)<br>Ranir Bazar, Cumilla</div>
+    <div class="web"><span>BOOK ONLINE</span>champion.gemten.com.bd</div>
+  </div>
+</div>
+</body></html>
