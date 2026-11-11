@@ -1,0 +1,60 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(180deg,#FFFFFF 0%,#F4F8FF 55%,#DCEAFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#2B83F62E 2.5px,transparent 2.5px);background-size:36px 36px}
+.logo{position:absolute;top:60px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:210px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:248px;left:76px;font-family:Orbitron;font-weight:900;font-size:84px;line-height:1.1}
+h1 em{font-style:normal;color:#2B83F6}
+.grid{position:absolute;top:490px;left:80px;width:920px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px}
+.t{height:262px;background:#fff;border-radius:28px;border:3px solid #2B83F633;box-shadow:0 20px 40px #1F6FE51F;padding:26px 26px 22px;position:relative;overflow:hidden}
+.t:before{content:"";position:absolute;left:0;top:0;width:100%;height:10px;background:#2B83F6}
+.t.dark{background:#0B0B0C;border-color:#0B0B0C}
+.t.dark:before{background:linear-gradient(90deg,#4DA3FF,#1F6FE5)}
+.t.blue{background:linear-gradient(140deg,#4DA3FF,#1F6FE5);border-color:#1F6FE5}
+.t.blue:before{background:#0B0B0C}
+.n{font-family:Orbitron;font-weight:900;font-size:104px;line-height:1;margin-top:16px;color:#2B83F6;white-space:nowrap}
+.n small{font-size:52px;margin-left:8px}
+.dark .n,.blue .n{color:#fff}
+.lab{font-family:Orbitron;font-weight:700;font-size:21px;letter-spacing:3px;margin-top:20px;text-transform:uppercase}
+.dark .lab,.blue .lab{color:#fff}
+.sub{font-weight:600;font-size:25px;color:#0B0B0CB3;margin-top:4px;line-height:1.1}
+.dark .sub,.blue .sub{color:#FFFFFFCC}
+.idx{position:absolute;top:26px;right:24px;font-family:Orbitron;font-weight:700;font-size:16px;letter-spacing:2px;color:#2B83F680}
+.dark .idx,.blue .idx{color:#FFFFFF80}
+.foot{position:absolute;left:80px;right:80px;bottom:70px;height:150px;background:#fff;border-radius:28px;border:4px solid #2B83F6;display:flex;align-items:center;padding:0 36px;gap:30px}
+.foot img{height:100px}
+.ft{flex:1}
+.ft .a{font-family:Orbitron;font-weight:900;font-size:22px;letter-spacing:5px;color:#2B83F6;color:#0B0B0C}
+.ft .a em{font-style:normal;color:#2B83F6}
+.ft .b{font-weight:700;font-size:28px;color:#0B0B0CB3;margin-top:4px;line-height:1.15}
+.cta{font-family:Orbitron;font-weight:900;font-size:20px;letter-spacing:2px;color:#fff;background:#0B0B0C;border-radius:16px;padding:18px 22px;text-align:center;line-height:1.25}
+.cta span{color:#4DA3FF}
+</style></head><body><div class="p">
+<div class="dots"></div>
+<img class="logo" src="../../brand/logo-color-on-light.png">
+<div class="tag">OPENING SOON</div>
+<div class="kick">STAT SHEET · CUMILLA</div>
+<h1>The Arena,<br><em>By the Numbers.</em></h1>
+<div class="grid">
+  <div class="t"><div class="idx">01</div><div class="n">2</div><div class="lab">PS5 Stations</div><div class="sub">Rival or squad</div></div>
+  <div class="t dark"><div class="idx">02</div><div class="n">55<small>"</small></div><div class="lab">Screens</div><div class="sub">On every PS5 station</div></div>
+  <div class="t"><div class="idx">03</div><div class="n">1</div><div class="lab">Gaming PC</div><div class="sub">Your own battle desk</div></div>
+  <div class="t blue"><div class="idx">04</div><div class="n">30<small>"</small></div><div class="lab">PC Monitor</div><div class="sub">Big view, sharp aim</div></div>
+  <div class="t"><div class="idx">05</div><div class="n">4<small>TH</small></div><div class="lab">Floor</div><div class="sub">IFIC Bank Building</div></div>
+  <div class="t dark"><div class="idx">06</div><div class="n">1<small>LINK</small></div><div class="lab">To Book</div><div class="sub">Reserve your slot</div></div>
+</div>
+<div class="foot">
+  <img src="../../brand/trophy-blue.png">
+  <div class="ft"><div class="a">FIND US</div><div class="b">IFIC Bank Building, 4th Floor<br>Ranir Bazar, Cumilla</div></div>
+  <div class="cta">BOOK ONLINE<br><span>champion.gemten.com.bd</span></div>
+</div>
+</div></body></html>
