@@ -13,3 +13,4 @@ date | headline | angle | Metricool post id
 2026-11-08 | Every Champion Starts at Level 1. | trophy / become the champion: Level 1-2-3 podium (Rookie, Rival, Champion) with brand trophy, 3 fact pills | 420434015
 2026-11-09 | Your Arena Is Loading. | countdown "opening soon" / game loading screen: segmented progress bar + system-check list (PS5 stations, PC, online booking, doors open: coming soon), follow-for-opening-day tip | 421314834
 2026-11-10 | PS5 or PC? Pick Your Side. | this-or-that comment poll / Team PS5 vs Team PC split cards (55" TV vs 30" monitor drawings, VS badge), "Comment PS5 or PC" bar | 422671183
+2026-11-11 | The Arena, By the Numbers. | stat sheet infographic / 6 number tiles (2 PS5 stations, 55" screens, 1 gaming PC, 30" monitor, 4th floor, 1 link to book) + find-us footer, "which number" comment prompt | 423947970
