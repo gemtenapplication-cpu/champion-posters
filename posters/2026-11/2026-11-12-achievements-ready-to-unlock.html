@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(170deg,#FFFFFF 0%,#F4F8FF 50%,#DCEAFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.lines{position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,#2B83F612 0 2px,transparent 2px 28px)}
+.logo{position:absolute;top:60px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:210px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:248px;left:76px;font-family:Orbitron;font-weight:900;font-size:80px;line-height:1.1}
+h1 em{font-style:normal;color:#2B83F6}
+.panel{position:absolute;top:478px;left:80px;width:920px;background:#fff;border-radius:30px;border:3px solid #2B83F633;box-shadow:0 24px 50px #1F6FE522;overflow:hidden}
+.ph{display:flex;align-items:center;justify-content:space-between;background:#0B0B0C;color:#fff;padding:20px 32px}
+.ph .t{font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:4px}
+.ph .c{font-family:Orbitron;font-weight:900;font-size:22px;color:#4DA3FF;letter-spacing:2px}
+.row{display:flex;align-items:center;gap:26px;padding:20px 32px;border-bottom:2px solid #2B83F61F}
+.row:last-child{border-bottom:none}
+.badge{flex:none;width:96px;height:96px;border-radius:24px;background:linear-gradient(140deg,#4DA3FF,#1F6FE5);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px #1F6FE53A}
+.badge.dk{background:#0B0B0C}
+.badge svg{width:56px;height:56px}
+.txt{flex:1}
+.nm{font-family:Orbitron;font-weight:900;font-size:27px;letter-spacing:1px}
+.ds{font-weight:600;font-size:27px;color:#0B0B0CB3;line-height:1.15;margin-top:4px}
+.ds b{font-weight:700;color:#1F6FE5}
+.lock{flex:none;font-family:Orbitron;font-weight:700;font-size:15px;letter-spacing:2px;color:#1F6FE5;border:2px solid #2B83F6;border-radius:30px;padding:8px 14px;display:flex;align-items:center;gap:8px}
+.lock svg{width:16px;height:18px}
+.bar{position:absolute;left:80px;right:80px;bottom:70px;height:132px;background:#2B83F6;border-radius:28px;display:flex;align-items:center;padding:0 34px;gap:26px;color:#fff;box-shadow:0 20px 40px #1F6FE533}
+.bar img{height:92px}
+.bt{flex:1}
+.bt .a{font-family:Orbitron;font-weight:900;font-size:22px;letter-spacing:2px;white-space:nowrap}
+.bt .b{font-weight:700;font-size:26px;color:#FFFFFFE0;margin-top:4px}
+.url{font-family:Orbitron;font-weight:900;font-size:19px;letter-spacing:1px;background:#fff;color:#1F6FE5;border-radius:16px;padding:18px 20px;text-align:center;line-height:1.3}
+.url span{display:block;color:#0B0B0C;font-size:15px;letter-spacing:3px}
+</style></head><body><div class="p">
+<div class="lines"></div>
+<img class="logo" src="../../brand/logo-color-on-light.png">
+<div class="tag">OPENING SOON</div>
+<div class="kick">ACHIEVEMENTS · CUMILLA</div>
+<h1>Achievements<br><em>Ready to Unlock.</em></h1>
+<div class="panel">
+  <div class="ph"><div class="t">THE CHAMPION · ACHIEVEMENTS</div><div class="c">0 / 4</div></div>
+  <div class="row">
+    <div class="badge"><svg viewBox="0 0 56 56" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="4" y="8" width="48" height="30" rx="4"/><path d="M20 48h16M28 38v10" stroke-linecap="round"/></svg></div>
+    <div class="txt"><div class="nm">BIG SCREEN ROOKIE</div><div class="ds">Play your first match on a <b>55" screen</b></div></div>
+    <div class="lock"><svg viewBox="0 0 16 18"><rect x="1" y="8" width="14" height="10" rx="2" fill="#2B83F6"/><path d="M4 8V5a4 4 0 0 1 8 0v3" stroke="#2B83F6" stroke-width="2.4" fill="none"/></svg>LOCKED</div>
+  </div>
+  <div class="row">
+    <div class="badge dk"><svg viewBox="0 0 56 56" fill="none" stroke="#4DA3FF" stroke-width="5" stroke-linecap="round"><circle cx="18" cy="22" r="8"/><circle cx="38" cy="22" r="8"/><path d="M6 48c2-8 7-12 12-12s10 4 12 12M26 48c2-8 7-12 12-12s10 4 12 12"/></svg></div>
+    <div class="txt"><div class="nm">PLAYER 2 FOUND</div><div class="ds">Bring a friend to the <b>2 PS5 stations</b></div></div>
+    <div class="lock"><svg viewBox="0 0 16 18"><rect x="1" y="8" width="14" height="10" rx="2" fill="#2B83F6"/><path d="M4 8V5a4 4 0 0 1 8 0v3" stroke="#2B83F6" stroke-width="2.4" fill="none"/></svg>LOCKED</div>
+  </div>
+  <div class="row">
+    <div class="badge"><svg viewBox="0 0 56 56" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="4" y="6" width="48" height="30" rx="3"/><rect x="8" y="42" width="40" height="9" rx="2"/></svg></div>
+    <div class="txt"><div class="nm">DESK COMMANDER</div><div class="ds">Take on the <b>gaming PC</b> with a 30" monitor</div></div>
+    <div class="lock"><svg viewBox="0 0 16 18"><rect x="1" y="8" width="14" height="10" rx="2" fill="#2B83F6"/><path d="M4 8V5a4 4 0 0 1 8 0v3" stroke="#2B83F6" stroke-width="2.4" fill="none"/></svg>LOCKED</div>
+  </div>
+  <div class="row">
+    <div class="badge dk"><svg viewBox="0 0 56 56" fill="none" stroke="#4DA3FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 50h40M12 50V8h32v42"/><path d="M20 18h4M32 18h4M20 28h4M32 28h4M24 50V40h8v10"/></svg></div>
+    <div class="txt"><div class="nm">FLOOR 4 EXPLORER</div><div class="ds">Find us: <b>IFIC Bank Building</b>, Ranir Bazar</div></div>
+    <div class="lock"><svg viewBox="0 0 16 18"><rect x="1" y="8" width="14" height="10" rx="2" fill="#2B83F6"/><path d="M4 8V5a4 4 0 0 1 8 0v3" stroke="#2B83F6" stroke-width="2.4" fill="none"/></svg>LOCKED</div>
+  </div>
+</div>
+<div class="bar">
+  <img src="../../brand/trophy-white.png">
+  <div class="bt"><div class="a">UNLOCKS WHEN WE OPEN</div><div class="b">Which one are you going for first?</div></div>
+  <div class="url"><span>BOOK ONLINE</span>champion.gemten.com.bd</div>
+</div>
+</div></body></html>
