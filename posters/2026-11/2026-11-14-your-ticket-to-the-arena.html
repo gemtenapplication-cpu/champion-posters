@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:500;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-500-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(160deg,#FFFFFF 0%,#F4F8FF 50%,#D6E7FF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#2B83F612 2px,transparent 2px),linear-gradient(90deg,#2B83F612 2px,transparent 2px);background-size:54px 54px}
+.logo{position:absolute;top:60px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:212px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:250px;left:76px;font-family:Orbitron;font-weight:900;font-size:84px;line-height:1.08}
+h1 em{font-style:normal;color:#2B83F6}
+/* ticket */
+.t{position:absolute;top:490px;left:70px;width:940px;height:560px;transform:rotate(-2deg);filter:drop-shadow(0 26px 34px #1F6FE530)}
+.main,.stub{position:absolute;top:0;height:560px;background:#fff}
+.main{left:0;width:680px;border-radius:30px 0 0 30px;
+ -webkit-mask:radial-gradient(circle 26px at 680px 0,transparent 25px,#000 26px),radial-gradient(circle 26px at 680px 560px,transparent 25px,#000 26px);-webkit-mask-composite:source-in;mask-composite:intersect}
+.stub{left:680px;width:260px;border-radius:0 30px 30px 0;background:linear-gradient(180deg,#2B83F6,#1F6FE5);color:#fff;
+ -webkit-mask:radial-gradient(circle 26px at 0 0,transparent 25px,#000 26px),radial-gradient(circle 26px at 0 560px,transparent 25px,#000 26px);-webkit-mask-composite:source-in;mask-composite:intersect}
+.perf{position:absolute;z-index:3;left:679px;top:40px;bottom:40px;border-left:4px dashed #ffffff99}
+.head{height:96px;background:#0B0B0C;border-radius:30px 0 0 0;display:flex;align-items:center;padding:0 40px;gap:18px}
+.head img{height:56px}
+.head .h{font-family:Orbitron;font-weight:900;font-size:26px;letter-spacing:4px;color:#fff}
+.head .h span{color:#4DA3FF}
+.route{display:flex;align-items:center;padding:30px 40px 0 40px;gap:20px}
+.pt .l,.f .l{font-family:Orbitron;font-weight:700;font-size:14px;letter-spacing:3px;color:#1F6FE5}
+.pt .v{font-family:Orbitron;font-weight:900;font-size:44px;margin-top:4px}
+.pt .s{font-weight:600;font-size:22px;color:#0B0B0C99}
+.path{flex:1;position:relative;height:40px;border-top:4px dotted #2B83F6;margin-top:18px}
+.pad{position:absolute;left:50%;top:-25px;transform:translateX(-50%);width:62px;height:40px;background:#fff;display:flex;align-items:center;justify-content:center}
+.pad svg{width:54px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;padding:30px 40px 0 40px}
+.f .v{font-weight:700;font-size:28px;line-height:1.1;margin-top:4px}
+.f .v b{color:#1F6FE5}
+.f.w{grid-column:1/3}
+.stub .in{padding:40px 30px;height:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+.stub .a{font-family:Orbitron;font-weight:700;font-size:16px;letter-spacing:4px;color:#ffffffcc}
+.stub .fl{font-family:Orbitron;font-weight:900;font-size:110px;line-height:1;margin-top:14px}
+.stub .fl2{font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:4px;margin-top:6px}
+.stub .one{margin-top:30px;font-family:Orbitron;font-weight:900;font-size:22px;letter-spacing:3px;background:#fff;color:#1F6FE5;border-radius:12px;padding:10px 16px}
+.bc{margin-top:auto;width:190px;height:86px;background:repeating-linear-gradient(90deg,#fff 0 3px,transparent 3px 7px,#fff 7px 13px,transparent 13px 16px,#fff 16px 18px,transparent 18px 24px);border-radius:4px}
+.bct{font-family:Orbitron;font-weight:700;font-size:13px;letter-spacing:3px;margin-top:8px;color:#ffffffcc}
+.bar{position:absolute;left:70px;right:70px;bottom:62px;height:130px;background:#0B0B0C;border-radius:28px;display:flex;align-items:center;padding:0 34px;gap:22px}
+.bar img{height:74px}
+.bt .a{font-family:Orbitron;font-weight:900;font-size:24px;letter-spacing:2px;color:#fff}
+.bt .b{font-weight:600;font-size:24px;color:#4DA3FF;margin-top:4px}
+.url{margin-left:auto;text-align:right;font-family:Orbitron;font-weight:700;font-size:21px;color:#fff}
+.url span{display:block;font-size:14px;letter-spacing:4px;color:#4DA3FF;margin-bottom:6px}
+</style></head><body><div class="p">
+<div class="grid"></div>
+<img class="logo" src="../../brand/logo-color-on-light.png">
+<div class="tag">OPENING SOON</div>
+<div class="kick">NEXT STOP · RANIR BAZAR, CUMILLA</div>
+<h1>Your Ticket<br><em>to the Arena.</em></h1>
+<div class="t">
+  <div class="main">
+    <div class="head"><img src="../../brand/trophy-white.png"><div class="h">PLAYER <span>PASS</span></div></div>
+    <div class="route">
+      <div class="pt"><div class="l">FROM</div><div class="v">HOME</div><div class="s">or after class</div></div>
+      <div class="path"><div class="pad"><svg viewBox="0 0 64 40"><path d="M14 6h36a12 12 0 0 1 11 16l-4 10a6 6 0 0 1-10 1l-6-7H23l-6 7a6 6 0 0 1-10-1L3 22A12 12 0 0 1 14 6z" fill="#2B83F6"/><rect x="13" y="13" width="4" height="12" rx="1" fill="#fff"/><rect x="9" y="17" width="12" height="4" rx="1" fill="#fff"/><circle cx="47" cy="15" r="3" fill="#fff"/><circle cx="47" cy="23" r="3" fill="#fff"/><circle cx="43" cy="19" r="3" fill="#fff"/><circle cx="51" cy="19" r="3" fill="#fff"/></svg></div></div>
+      <div class="pt" style="text-align:right"><div class="l">TO</div><div class="v">CHAMPION</div><div class="s">Gaming Zone</div></div>
+    </div>
+    <div class="fields">
+      <div class="f"><div class="l">VENUE</div><div class="v">IFIC Bank Building</div></div>
+      <div class="f"><div class="l">AREA</div><div class="v">Ranir Bazar, Cumilla</div></div>
+      <div class="f"><div class="l">SEATING</div><div class="v"><b>2 PS5 stations</b><div style="font-weight:600;font-size:22px;color:#0B0B0C99">on 55" screens</div></div></div>
+      <div class="f"><div class="l">DESK</div><div class="v"><b>1 Gaming PC</b><div style="font-weight:600;font-size:22px;color:#0B0B0C99">with a 30" monitor</div></div></div>
+      <div class="f w"><div class="l">CHECK-IN</div><div class="v">Book your slot online · <b>champion.gemten.com.bd</b></div></div>
+    </div>
+  </div>
+  <div class="perf"></div>
+  <div class="stub"><div class="in">
+    <div class="a">FLOOR</div>
+    <div class="fl">4</div>
+    <div class="fl2">4TH FLOOR</div>
+    <div class="one">ADMIT ONE</div>
+    <div class="bc"></div>
+    <div class="bct">PLAY·CONNECT·WIN</div>
+  </div></div>
+</div>
+<div class="bar">
+  <img src="../../brand/trophy-white.png">
+  <div class="bt"><div class="a">WHO'S BOARDING WITH YOU?</div><div class="b">Tag your player 2 in the comments</div></div>
+  <div class="url"><span>BOOK ONLINE</span>champion.gemten.com.bd</div>
+</div>
+</div></body></html>
