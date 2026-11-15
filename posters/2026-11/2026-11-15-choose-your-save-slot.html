@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:500;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-500-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(165deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#2B83F622 2.5px,transparent 2.5px);background-size:36px 36px}
+.logo{position:absolute;top:60px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:210px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:248px;left:76px;font-family:Orbitron;font-weight:900;font-size:86px;line-height:1.06}
+h1 em{font-style:normal;color:#2B83F6}
+/* menu panel */
+.menu{position:absolute;top:500px;left:70px;width:940px;height:580px;background:#fff;border-radius:30px;border:3px solid #2B83F633;box-shadow:0 26px 50px #1F6FE526;padding:30px 34px}
+.mh{display:flex;justify-content:space-between;align-items:center;font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:5px;color:#1F6FE5;padding:0 6px 20px;border-bottom:2px dashed #2B83F640}
+.mh span{color:#0B0B0C99;font-size:16px;letter-spacing:3px}
+.slot{position:relative;display:flex;align-items:center;height:136px;margin-top:20px;border-radius:20px;background:#F4F8FF;border:2px solid #2B83F62a;padding:0 26px}
+.slot.sel{background:linear-gradient(90deg,#2B83F6,#1F6FE5);border-color:#1F6FE5;color:#fff;box-shadow:0 12px 26px #2B83F655}
+.num{font-family:Orbitron;font-weight:900;font-size:58px;width:86px;color:#2B83F6}
+.sel .num{color:#fff}
+.ic{width:120px;height:92px;position:relative;margin-right:26px;flex:none}
+/* tv icon */
+.tv{position:absolute;left:4px;top:6px;width:112px;height:66px;border:6px solid #0B0B0C;border-radius:8px;background:linear-gradient(135deg,#4DA3FF,#1F6FE5)}
+.tv:after{content:"";position:absolute;left:40px;bottom:-22px;width:20px;height:14px;background:#0B0B0C}
+.tvb{position:absolute;left:30px;top:84px;width:60px;height:6px;border-radius:3px;background:#0B0B0C}
+.sel .tv{border-color:#fff;background:linear-gradient(135deg,#9CCBFF,#4DA3FF)}
+.sel .tv:after,.sel .tvb{background:#fff}
+/* monitor + keyboard */
+.mon{position:absolute;left:14px;top:2px;width:92px;height:60px;border:6px solid #0B0B0C;border-radius:7px;background:linear-gradient(135deg,#4DA3FF,#1F6FE5)}
+.mon:after{content:"";position:absolute;left:33px;bottom:-18px;width:14px;height:12px;background:#0B0B0C}
+.kb{position:absolute;left:6px;top:78px;width:108px;height:14px;border-radius:4px;background:repeating-linear-gradient(90deg,#0B0B0C 0 9px,#4DA3FF 9px 12px);border:3px solid #0B0B0C}
+.txt{flex:1}
+.st{font-family:Orbitron;font-weight:700;font-size:30px;letter-spacing:1px}
+.sd{font-weight:600;font-size:27px;color:#0B0B0Caa;margin-top:4px}
+.sel .sd{color:#fff}
+.badge{font-family:Orbitron;font-weight:700;font-size:15px;letter-spacing:3px;padding:10px 16px;border-radius:30px;border:2px solid #2B83F6;color:#1F6FE5;background:#fff;white-space:nowrap}
+.sel .badge{border-color:#fff;color:#1F6FE5}
+.cur{position:absolute;left:-30px;top:50%;margin-top:-17px;width:0;height:0;border-top:17px solid transparent;border-bottom:17px solid transparent;border-left:24px solid #1F6FE5}
+/* prompt */
+.ask{position:absolute;top:1112px;left:70px;width:940px;height:84px;display:flex;align-items:center;justify-content:center;gap:14px;font-family:Orbitron;font-weight:700;font-size:27px;color:#0B0B0C}
+.k{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;background:#0B0B0C;color:#fff;font-weight:900;font-size:26px}
+.ft{position:absolute;bottom:0;left:0;width:1080px;height:130px;background:#0B0B0C;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 70px}
+.ft .a{font-weight:600;font-size:27px;line-height:1.25}
+.ft .a b{font-family:Orbitron;font-weight:700;font-size:17px;letter-spacing:4px;color:#4DA3FF;display:block}
+.ft .b{font-family:Orbitron;font-weight:700;font-size:23px;color:#4DA3FF;text-align:right}
+.ft .b small{display:block;font-family:Rajdhani;font-weight:600;font-size:20px;color:#fff;letter-spacing:2px}
+</style></head><body><div class="p">
+<div class="dots"></div>
+<img class="logo" src="../../brand/logo-color-on-light.png">
+<div class="tag">OPENING SOON</div>
+<div class="kick">NEW GAME · CUMILLA</div>
+<h1>Choose Your<br><em>Save Slot.</em></h1>
+
+<div class="menu">
+  <div class="mh">SELECT SAVE FILE <span>3 SLOTS · ALL EMPTY</span></div>
+  <div class="slot sel"><div class="cur"></div>
+    <div class="num">1</div>
+    <div class="ic"><div class="tv"></div><div class="tvb"></div></div>
+    <div class="txt"><div class="st">PS5 Station A</div><div class="sd">55" screen · big-screen play</div></div>
+    <div class="badge">EMPTY</div>
+  </div>
+  <div class="slot">
+    <div class="num">2</div>
+    <div class="ic"><div class="tv"></div><div class="tvb"></div></div>
+    <div class="txt"><div class="st">PS5 Station B</div><div class="sd">55" screen · bring player 2</div></div>
+    <div class="badge">EMPTY</div>
+  </div>
+  <div class="slot">
+    <div class="num">3</div>
+    <div class="ic"><div class="mon"></div><div class="kb"></div></div>
+    <div class="txt"><div class="st">Gaming PC</div><div class="sd">30" monitor · desk setup</div></div>
+    <div class="badge">EMPTY</div>
+  </div>
+</div>
+
+<div class="ask">Which slot is yours? Comment <span class="k">1</span><span class="k">2</span><span class="k">3</span></div>
+
+<div class="ft">
+  <div class="a"><b>FIND US</b>IFIC Bank Building (4th Floor)<br>Ranir Bazar, Cumilla</div>
+  <div class="b"><small>BOOK ONLINE</small>champion.gemten.com.bd</div>
+</div>
+</div></body></html>
