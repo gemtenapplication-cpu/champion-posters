@@ -14,6 +14,32 @@ const W = 210, H = 297, BL = 3, DPI = 300;
 const F = '../node_modules/@fontsource';
 const B = '../brand';
 const SITE = 'champion.gemten.com.bd';
+// theme: dark (default) or light = white & blue, for brightly lit / daylight spots
+const LIGHT = process.argv[2] === 'light';
+const SUFFIX = LIGHT ? '-white-blue' : '';
+const LIGHT_CSS = `
+body{color:#0B0B0C;background:#FFFFFF}
+.bg{background:radial-gradient(ellipse 150mm 90mm at 50% 36%,#DCEBFFb3,transparent 70%),linear-gradient(170deg,#FFFFFF 0%,#F4F8FF 48%,#DCEBFF 100%)}
+.grid{background-image:radial-gradient(#2B83F633 .45mm,transparent .5mm);background-size:7mm 7mm;background-position:0 0}
+.streak{background:linear-gradient(90deg,transparent,#2B83F655,transparent)}
+.hud i{border-color:#2B83F6}
+.lb{color:#2B83F6}
+.silv{color:#5B6B82}
+.sec i{background:linear-gradient(90deg,transparent,#2B83F6)}
+.sec i:last-child{background:linear-gradient(90deg,#2B83F6,transparent)}
+.sec span{color:#1F6FE5}
+.tile{background:#FFFFFF;border:.45mm solid #2B83F659}
+.tile span{color:#0B0B0Cb8}
+.cta{background:#FFFFFF;border:.7mm solid #2B83F6}
+.qr{border:.45mm solid #2B83F680}
+.ct .u{color:#1F6FE5}
+.ct .s{color:#0B0B0Cb8}
+.fine{color:#0B0B0C99}
+.glow{background:radial-gradient(ellipse at center,#2B83F638,transparent 70%)}
+.card{background:linear-gradient(128deg,#E9EDF2 0%,#AFB9C7 26%,#DEE3EA 47%,#8D99AA 72%,#CBD2DC 100%);border:.7mm solid #0B1630}
+.card-back{display:block}
+.step{background:#FFFFFF}
+.step span{color:#0B0B0Cb0}`;
 const FOOT = 'IFIC Bank Building (4th Floor), Ranir Bazar, Cumilla · Open 10:00–23:00 · 01603-754074';
 
 const qrSvg = async (url) => (await QR.toString(url, { type: 'svg', errorCorrectionLevel: 'Q', margin: 0, color: { dark: '#0B0B0C', light: '#FFFFFF' } }))
@@ -98,15 +124,18 @@ body{font-family:Rajdhani,sans-serif;color:#fff;background:#070C1A;-webkit-print
 .ct .k{font-size:7.4mm;line-height:1;white-space:nowrap}
 .ct .u{font-weight:700;font-size:7.4mm;color:#4DA3FF;margin-top:2.6mm;line-height:1}
 .ct .s{font-weight:600;font-size:4.4mm;color:#FFFFFFc4;margin-top:2.2mm;line-height:1.18}
-.band{position:absolute;left:-${BL}mm;right:-${BL}mm;bottom:-${BL}mm;height:${11 + BL}mm;padding-bottom:${BL}mm;background:linear-gradient(90deg,#1F6FE5,#2B83F6 50%,#1F6FE5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:4mm;white-space:nowrap}
+.silv{color:#D5DCE6}
+.fine{color:#FFFFFF99}
+.band{color:#fff;position:absolute;left:-${BL}mm;right:-${BL}mm;bottom:-${BL}mm;height:${11 + BL}mm;padding-bottom:${BL}mm;background:linear-gradient(90deg,#1F6FE5,#2B83F6 50%,#1F6FE5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:4mm;white-space:nowrap}
 ${css}
+${LIGHT ? LIGHT_CSS : ''}
 </style></head><body><div class="pg"><div class="bg"></div><div class="grid"></div>
 <div class="streak" style="left:-12mm;top:60mm;width:70mm"></div>
 <div class="streak" style="left:150mm;top:30mm;width:70mm"></div>
 <div class="streak" style="left:150mm;top:200mm;width:60mm;opacity:.7"></div>
 <div class="trim"><div class="hud">
 <i style="left:7mm;top:7mm;border-width:1.1mm 0 0 1.1mm"></i><i style="right:7mm;top:7mm;border-width:1.1mm 1.1mm 0 0"></i></div>
-<img src="${B}/logo-white-gradient-trophy.png" style="position:absolute;left:47.5mm;top:13mm;width:115mm">`;
+<img src="${B}/${LIGHT ? 'logo-color-on-light' : 'logo-white-gradient-trophy'}.png" style="position:absolute;left:47.5mm;top:13mm;width:115mm">`;
 }
 const tail = `<div class="band">${FOOT}</div></div></div></body></html>`;
 
@@ -115,6 +144,7 @@ async function membership() {
   const css = `
 .card{position:absolute;left:30mm;top:75.5mm;width:150mm;height:80mm;border-radius:6.5mm;transform:rotate(-3deg);overflow:hidden;
  background:linear-gradient(128deg,#F5F7FA 0%,#C3CCD8 26%,#F0F3F7 47%,#A7B1BF 72%,#E4E8EE 100%);border:.55mm solid #FFFFFFaa}
+.card-back{display:none;position:absolute;left:30mm;top:75.5mm;width:150mm;height:80mm;border-radius:6.5mm;transform:translate(2mm,2.5mm) rotate(3deg);background:linear-gradient(150deg,#4DA3FF,#2B83F6 50%,#1F6FE5)}
 .card .sh{position:absolute;top:-15mm;height:122mm;transform:rotate(28deg)}
 .card .tag{position:absolute;right:6.9mm;top:7.6mm;background:#0B1630;color:#E3E8EF;border-radius:4mm;padding:1.5mm 3.2mm 1.5mm 3.8mm;font-size:3.5mm;letter-spacing:.6mm}
 .card .big{position:absolute;left:7.2mm;top:20.5mm;font-size:36mm;line-height:1;color:#0B1630;letter-spacing:-.4mm}
@@ -128,8 +158,9 @@ async function membership() {
   return head(css) + `
 <div class="c o7 lb" style="top:39mm;font-size:4.2mm;letter-spacing:1.4mm;padding-left:1.4mm">CHAMPION MEMBERSHIP · FREE</div>
 <div class="c o9" style="top:46mm;font-size:13.5mm;line-height:1">SIGN UP FREE</div>
-<div class="c" style="top:61.5mm;font-weight:700;font-size:8.2mm;line-height:1">&amp; become a <span style="color:#D5DCE6">Silver member</span></div>
+<div class="c" style="top:61.5mm;font-weight:700;font-size:8.2mm;line-height:1">&amp; become a <span class="silv">Silver member</span></div>
 <div class="glow"></div>
+<div class="card-back"></div>
 <div class="card">
  <div class="sh" style="left:-30mm;width:23mm;background:linear-gradient(90deg,transparent,#FFFFFF8c,transparent)"></div>
  <div class="sh" style="left:69mm;width:9mm;background:linear-gradient(90deg,transparent,#FFFFFF66,transparent)"></div>
@@ -150,7 +181,7 @@ async function membership() {
 </div>
 <div class="cta"><div class="qr">${qr}</div>
  <div class="ct"><div class="k o9">SCAN TO SIGN UP</div><div class="u">${SITE}</div><div class="s">Free. Takes a minute — with your mobile<br>or your Gemten account.</div></div></div>
-<div class="c" style="top:280.2mm;font-weight:600;font-size:3.2mm;color:#FFFFFF99">Member discount applies to standard sessions, not to packs &amp; offers. Points and rewards have no cash value.</div>
+<div class="c fine" style="top:280.2mm;font-weight:600;font-size:3.2mm">Member discount applies to standard sessions, not to packs &amp; offers. Points and rewards have no cash value.</div>
 ` + tail;
 }
 
@@ -190,7 +221,7 @@ async function community() {
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
-  const jobs = [['champion-a4-membership', await membership()], ['champion-a4-community', await community()]];
+  const jobs = [['champion-a4-membership' + SUFFIX, await membership()], ['champion-a4-community' + SUFFIX, await community()]];
   const browser = await chromium.launch();
   const PW = W + 2 * BL, PH = H + 2 * BL, px = 96 / 25.4;
   for (const [id, html] of jobs) {
