@@ -83,6 +83,9 @@ ${d(`left:${s * 0.2}mm;top:${s * 0.66}mm;width:0;height:0;border-left:${s * 0.08
 ${[0.28, 0.46, 0.64].map(l => d(`left:${s * l}mm;top:${s * 0.36}mm;width:${s * 0.12}mm;height:${s * 0.12}mm;border-radius:50%;background:#1F6FE5`)).join('')}`);
 const vs = (s) => `<div style="font-family:Orbitron,Rajdhani,sans-serif;font-weight:900;font-size:${s * 0.42}mm;line-height:1;color:#fff">VS</div>`;
 const trophy = (s) => `<img src="${B}/trophy-white.png" style="height:${s}mm">`;
+// Champ, the site's mascot (banners/assets/champ-*.svg, taken from champion.gemten.com.bd)
+const champ = (mood, h, style = '') => fs.readFileSync(path.join(DIR, 'assets', `champ-${mood}.svg`), 'utf8')
+  .replace(/<!--[\s\S]*?-->\s*/, '').replace('<svg ', `<svg style="overflow:visible;display:block;height:${h}mm;width:auto;${style}" `);
 const word = (t, s = 4.6) => `<div style="font-family:Orbitron,Rajdhani,sans-serif;font-weight:900;font-size:${s}mm;line-height:1;color:#fff;white-space:nowrap">${t}</div>`;
 
 function head(css) {
@@ -92,6 +95,7 @@ function head(css) {
 @font-face{font-family:Orbitron;font-weight:700;src:url(${F}/orbitron/files/orbitron-latin-700-normal.woff2)}
 @font-face{font-family:Rajdhani;font-weight:700;src:url(${F}/rajdhani/files/rajdhani-latin-700-normal.woff2)}
 @font-face{font-family:Rajdhani;font-weight:600;src:url(${F}/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(${F}/inter/files/inter-latin-800-normal.woff2)}
 @page{size:${PW}mm ${PH}mm;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:${PW}mm;height:${PH}mm;overflow:hidden}
@@ -219,9 +223,64 @@ async function community() {
 ` + tail;
 }
 
+async function communityChamp() {
+  const qr = await qrSvg(`https://${SITE}/champion-community`);
+  const css = `.tiles{gap:3mm 4mm}
+.tile{height:22mm}
+.tile b{font-size:5.1mm}
+.tile span{font-size:3.9mm}
+.halo{position:absolute;left:6mm;top:31mm;width:80mm;height:80mm;border-radius:50%;border:.8mm solid #2B83F6;
+ background:${LIGHT ? 'radial-gradient(circle at 50% 40%,#FFFFFF 0%,#E6F0FF 55%,#C9DFFF 100%)' : 'radial-gradient(circle at 50% 40%,#2B83F655 0%,#13254E 70%)'}}
+.ring{position:absolute;left:4.5mm;top:29.5mm;width:83mm;height:83mm;border-radius:50%;border:.4mm dashed #2B83F680}
+.hero{position:absolute;left:8.2mm;top:26.5mm}
+.meet{position:absolute;left:46mm;top:111.2mm;transform:translateX(-50%);background:linear-gradient(90deg,#1F6FE5,#2B83F6);color:#fff;border-radius:4mm;padding:1.6mm 4.4mm 1.6mm 5.4mm;font-size:3.9mm;letter-spacing:1mm;white-space:nowrap;border:.6mm solid ${LIGHT ? '#FFFFFF' : '#0B1630'}}
+.rc{position:absolute;left:92mm;right:9mm}
+.bub{position:absolute;left:94mm;right:9mm;top:64.5mm;border:.6mm solid #2B83F6;border-radius:4.5mm;padding:3.4mm 4.5mm 3mm;background:${LIGHT ? '#FFFFFF' : '#0F1F45'}}
+.bub p{font-weight:700;font-size:6.4mm;line-height:1.08}
+.bub small{display:block;text-align:right;font-family:Orbitron,Rajdhani,sans-serif;font-weight:700;font-size:3.2mm;letter-spacing:.6mm;color:${LIGHT ? '#1F6FE5' : '#4DA3FF'};margin-top:1.4mm}
+.bub .t1{position:absolute;left:-6.4mm;top:6mm;width:0;height:0;border-top:3.6mm solid transparent;border-bottom:3.6mm solid transparent;border-right:6.4mm solid #2B83F6}
+.bub .t2{position:absolute;left:-5.2mm;top:6.8mm;width:0;height:0;border-top:2.8mm solid transparent;border-bottom:2.8mm solid transparent;border-right:5.2mm solid ${LIGHT ? '#FFFFFF' : '#0F1F45'}}
+.steps{position:absolute;left:9mm;right:9mm;top:205mm;display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.step{position:relative;height:36.5mm;border-radius:4mm;border:.35mm solid #4DA3FF55;background:#0B1630cc;text-align:center;padding-top:1.6mm}
+.step .fig{height:23.5mm;display:flex;justify-content:center}
+.step .n{position:absolute;left:2mm;top:2mm;width:7.4mm;height:7.4mm;border-radius:50%;background:linear-gradient(150deg,#2B83F6,#1F6FE5);color:#fff;font-family:Orbitron,Rajdhani,sans-serif;font-weight:900;font-size:3mm;line-height:7.4mm}
+.step b{display:block;font-size:4.5mm;line-height:1;margin-top:1.2mm;white-space:nowrap}
+.step span{display:block;font-weight:600;font-size:3.4mm;line-height:1.1;color:#FFFFFFbb;margin-top:1.1mm;white-space:nowrap}
+.cta{top:244mm;height:37mm}`;
+  const t = (ic, b, sub) => `<div class="tile"><div class="ic">${ic}</div><div><b>${b}</b><span>${sub}</span></div></div>`;
+  const st = (n, mood, b, sub) => `<div class="step"><div class="n">${n}</div><div class="fig">${champ(mood, 23.5)}</div><b>${b}</b><span>${sub}</span></div>`;
+  return head(css).replace(/(<img src="[^"]*logo-[^"]*" style="position:absolute;)left:47.5mm;top:13mm;width:115mm/, '$1left:55mm;top:10.5mm;width:100mm') + `
+<div class="ring"></div><div class="halo"></div>
+<div class="hero">${champ('wave', 86)}</div>
+<div class="meet o7">MEET CHAMP</div>
+<div class="rc o7 lb" style="top:35.5mm;font-size:3.7mm;letter-spacing:1.1mm">CHAMPION COMMUNITY</div>
+<div class="rc o9" style="top:41.5mm;font-size:7.6mm;line-height:1.14">PLAY TOGETHER.<br><span class="lb">RISE TOGETHER.</span></div>
+<div class="bub"><i class="t1"></i><i class="t2"></i><p>GG! Your next rival<br>is already here.</p><small>— CHAMP</small></div>
+<div class="rc" style="top:94.5mm;font-weight:700;font-size:5.6mm;line-height:1">Free with your Champion account.</div>
+<div class="rc" style="top:101.6mm;font-weight:600;font-size:4.3mm;line-height:1.15;opacity:.82">Challenge friends, form a team, enter tournaments<br>and climb the leaderboard.</div>
+<div class="tiles" style="top:122.5mm">
+ ${t(feed(10), 'Feed', 'Post your wins, react GG and cheer your friends.')}
+ ${t(bars(10), 'Leaderboard', 'Every confirmed match moves your Champion score.')}
+ ${t(vs(12), 'Challenges', 'Challenge anyone, play at Champion, both confirm the score.')}
+ ${t(people(10), 'Teams', 'Build your squad, invite players, pick a captain.')}
+ ${t(trophy(10.5), 'Tournaments', 'Play on the big screens. Win gifts and the trophy.')}
+ ${t(chat(10), 'Chat &amp; groups', 'Message players, make squad groups, run polls.')}
+</div>
+<div class="sec" style="top:198.6mm"><i></i><span>FROM SIGN-UP TO THE TROPHY</span><i></i></div>
+<div class="steps">
+ ${st('01', 'wave', 'Join Champion', 'it takes a minute')}
+ ${st('02', 'think', 'Pick your @handle', 'follow players &amp; teams')}
+ ${st('03', 'play', 'Challenge &amp; play', 'both confirm the score')}
+ ${st('04', 'cheer', 'Climb &amp; win', 'trophies and gifts')}
+</div>
+<div class="cta"><div class="qr">${qr}</div>
+ <div class="ct"><div class="k o9">SCAN TO JOIN</div><div class="u">${SITE}</div><div class="s">New tournaments are posted<br>in the community first.</div></div></div>
+` + tail;
+}
+
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
-  const jobs = [['champion-a4-membership' + SUFFIX, await membership()], ['champion-a4-community' + SUFFIX, await community()]];
+  const jobs = [['champion-a4-membership' + SUFFIX, await membership()], ['champion-a4-community' + SUFFIX, await community()], ['champion-a4-community-champ' + SUFFIX, await communityChamp()]];
   const browser = await chromium.launch();
   const PW = W + 2 * BL, PH = H + 2 * BL, px = 96 / 25.4;
   for (const [id, html] of jobs) {
