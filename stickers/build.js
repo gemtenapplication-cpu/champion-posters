@@ -26,6 +26,8 @@ function head(w, h, css) {
 @page{size:${W}in ${H}in;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:${W}in;height:${H}in}
+html,body{overflow:hidden}
+.pg{position:relative;width:100%;height:100%;overflow:hidden}
 body{position:relative;overflow:hidden;font-family:Rajdhani,sans-serif;color:#0B0B0C;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .bg{position:absolute;inset:0;background:linear-gradient(165deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%)}
 .bgblue{position:absolute;inset:0;background:linear-gradient(160deg,#4DA3FF 0%,#2B83F6 45%,#1F6FE5 100%)}
@@ -37,9 +39,9 @@ body{position:relative;overflow:hidden;font-family:Rajdhani,sans-serif;color:#0B
 /* HUD corner brackets */
 .hud i{position:absolute;border-color:#2B83F6;border-style:solid}
 ${css}
-</style></head><body>`;
+</style></head><body><div class="pg">`;
 }
-const tail = '</body></html>';
+const tail = '</div></body></html>';
 
 // dot grid that covers the bleed too
 const dots = (r, gap, col = '#2B83F622') =>

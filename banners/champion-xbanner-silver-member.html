@@ -1,0 +1,124 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@page{size:24.25in 60.25in;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:24.25in;height:60.25in}
+html,body{overflow:hidden}
+.pg{position:relative;width:100%;height:100%;overflow:hidden}
+body{position:relative;overflow:hidden;font-family:Rajdhani,sans-serif;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#070C1A}
+.bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 15in 11in at 50% 31%,#2B83F64d,transparent 70%),
+  radial-gradient(ellipse 13in 9in at 30% 62%,#1F6FE540,transparent 70%),
+  radial-gradient(ellipse 18in 10in at 50% 0%,#1F6FE533,transparent 70%),
+  linear-gradient(172deg,#0B1530 0%,#070C1A 38%,#081127 70%,#0B1A3D 100%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#4DA3FF12 .02in,transparent .02in),linear-gradient(90deg,#4DA3FF12 .02in,transparent .02in);background-size:1.2in 1.2in;background-position:-.1in -.1in}
+.streak{position:absolute;height:.06in;border-radius:.03in;background:linear-gradient(90deg,transparent,#4DA3FF99,transparent);transform:rotate(-24deg)}
+.trim{position:absolute;left:0.125in;top:0.125in;width:24in;height:60in}
+.c{position:absolute;left:0;right:0;text-align:center}
+.o9{font-family:Orbitron,Rajdhani,sans-serif;font-weight:900}
+.o7{font-family:Orbitron,Rajdhani,sans-serif;font-weight:700}
+.lb{color:#4DA3FF}
+/* member card */
+.card{position:absolute;left:2.2in;top:13.55in;width:19.6in;height:10.8in;border-radius:.85in;transform:rotate(-3deg);overflow:hidden;
+ background:linear-gradient(128deg,#F5F7FA 0%,#C3CCD8 26%,#F0F3F7 47%,#A7B1BF 72%,#E4E8EE 100%);border:.07in solid #FFFFFFaa}
+.card .sheen{position:absolute;left:-4in;top:-2in;width:3in;height:16in;background:linear-gradient(90deg,transparent,#FFFFFF8c,transparent);transform:rotate(28deg)}
+.card .sheen2{position:absolute;left:9in;top:-2in;width:1.2in;height:16in;background:linear-gradient(90deg,transparent,#FFFFFF66,transparent);transform:rotate(28deg)}
+.card .tag{position:absolute;right:.9in;top:1in;background:#0B1630;color:#E3E8EF;border-radius:.5in;padding:.2in .42in .2in .5in;font-size:.46in;letter-spacing:.08in}
+.card .big{position:absolute;left:.95in;top:2.75in;font-size:4.7in;line-height:1;color:#0B1630;letter-spacing:-.05in}
+.card .off{position:absolute;right:.95in;top:3.15in;text-align:right;color:#1F6FE5;font-size:2in;line-height:1}
+.card .off small{display:block;font-family:Rajdhani,sans-serif;font-weight:700;font-size:.82in;color:#0B1630;margin-top:.25in;line-height:1.05}
+.card .bot{position:absolute;left:.95in;bottom:.85in;font-size:.5in;letter-spacing:.14in;color:#0B1630}
+.card .bot span{color:#1F6FE5}
+.glow{position:absolute;left:3in;top:23in;width:18in;height:3in;background:radial-gradient(ellipse at center,#2B83F680,transparent 70%)}
+.chips{position:absolute;left:1.5in;right:1.5in;top:25.65in;display:flex;justify-content:center;gap:.4in}
+.chip{border:.06in solid #4DA3FF88;background:#0B1A3Dcc;border-radius:.6in;padding:.18in .42in;font-weight:700;font-size:.6in;white-space:nowrap}
+.chip b{color:#4DA3FF}
+/* section divider */
+.div{position:absolute;left:2in;right:2in;display:flex;align-items:center;gap:.5in}
+.div i{flex:1;height:.05in;background:linear-gradient(90deg,transparent,#4DA3FF)}
+.div i:last-child{background:linear-gradient(90deg,#4DA3FF,transparent)}
+.div span{font-family:Orbitron,Rajdhani,sans-serif;font-weight:700;font-size:.6in;letter-spacing:.22in;color:#4DA3FF;padding-left:.22in}
+/* tournament */
+.halo{position:absolute;left:1.2in;top:33.1in;width:10in;height:10in;border-radius:50%;background:radial-gradient(circle,#2B83F655 0%,#2B83F622 45%,transparent 70%)}
+.ring{position:absolute;left:2.45in;top:34.35in;width:7.5in;height:7.5in;border-radius:50%;border:.06in solid #4DA3FF55}
+.steps{position:absolute;left:11.4in;right:1.6in;top:35.3in;display:flex;flex-direction:column;gap:.62in}
+.st{display:flex;align-items:center;gap:.45in}
+.ic{width:1.75in;height:1.75in;flex:none;border-radius:.4in;background:linear-gradient(150deg,#2B83F6,#1F6FE5);display:flex;align-items:center;justify-content:center}
+.st p{font-weight:700;font-size:.74in;line-height:1.02}
+.st p span{display:block;font-weight:600;font-size:.6in;color:#FFFFFFb8;margin-top:.06in}
+/* CTA */
+.cta{position:absolute;left:2in;right:2in;top:44.6in;height:8.2in;border-radius:.7in;background:linear-gradient(150deg,#13254Ecc,#0B1630cc);border:.06in solid #4DA3FF66;display:flex;align-items:center;gap:.75in;padding:0 .6in}
+.qr{width:7in;height:7in;flex:none;background:#fff;border-radius:.4in;padding:.45in}
+.ct .k{font-size:1.32in;line-height:1.08}
+.ct .u{font-weight:700;font-size:.9in;color:#4DA3FF;margin-top:.35in;line-height:1}
+.ct .s{font-weight:600;font-size:.62in;color:#FFFFFFbf;margin-top:.22in;line-height:1.1}
+.fine{position:absolute;left:2in;right:2in;top:53.25in;text-align:center;font-weight:600;font-size:.42in;color:#FFFFFF99;line-height:1.2}
+.band{position:absolute;left:-0.125in;right:-0.125in;bottom:-0.125in;height:5.225in;background:linear-gradient(90deg,#1F6FE5,#2B83F6 50%,#1F6FE5);text-align:center;display:flex;flex-direction:column;justify-content:center;padding-bottom:0.125in}
+.band .a{font-weight:700;font-size:.78in;line-height:1.1}
+.band .b{font-family:Orbitron,Rajdhani,sans-serif;font-weight:700;font-size:.58in;letter-spacing:.06in;margin-top:.32in}
+</style></head><body><div class="pg">
+<div class="bg"></div><div class="grid"></div>
+<div class="streak" style="left:-2in;top:9in;width:9in"></div>
+<div class="streak" style="left:17in;top:6in;width:8in"></div>
+<div class="streak" style="left:16in;top:29in;width:9in;opacity:.7"></div>
+<div class="streak" style="left:-1in;top:44in;width:7in;opacity:.6"></div>
+<div class="trim">
+<i style="position:absolute;width:2.2in;height:2.2in;border-style:solid;border-color:#4DA3FF;left:1.5in;top:1.5in;border-width:0.16in 0 0 0.16in"></i>
+<i style="position:absolute;width:2.2in;height:2.2in;border-style:solid;border-color:#4DA3FF;right:1.5in;top:1.5in;border-width:0.16in 0.16in 0 0"></i>
+<img src="../brand/logo-white-gradient-trophy.png" style="position:absolute;left:3.5in;top:2.7in;width:17in">
+
+<div class="c o7 lb" style="top:7.05in;font-size:.62in;letter-spacing:.2in;padding-left:.2in">JOIN CHAMPION · IT'S FREE</div>
+<div class="c o9" style="top:8.1in;font-size:3in;line-height:1">SIGN UP</div>
+<div class="c" style="top:11.3in;font-weight:700;font-size:1.2in;line-height:1">&amp; become a <span style="color:#D5DCE6">Silver member</span></div>
+
+<div class="glow"></div>
+<div class="card"><div class="sheen"></div><div class="sheen2"></div>
+ <img src="../brand/logo-black.png" style="position:absolute;left:.95in;top:.95in;width:8.4in">
+ <div class="tag o7">SILVER MEMBER</div>
+ <div class="big o9">10%</div>
+ <div class="off o9">OFF<small>every<br>session</small></div>
+ <div class="bot o7">MEMBER ID <span>+</span> QR CARD</div>
+ <img src="../brand/trophy-black.png" style="position:absolute;right:1in;bottom:.7in;height:2.3in;opacity:.85">
+</div>
+<div class="chips"><div class="chip"><b>Free</b> to join</div><div class="chip"><b>Points</b> on every visit</div><div class="chip"><b>1 minute</b> sign-up</div></div>
+
+<div class="div" style="top:28.65in"><i></i><span>COMMUNITY TOURNAMENTS</span><i></i></div>
+<div class="c o9" style="top:30.05in;font-size:2.55in;line-height:1">WIN <span class="lb">GIFTS</span></div>
+<div class="halo"></div><div class="ring"></div>
+<img src="../brand/trophy-gradient.png" style="position:absolute;left:3.45in;top:35.05in;height:7.6in">
+<div class="steps">
+ <div class="st"><div class="ic"><div style="position:relative;width:1.15in;height:0.9199999999999999in">
+<div style="position:absolute;background:#FFFFFF;left:0.092in;top:0.057499999999999996in;width:0.345in;height:0.345in;border-radius:50%;opacity:.55"></div>
+<div style="position:absolute;background:#FFFFFF;left:0;top:0.45999999999999996in;width:0.529in;height:0.414in;border-radius:0.2645in 0.2645in 0.06899999999999999in 0.06899999999999999in;opacity:.55"></div>
+<div style="position:absolute;background:#FFFFFF;left:0.48299999999999993in;top:0;width:0.414in;height:0.414in;border-radius:50%"></div>
+<div style="position:absolute;background:#FFFFFF;left:0.368in;top:0.48299999999999993in;width:0.644in;height:0.43699999999999994in;border-radius:0.322in 0.322in 0.06899999999999999in 0.06899999999999999in"></div>
+</div></div><p>Join the community<span>free with your account</span></p></div>
+ <div class="st"><div class="ic"><div style="position:relative;width:1.3in;height:0.676in">
+<div style="position:absolute;left:0;top:0;width:1.3in;height:0.5408000000000001in;background:#FFFFFF;border-radius:0.27040000000000003in"></div>
+<div style="position:absolute;left:0.052000000000000005in;top:0.2366in;width:0.39in;height:0.43940000000000007in;background:#FFFFFF;border-radius:0.195in"></div>
+<div style="position:absolute;right:0.052000000000000005in;top:0.2366in;width:0.39in;height:0.43940000000000007in;background:#FFFFFF;border-radius:0.195in"></div>
+<div style="position:absolute;left:0.22100000000000003in;top:0.18252000000000002in;width:0.26in;height:0.0845in;background:#1F6FE5;border-radius:0.0195in"></div>
+<div style="position:absolute;left:0.30874999999999997in;top:0.09477000000000001in;width:0.0845in;height:0.26in;background:#1F6FE5;border-radius:0.0195in"></div>
+<div style="position:absolute;right:0.325in;top:0.1014in;width:0.0975in;height:0.0975in;background:#1F6FE5;border-radius:50%"></div><div style="position:absolute;right:0.20800000000000002in;top:0.2028in;width:0.0975in;height:0.0975in;background:#1F6FE5;border-radius:50%"></div><div style="position:absolute;right:0.44200000000000006in;top:0.2028in;width:0.0975in;height:0.0975in;background:#1F6FE5;border-radius:50%"></div><div style="position:absolute;right:0.325in;top:0.3042in;width:0.0975in;height:0.0975in;background:#1F6FE5;border-radius:50%"></div>
+</div></div><p>Play tournaments<span>on the big screens</span></p></div>
+ <div class="st"><div class="ic"><div style="position:relative;width:1.05in;height:1.05in">
+<div style="position:absolute;left:0.315in;top:0.021in;width:0.231in;height:0.231in;border:0.07350000000000001in solid #FFFFFF;border-radius:0.126in 0.126in 0 0.126in;transform:rotate(-12deg)"></div>
+<div style="position:absolute;left:0.504in;top:0.021in;width:0.231in;height:0.231in;border:0.07350000000000001in solid #FFFFFF;border-radius:0.126in 0.126in 0.126in 0;transform:rotate(12deg)"></div>
+<div style="position:absolute;left:0.021in;top:0.273in;width:1.008in;height:0.231in;background:#FFFFFF;border-radius:0.042in"></div>
+<div style="position:absolute;left:0.084in;top:0.525in;width:0.882in;height:0.504in;background:#FFFFFF;border-radius:0 0 0.052500000000000005in 0.052500000000000005in"></div>
+<div style="position:absolute;left:0.4515in;top:0.273in;width:0.14700000000000002in;height:0.756in;background:#1F6FE5"></div>
+</div></div><p>Win &amp; take home<span>gifts and the trophy</span></p></div>
+</div>
+
+<div class="cta"><div class="qr"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" shape-rendering="crispEdges"><path fill="#FFFFFF" d="M0 0h37v37H0z"/><path stroke="#0B0B0C" d="M0 0.5h7m2 0h1m2 0h2m1 0h1m1 0h4m1 0h2m2 0h1m3 0h7M0 1.5h1m5 0h1m3 0h4m1 0h1m4 0h1m1 0h2m1 0h2m1 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m2 0h1m4 0h2m1 0h5m3 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h4m1 0h1m3 0h2m1 0h7m3 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h1m1 0h1m3 0h2m2 0h1m4 0h1m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h3m1 0h2m1 0h2m3 0h1m1 0h1m1 0h3m1 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h4m1 0h1m1 0h1m4 0h1m1 0h1m1 0h2m1 0h2M1 8.5h2m3 0h1m2 0h2m1 0h1m1 0h4m1 0h2m1 0h4m4 0h2m1 0h1M1 9.5h2m1 0h2m2 0h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m1 0h3m5 0h4m1 0h1M0 10.5h1m2 0h1m1 0h5m2 0h1m8 0h1m1 0h1m3 0h1m1 0h3m1 0h1m1 0h2M2 11.5h4m5 0h1m2 0h2m1 0h1m4 0h3m1 0h1m4 0h3M0 12.5h4m2 0h1m2 0h3m1 0h3m1 0h3m4 0h1m2 0h1m2 0h2m4 0h1M0 13.5h3m1 0h2m1 0h2m1 0h3m3 0h3m3 0h4m1 0h1m1 0h3m2 0h1m1 0h1M0 14.5h4m1 0h4m4 0h3m1 0h1m2 0h4m3 0h2m1 0h1m2 0h2m1 0h1M0 15.5h1m4 0h1m3 0h1m2 0h2m5 0h2m1 0h1m4 0h3m1 0h3m1 0h2M0 16.5h1m1 0h2m2 0h1m4 0h1m3 0h1m1 0h3m1 0h3m2 0h1m1 0h1m1 0h2M2 17.5h2m1 0h1m1 0h5m1 0h1m1 0h2m2 0h2m1 0h1m2 0h1m1 0h2m1 0h2m1 0h2m1 0h1M1 18.5h1m1 0h4m2 0h2m3 0h1m3 0h2m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m2 0h1M0 19.5h3m1 0h2m1 0h1m1 0h2m3 0h4m2 0h1m5 0h1m1 0h4M2 20.5h3m1 0h2m2 0h2m1 0h2m2 0h1m5 0h2m2 0h2m1 0h1m2 0h1m1 0h2M0 21.5h1m1 0h1m2 0h1m2 0h1m1 0h5m1 0h2m1 0h1m1 0h1m1 0h2m2 0h1m2 0h2m1 0h2m1 0h1M0 22.5h2m1 0h1m2 0h1m1 0h3m1 0h3m8 0h10m3 0h1M0 23.5h1m2 0h1m1 0h1m1 0h1m1 0h1m8 0h1m1 0h1m3 0h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h2M0 24.5h2m1 0h4m2 0h5m1 0h3m1 0h1m3 0h4m1 0h6m2 0h1M4 25.5h2m1 0h2m4 0h1m1 0h1m1 0h2m4 0h2m1 0h1m1 0h2m3 0h1m2 0h1M0 26.5h3m2 0h4m1 0h2m6 0h1m1 0h1m1 0h2m2 0h1m1 0h5m1 0h1m1 0h1M3 27.5h3m1 0h2m2 0h3m1 0h6m1 0h2m2 0h5m2 0h1m2 0h1M0 28.5h3m1 0h1m1 0h1m3 0h1m1 0h3m8 0h2m3 0h5m2 0h2M8 29.5h2m2 0h1m1 0h1m1 0h1m1 0h4m1 0h3m2 0h1m3 0h2m2 0h1M0 30.5h7m2 0h1m1 0h1m4 0h1m1 0h2m3 0h2m3 0h1m1 0h1m1 0h3m1 0h1M0 31.5h1m5 0h1m3 0h2m4 0h1m1 0h4m5 0h2m3 0h2m1 0h1M0 32.5h1m1 0h3m1 0h1m2 0h1m3 0h4m2 0h1m1 0h1m2 0h1m2 0h6m2 0h1M0 33.5h1m1 0h3m1 0h1m2 0h1m1 0h2m5 0h1m2 0h1m2 0h2m1 0h1m4 0h5M0 34.5h1m1 0h3m1 0h1m1 0h3m2 0h1m1 0h1m1 0h3m1 0h2m1 0h1m2 0h1m4 0h2m1 0h2M0 35.5h1m5 0h1m1 0h1m2 0h2m2 0h1m1 0h2m3 0h3m1 0h5m2 0h1M0 36.5h7m2 0h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h1m3 0h1m1 0h1m2 0h1m2 0h1"/></svg>
+</div>
+ <div class="ct"><div class="k o9">SCAN<br>TO SIGN UP</div><div class="u">champion.gemten.com.bd</div><div class="s">Book, earn points and join<br>tournaments with one account.</div></div>
+</div>
+<div class="fine">10% member discount applies to standard sessions booked from your account. Not combined with packs &amp; offers.</div>
+
+<div class="band"><div class="a">IFIC Bank Building (4th Floor), Ranir Bazar, Cumilla</div><div class="b">OPEN 10:00–23:00 · 01603-754074</div></div>
+</div>
+</div></body></html>

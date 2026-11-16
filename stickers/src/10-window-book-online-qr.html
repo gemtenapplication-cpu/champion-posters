@@ -6,6 +6,8 @@
 @page{size:24.25in 24.25in;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:24.25in;height:24.25in}
+html,body{overflow:hidden}
+.pg{position:relative;width:100%;height:100%;overflow:hidden}
 body{position:relative;overflow:hidden;font-family:Rajdhani,sans-serif;color:#0B0B0C;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .bg{position:absolute;inset:0;background:linear-gradient(165deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%)}
 .bgblue{position:absolute;inset:0;background:linear-gradient(160deg,#4DA3FF 0%,#2B83F6 45%,#1F6FE5 100%)}
@@ -17,7 +19,7 @@ body{position:relative;overflow:hidden;font-family:Rajdhani,sans-serif;color:#0B
 /* HUD corner brackets */
 .hud i{position:absolute;border-color:#2B83F6;border-style:solid}
 .band{position:absolute;left:0;right:0;bottom:-0.125in;height:2.725in;background:linear-gradient(90deg,#2B83F6,#1F6FE5);color:#fff;display:flex;align-items:center;justify-content:center;padding-bottom:0.125in;font-weight:700;font-size:1.2in}
-</style></head><body><div class="bg"></div><div style="position:absolute;inset:0;background-image:radial-gradient(#2B83F622 0.05in,transparent 0.05in);background-size:0.75in 0.75in"></div>
+</style></head><body><div class="pg"><div class="bg"></div><div style="position:absolute;inset:0;background-image:radial-gradient(#2B83F622 0.05in,transparent 0.05in);background-size:0.75in 0.75in"></div>
 <div class="trim"><div class="hud">
 <i style="width:1.7in;height:1.7in;border-color:#2B83F6;left:0.75in;top:0.75in;border-width:0.14in 0 0 0.14in"></i>
 <i style="width:1.7in;height:1.7in;border-color:#2B83F6;right:0.75in;top:0.75in;border-width:0.14in 0.14in 0 0"></i></div>
@@ -29,4 +31,4 @@ body{position:relative;overflow:hidden;font-family:Rajdhani,sans-serif;color:#0B
 </div></div></div>
 <div class="c orb7" style="top:18.75in;font-size:.7in;letter-spacing:.3in;padding-left:.3in">SCAN TO BOOK</div>
 <div class="band">champion.gemten.com.bd</div>
-</div></body></html>
+</div></div></body></html>
