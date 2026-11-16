@@ -1,0 +1,92 @@
+[
+  {
+    "id": "01-door-main-welcome",
+    "folder": "door",
+    "w": 24,
+    "h": 36,
+    "dpi": 150,
+    "title": "Main glass door — welcome sticker",
+    "name": "01-door-main-welcome_24x36in"
+  },
+  {
+    "id": "02-door-push",
+    "folder": "door",
+    "w": 10,
+    "h": 4,
+    "dpi": 300,
+    "title": "Door handle sticker — PUSH",
+    "name": "02-door-push_10x4in"
+  },
+  {
+    "id": "03-door-pull",
+    "folder": "door",
+    "w": 10,
+    "h": 4,
+    "dpi": 300,
+    "title": "Door handle sticker — PULL",
+    "name": "03-door-pull_10x4in"
+  },
+  {
+    "id": "04-glass-safety-band",
+    "folder": "door",
+    "w": 48,
+    "h": 4,
+    "dpi": 200,
+    "title": "Glass safety band (eye level, cut to door/window width)",
+    "name": "04-glass-safety-band_48x4in"
+  },
+  {
+    "id": "05-door-opening-soon",
+    "folder": "door",
+    "w": 18,
+    "h": 12,
+    "dpi": 200,
+    "title": "OPENING SOON (removable — take off on opening day)",
+    "name": "05-door-opening-soon_18x12in"
+  },
+  {
+    "id": "06-building-entrance-4th-floor",
+    "folder": "door",
+    "w": 12,
+    "h": 18,
+    "dpi": 200,
+    "title": "Building entrance / stair sticker — points visitors to the 4th floor",
+    "name": "06-building-entrance-4th-floor_12x18in"
+  },
+  {
+    "id": "07-window-street-banner",
+    "folder": "window",
+    "w": 72,
+    "h": 36,
+    "dpi": 100,
+    "title": "Street-facing window banner (big type, readable from the road)",
+    "name": "07-window-street-banner_72x36in"
+  },
+  {
+    "id": "08-window-ps5-stations",
+    "folder": "window",
+    "w": 24,
+    "h": 36,
+    "dpi": 150,
+    "title": "Window panel — 2 PS5 stations on 55\" screens",
+    "name": "08-window-ps5-stations_24x36in"
+  },
+  {
+    "id": "09-window-gaming-pc",
+    "folder": "window",
+    "w": 24,
+    "h": 36,
+    "dpi": 150,
+    "title": "Window panel — gaming PC with 30\" monitor",
+    "name": "09-window-gaming-pc_24x36in"
+  },
+  {
+    "id": "10-window-book-online-qr",
+    "folder": "window",
+    "w": 24,
+    "h": 24,
+    "dpi": 150,
+    "title": "Window / entrance glass — book online with QR code",
+    "name": "10-window-book-online-qr_24x24in"
+  }
+]
