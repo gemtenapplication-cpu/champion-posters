@@ -19,6 +19,13 @@ const COMMUNITY_URL = 'https://champion.gemten.com.bd/champion-community';
 // CHAMPION wordmark on the front — embossed. The emboss mask uses exactly this box.
 const MARK = { left: 6.2, top: 6.9, w: 46 };
 
+const ICON = {
+  phone: '<path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/>',
+  web: '<g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8.6"/><ellipse cx="12" cy="12" rx="3.7" ry="8.6"/><path d="M3.6 9h16.8M3.6 15h16.8"/></g>',
+  mail: '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.8 7l8.2 6 8.2-6"/></g>',
+  pin: '<path fill="currentColor" fill-rule="evenodd" d="M12 2.5a7 7 0 0 0-7 7c0 5.2 7 12 7 12s7-6.8 7-12a7 7 0 0 0-7-7zm0 4.4a2.7 2.7 0 1 1 0 5.4 2.7 2.7 0 0 1 0-5.4z"/>',
+  clock: '<g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.3 2.1"/></g>',
+};
 const theme = (night) => night
   ? { bg: 'linear-gradient(155deg,#0D1733 0%,#070B16 58%,#0A1531 100%)', ink: '#FFFFFF', muted: '#FFFFFFa8', acc: '#4DA3FF', line: '#4DA3FF', ghost: 0.11, glow: '#2B83F62e' }
   : { bg: 'linear-gradient(155deg,#FFFFFF 0%,#F7FAFF 58%,#E9F1FF 100%)', ink: '#0B0B0C', muted: '#0B0B0C99', acc: '#1F6FE5', line: '#2B83F6', ghost: 0.085, glow: '#DCEBFFcc' };
@@ -33,7 +40,7 @@ function head(night, css) {
 @page{size:${PW}mm ${PH}mm;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:${PW}mm;height:${PH}mm;overflow:hidden}
-body{font-family:Rajdhani,sans-serif;color:${t.ink};background:${night ? '#070B16' : '#FFFFFF'};-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{--ghost:${t.ghost};font-family:Rajdhani,sans-serif;color:${t.ink};background:${night ? '#070B16' : '#FFFFFF'};-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .pg{position:relative;width:100%;height:100%;overflow:hidden}
 .bg{position:absolute;inset:0;background:${t.bg}}
 .trim{position:absolute;left:${BL}mm;top:${BL}mm;width:${W}mm;height:${H}mm}
@@ -43,6 +50,8 @@ body{font-family:Rajdhani,sans-serif;color:${t.ink};background:${night ? '#070B1
 .mut{color:${t.muted}}
 /* signature: four micro corner brackets */
 .cb{position:absolute;width:2.6mm;height:2.6mm;border-style:solid;border-color:${t.line}}
+.bar{position:absolute;left:0;right:0;bottom:0;height:${2.4 + BL}mm;background:linear-gradient(90deg,#1F6FE5 0%,#2B83F6 45%,#4DA3FF 72%,#1F6FE5 100%)}
+.ghost{position:absolute;left:${BL + 57.5}mm;top:${BL - 2}mm;height:59mm;opacity:var(--ghost)}
 .hair{position:absolute;height:.26mm;background:linear-gradient(90deg,${t.line},${t.line}00)}
 ${css}
 </style></head><body><div class="pg"><div class="bg"></div>`;
@@ -55,31 +64,32 @@ const corners = (inset = 3.2, th = 0.3) => `
 
 function front(night) {
   const t = theme(night);
-  const row = (k, v, cls = '') => `<div class="r ${cls}"><span class="k o7 acc">${k}</span><span class="v">${v}</span></div>`;
+  const row = (k, v, cls = '') => `<div class="r ${cls}"><span class="ic"><svg viewBox="0 0 24 24">${ICON[k]}</svg></span><span class="v">${v}</span></div>`;
   const css = `
-.ghost{position:absolute;left:${BL + 57.5}mm;top:${BL - 2}mm;height:59mm;opacity:${t.ghost}}
 .glow{position:absolute;right:-10mm;top:-6mm;width:60mm;height:46mm;background:radial-gradient(ellipse at center,${t.glow},transparent 70%)}
 .sub{position:absolute;left:7.2mm;top:13.55mm;font-size:1.38mm;letter-spacing:.42mm;white-space:nowrap}
-.spec{position:absolute;left:7.2mm;top:19.6mm}
-.r{display:flex;align-items:baseline;height:4.2mm}
-.r.two{height:7.25mm}
-.k{width:10.6mm;flex:none;font-size:1.28mm;letter-spacing:.32mm}
+.spec{position:absolute;left:7.2mm;top:19.1mm}
+.r{display:flex;align-items:center;gap:2.1mm;height:4.55mm}
+.r.two{height:7.5mm}
+.ic{width:3.4mm;height:3.4mm;flex:none;border-radius:50%;border:.22mm solid ${t.acc};background:${t.acc}1c;color:${t.acc};display:flex;align-items:center;justify-content:center}
+.ic svg{width:1.95mm;height:1.95mm}
 .v{font-weight:600;font-size:2.55mm;line-height:1.18;white-space:nowrap}
 .v b{font-weight:700}
 .tag{position:absolute;left:84.5mm;top:25.4mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:1.3mm;letter-spacing:.56mm;white-space:nowrap;padding-left:.56mm}`;
   return head(night, css) + `
 <div class="glow"></div>
 <img class="ghost" src="${B}/trophy-blue.png">
-<div class="trim">${corners()}
+<div class="bar"></div>
+<div class="trim">
  <img src="${B}/${night ? 'wordmark-white-gradient-trophy' : 'wordmark-color-on-light'}.png" style="position:absolute;left:${MARK.left}mm;top:${MARK.top}mm;width:${MARK.w}mm">
- <div class="sub o7 acc">GAMING ZONE · RANIR BAZAR</div>
+ <div class="sub o7 acc">PLAYSTATION · RANIR BAZAR</div>
  <div class="hair" style="left:7.2mm;width:44mm;top:17.4mm"></div>
  <div class="spec">
-  ${row('CALL', '<b>01603-754074</b>')}
-  ${row('WEB', '<b>champion.gemten.com.bd</b>')}
-  ${row('MAIL', 'champion@gemten.com.bd')}
-  ${row('VISIT', 'IFIC Bank Building, 4th Floor<br>Ranir Bazar, Cumilla', 'two')}
-  ${row('OPEN', '10:00 – 23:00')}
+  ${row('phone', '<b>01603-754074</b>')}
+  ${row('web', '<b>champion.gemten.com.bd</b>')}
+  ${row('mail', 'champion@gemten.com.bd')}
+  ${row('pin', 'IFIC Bank Building, 4th Floor<br>Ranir Bazar, Cumilla', 'two')}
+  ${row('clock', 'Open 10:00 – 23:00')}
  </div>
  <div class="tag o7 mut">PLAY + CONNECT + WIN</div>
 </div></div></body></html>`;
@@ -106,6 +116,8 @@ async function back(night) {
 .free{font-size:1.25mm;letter-spacing:.3mm;white-space:nowrap}`;
   return head(night, css) + `
 <div class="glow"></div>
+<img class="ghost" src="${B}/trophy-blue.png">
+<div class="bar"></div>
 <div class="trim">
  <i class="rt" style="left:${R.x}mm;top:${R.y}mm;border-width:${th}mm 0 0 ${th}mm"></i>
  <i class="rt" style="left:${R.x + R.s - arm}mm;top:${R.y}mm;border-width:${th}mm ${th}mm 0 0"></i>

@@ -6,7 +6,7 @@
 @page{size:94.9mm 56.8mm;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:94.9mm;height:56.8mm;overflow:hidden}
-body{font-family:Rajdhani,sans-serif;color:#0B0B0C;background:#FFFFFF;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{--ghost:0.085;font-family:Rajdhani,sans-serif;color:#0B0B0C;background:#FFFFFF;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .pg{position:relative;width:100%;height:100%;overflow:hidden}
 .bg{position:absolute;inset:0;background:linear-gradient(155deg,#FFFFFF 0%,#F7FAFF 58%,#E9F1FF 100%)}
 .trim{position:absolute;left:3mm;top:3mm;width:88.9mm;height:50.8mm}
@@ -16,6 +16,8 @@ body{font-family:Rajdhani,sans-serif;color:#0B0B0C;background:#FFFFFF;-webkit-pr
 .mut{color:#0B0B0C99}
 /* signature: four micro corner brackets */
 .cb{position:absolute;width:2.6mm;height:2.6mm;border-style:solid;border-color:#2B83F6}
+.bar{position:absolute;left:0;right:0;bottom:0;height:5.4mm;background:linear-gradient(90deg,#1F6FE5 0%,#2B83F6 45%,#4DA3FF 72%,#1F6FE5 100%)}
+.ghost{position:absolute;left:60.5mm;top:1mm;height:59mm;opacity:var(--ghost)}
 .hair{position:absolute;height:.26mm;background:linear-gradient(90deg,#2B83F6,#2B83F600)}
 
 .glow{position:absolute;left:-4.199999999999999mm;top:3.700000000000003mm;width:52mm;height:44mm;background:radial-gradient(ellipse at center,#DCEBFFcc,transparent 70%)}
@@ -31,6 +33,8 @@ body{font-family:Rajdhani,sans-serif;color:#0B0B0C;background:#FFFFFF;-webkit-pr
 .free{font-size:1.25mm;letter-spacing:.3mm;white-space:nowrap}
 </style></head><body><div class="pg"><div class="bg"></div>
 <div class="glow"></div>
+<img class="ghost" src="../brand/trophy-blue.png">
+<div class="bar"></div>
 <div class="trim">
  <i class="rt" style="left:4.8mm;top:8.700000000000001mm;border-width:0.36mm 0 0 0.36mm"></i>
  <i class="rt" style="left:29.4mm;top:8.700000000000001mm;border-width:0.36mm 0.36mm 0 0"></i>
