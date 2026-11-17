@@ -39,13 +39,13 @@ const README = `CHAMPION — বিজনেস কার্ড (প্রিন
 প্রিন্টের নোট
 -------------
 • পেপার: সাধারণত 350–400 gsm আর্ট কার্ড; দুই পাশে ম্যাট লেমিনেশন।
-• এমবস: শুধু সামনের পাশের বাম দিকের ট্রফি লোগো এমবস হবে।
+• এমবস: শুধু সামনের পাশের CHAMPION লোগো (ওয়ার্ডমার্ক) এমবস হবে।
   emboss/champion-card-emboss-mask-front.pdf ফাইলে কালো অংশ = উঁচু হবে, সাদা = সমান থাকবে।
   মাস্ক আর ডিজাইন একই সাইজ ও একই পজিশনে, তাই রেজিস্ট্রেশন মিলবে।
   প্রিন্ট আর লেমিনেশনের পরে এমবস করুন।
 • পেছনের দিক: ডাই-এমবসের চাপে পেছনে হালকা উল্টো দাগ পড়ে।
   ব্যাক সাইড head-to-head ছাপুন (কার্ড বইয়ের পাতার মতো ডানে-বামে উল্টালে পেছনটা সোজা দেখাবে)।
-  তাহলে দাগ পড়বে পেছনের চ্যাম্পের ছবির ওপর, QR কোডে না।
+  তাহলে দাগ পড়বে পেছনের ওপরের ডান দিকের ফাঁকা জায়গায় — কোনো লেখা বা QR কোডে না।
   emboss/emboss-guide.jpg ছবিতে লাল অংশটা দেখুন।
 • QR কোডের ওপর কোনো এমবস বা স্পট UV করবেন না — QR সমান থাকতে হবে।
 • প্রেস যদি ডাই-এমবসের বদলে "রেইজড স্পট UV" (উঁচু UV) দেয়, একই মাস্ক ফাইল দিয়েই হবে,
@@ -56,7 +56,6 @@ const README = `CHAMPION — বিজনেস কার্ড (প্রিন
   প্রুফ হাতে পেলে একবার ফোনে স্ক্যান করে দেখুন।
 
 তথ্যের উৎস: champion.gemten.com.bd (ঠিকানা, ফোন, ইমেইল, খোলার সময়, কমিউনিটি)।
-চ্যাম্প (মাস্কট) সাইট থেকে নেওয়া আসল ক্যারেক্টার।
 `;
 
 const sheet = () => {
@@ -78,7 +77,7 @@ figcaption{font-size:21px;font-weight:700;margin-top:12px}
 figcaption span{color:#1F6FE5}
 </style></head><body>
 <h1>CHAMPION <em>·</em> Business Card</h1>
-<div class="sub">3.5 × 2 in (88.9 × 50.8 mm) · matte lamination · embossed trophy on the front · shown trimmed (files include 3 mm bleed)</div>
+<div class="sub">3.5 × 2 in (88.9 × 50.8 mm) · matte lamination · embossed wordmark on the front · shown trimmed (files include 3 mm bleed)</div>
 <div class="g">
  ${img('day-front', '<span>DAY</span> · Front')}${img('day-back', '<span>DAY</span> · Back — community QR')}
  ${img('night-front', '<span>NIGHT</span> · Front')}${img('night-back', '<span>NIGHT</span> · Back — community QR')}
