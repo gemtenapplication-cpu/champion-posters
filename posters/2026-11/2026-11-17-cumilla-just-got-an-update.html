@@ -1,0 +1,75 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:500;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-500-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(165deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#2B83F612 2px,transparent 2px),linear-gradient(90deg,#2B83F612 2px,transparent 2px);background-size:54px 54px}
+.logo{position:absolute;top:60px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:205px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:243px;left:76px;font-family:Orbitron;font-weight:900;font-size:80px;line-height:1.08}
+h1 em{font-style:normal;color:#2B83F6}
+/* patch notes window */
+.win{position:absolute;top:452px;left:70px;width:940px;height:690px;background:#fff;border-radius:34px;border:3px solid #2B83F633;box-shadow:0 26px 50px #1F6FE526;overflow:hidden}
+.wh{display:flex;align-items:center;height:92px;padding:0 32px;background:#0B0B0C;color:#fff}
+.lights{display:flex;gap:10px;margin-right:26px}
+.lights i{width:16px;height:16px;border-radius:50%;background:#4DA3FF}
+.lights i:nth-child(2){background:#2B83F6}.lights i:nth-child(3){background:#1F6FE5}
+.wt{font-family:Orbitron;font-weight:700;font-size:24px;letter-spacing:3px}
+.ver{margin-left:auto;font-family:Orbitron;font-weight:700;font-size:16px;letter-spacing:3px;color:#0B0B0C;background:#4DA3FF;border-radius:30px;padding:8px 16px}
+.bar{height:10px;background:linear-gradient(90deg,#2B83F6,#4DA3FF)}
+.list{padding:22px 34px 0}
+.row{display:flex;align-items:center;padding:17px 0;border-bottom:2px dashed #2B83F62a}
+.row:last-child{border-bottom:0}
+.lab{width:150px;flex:none;text-align:center;font-family:Orbitron;font-weight:700;font-size:15px;letter-spacing:3px;border-radius:12px;padding:10px 0;margin-right:26px}
+.new{background:#2B83F6;color:#fff}
+.map{background:#0B0B0C;color:#fff}
+.on{background:#E6F0FF;color:#1F6FE5;border:2px solid #2B83F655}
+.tbd{background:#fff;color:#0B0B0C;border:2px dashed #0B0B0C66}
+.tx{font-size:31px;font-weight:600;line-height:1.15}
+.tx b{font-weight:700;color:#1F6FE5}
+.tx small{display:block;font-size:23px;font-weight:500;color:#0B0B0Caa;margin-top:2px}
+/* footer */
+.foot{position:absolute;left:70px;right:70px;top:1168px;display:flex;align-items:center;justify-content:space-between}
+.fl{font-size:28px;font-weight:700;line-height:1.1}
+.fl span{font-weight:500;color:#0B0B0Caa}
+.bk{font-family:Orbitron;font-weight:700;font-size:22px;color:#fff;background:linear-gradient(90deg,#2B83F6,#1F6FE5);border-radius:40px;padding:16px 28px}
+.pcw{position:absolute;left:0;right:0;bottom:44px;text-align:center;font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:9px;color:#1F6FE5}
+</style></head>
+<body>
+<div class="p">
+  <div class="grid"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick">PATCH NOTES · RANIR BAZAR</div>
+  <h1>Cumilla Just Got<br><em>an Update.</em></h1>
+
+  <div class="win">
+    <div class="wh">
+      <div class="lights"><i></i><i></i><i></i></div>
+      <div class="wt">CHAMPION.UPDATE</div>
+      <div class="ver">READY</div>
+    </div>
+    <div class="bar"></div>
+    <div class="list">
+      <div class="row"><div class="lab new">ADDED</div><div class="tx"><b>2 PS5 stations</b> on 55" screens<small>Big-screen play for you and Player 2</small></div></div>
+      <div class="row"><div class="lab new">ADDED</div><div class="tx"><b>1 gaming PC</b> with a 30" monitor<small>A desk built for PC players</small></div></div>
+      <div class="row"><div class="lab map">NEW MAP</div><div class="tx">IFIC Bank Building, <b>4th Floor</b><small>Ranir Bazar, Cumilla</small></div></div>
+      <div class="row"><div class="lab on">ENABLED</div><div class="tx">Online booking<small>champion.gemten.com.bd</small></div></div>
+      <div class="row"><div class="lab tbd">PENDING</div><div class="tx">Opening day<small>Date coming soon. Follow the page for the drop.</small></div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="fl">IFIC Bank Building (4th Floor)<br><span>Ranir Bazar, Cumilla</span></div>
+    <div class="bk">champion.gemten.com.bd</div>
+  </div>
+  <div class="pcw">PLAY + CONNECT + WIN</div>
+</div>
+</body></html>
