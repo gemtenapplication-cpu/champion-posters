@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:500;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-500-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(170deg,#FFFFFF 0%,#F4F8FF 50%,#D9EAFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.sun{position:absolute;top:-160px;right:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#4DA3FF33 0%,#4DA3FF14 50%,transparent 70%)}
+.logo{position:absolute;top:60px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:205px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:243px;left:76px;font-family:Orbitron;font-weight:900;font-size:78px;line-height:1.08}
+h1 em{font-style:normal;color:#2B83F6}
+/* weather card */
+.card{position:absolute;top:455px;left:70px;width:940px;height:500px;border-radius:36px;background:linear-gradient(150deg,#2B83F6 0%,#1F6FE5 100%);color:#fff;box-shadow:0 26px 50px #1F6FE540;overflow:hidden}
+.card .glow{position:absolute;right:-80px;top:-80px;width:420px;height:420px;border-radius:50%;background:#4DA3FF55}
+.loc{position:absolute;top:38px;left:44px;font-family:Orbitron;font-weight:700;font-size:26px;letter-spacing:3px}
+.loc small{display:block;font-family:Rajdhani;font-weight:600;font-size:25px;letter-spacing:0;opacity:.85;margin-top:6px}
+.big{position:absolute;top:150px;left:40px;font-family:Orbitron;font-weight:900;font-size:180px;line-height:1}
+.big sup{font-size:70px;vertical-align:top;position:relative;top:18px;margin-left:6px}
+.cond{position:absolute;top:350px;left:46px;font-size:40px;font-weight:700;line-height:1.1}
+.cond span{display:block;font-size:27px;font-weight:500;opacity:.85}
+/* icon: cloud + controller */
+.icon{position:absolute;right:56px;top:120px;width:330px;height:240px}
+.cl{position:absolute;background:#fff;border-radius:999px}
+.c1{left:20px;top:110px;width:290px;height:110px}
+.c2{left:70px;top:40px;width:150px;height:150px}
+.c3{left:170px;top:70px;width:120px;height:120px}
+.pad{position:absolute;left:85px;top:118px;width:170px;height:78px;border-radius:40px;background:#0B0B0C}
+.pad .dl{position:absolute;left:30px;top:30px;width:34px;height:10px;background:#4DA3FF;border-radius:3px}
+.pad .dv{position:absolute;left:42px;top:18px;width:10px;height:34px;background:#4DA3FF;border-radius:3px}
+.pad .b{position:absolute;width:14px;height:14px;border-radius:50%;background:#4DA3FF}
+.pad .b1{right:30px;top:20px}.pad .b2{right:30px;top:44px}.pad .b3{right:18px;top:32px}.pad .b4{right:42px;top:32px}
+.drop{position:absolute;width:14px;height:32px;border-radius:7px;background:#ffffffcc;transform:rotate(15deg)}
+.d1{left:95px;top:226px}.d2{left:165px;top:236px}.d3{left:235px;top:226px}
+.stat{position:absolute;right:44px;bottom:38px;text-align:right;font-size:26px;font-weight:600;opacity:.9}
+/* detail tiles */
+.tiles{position:absolute;top:985px;left:70px;width:940px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t{background:#fff;border-radius:26px;border:3px solid #2B83F62e;padding:20px 22px;box-shadow:0 12px 26px #1F6FE514}
+.t .k{font-family:Orbitron;font-weight:700;font-size:15px;letter-spacing:3px;color:#1F6FE5}
+.t .v{font-family:Orbitron;font-weight:900;font-size:40px;margin-top:8px;line-height:1}
+.t .s{font-size:24px;font-weight:600;color:#0B0B0Cb0;margin-top:6px}
+/* footer */
+.foot{position:absolute;left:70px;right:70px;top:1190px;display:flex;align-items:center;justify-content:space-between}
+.fl{font-size:28px;font-weight:700;line-height:1.1}
+.fl span{font-weight:500;color:#0B0B0Caa}
+.bk{font-family:Orbitron;font-weight:700;font-size:22px;color:#fff;background:linear-gradient(90deg,#2B83F6,#1F6FE5);border-radius:40px;padding:16px 28px}
+.pcw{position:absolute;left:0;right:0;bottom:40px;text-align:center;font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:9px;color:#1F6FE5}
+</style></head>
+<body>
+<div class="p">
+  <div class="sun"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick">GAMING FORECAST · CUMILLA</div>
+  <h1>Forecast:<br><em>100% Chance of GG.</em></h1>
+
+  <div class="card">
+    <div class="glow"></div>
+    <div class="loc">RANIR BAZAR, CUMILLA<small>IFIC Bank Building · 4th Floor</small></div>
+    <div class="big">100<sup>%</sup></div>
+    <div class="cond">Game Mode Incoming<span>Squads expected. Rivalries likely.</span></div>
+    <div class="icon">
+      <div class="cl c2"></div><div class="cl c3"></div><div class="cl c1"></div>
+      <div class="pad"><i class="dl"></i><i class="dv"></i><i class="b b1"></i><i class="b b2"></i><i class="b b3"></i><i class="b b4"></i></div>
+      <i class="drop d1"></i><i class="drop d2"></i><i class="drop d3"></i>
+    </div>
+    <div class="stat">Status: opening soon</div>
+  </div>
+
+  <div class="tiles">
+    <div class="t"><div class="k">PS5 STATIONS</div><div class="v">2</div><div class="s">on 55" screens</div></div>
+    <div class="t"><div class="k">GAMING PC</div><div class="v">1</div><div class="s">with a 30" monitor</div></div>
+    <div class="t"><div class="k">ALTITUDE</div><div class="v">4F</div><div class="s">IFIC Bank Building</div></div>
+  </div>
+
+  <div class="foot">
+    <div class="fl">What's your gaming forecast?<br><span>Tell us in the comments.</span></div>
+    <div class="bk">champion.gemten.com.bd</div>
+  </div>
+  <div class="pcw">PLAY + CONNECT + WIN</div>
+</div>
+</body></html>
