@@ -1,0 +1,179 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Champion glass door sticker. Physical size 29in wide x 70in tall. All sizes are in real inches. -->
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@page{size:29in 70in;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:29in;height:70in;overflow:hidden}
+
+:root{
+  --blue:#2B83F6;--light:#4DA3FF;--deep:#1F6FE5;--ink:#0B0B0C;--paper:#F4F8FF;
+}
+/* DAY theme (default) */
+.door{
+  --bg:linear-gradient(180deg,#FFFFFF 0%,#F4F8FF 45%,#DCEBFF 100%);
+  --text:#0B0B0C;--sub:#3a4250;--accent:#1F6FE5;--grid:#2B83F612;
+  --card:#FFFFFF;--cardline:#2B83F6;--cardshadow:0 .25in .5in #1F6FE52a;
+  --glow:#4DA3FF55;--ring:#2B83F640;--foot:#0B0B0C;--foottext:#FFFFFF;
+}
+.night .door{
+  --bg:radial-gradient(60% 30% at 50% 78%,#1F6FE560 0%,transparent 70%),linear-gradient(180deg,#0B0B0C 0%,#0A1428 55%,#0B1F45 100%);
+  --text:#FFFFFF;--sub:#C9D8F0;--accent:#4DA3FF;--grid:#4DA3FF14;
+  --card:#0F1A30;--cardline:#4DA3FF;--cardshadow:0 0 .6in #2B83F650;
+  --glow:#2B83F6aa;--ring:#4DA3FF55;--foot:#2B83F6;--foottext:#FFFFFF;
+}
+
+.door{position:relative;width:29in;height:70in;background:var(--bg);color:var(--text);font-family:Rajdhani,sans-serif;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--grid) .04in,transparent .04in),linear-gradient(90deg,var(--grid) .04in,transparent .04in);background-size:1.45in 1.45in;background-position:center top}
+
+/* side rails */
+.rail{position:absolute;top:1in;bottom:7in;width:.18in;border-radius:.1in;background:linear-gradient(180deg,transparent,var(--blue) 15%,var(--light) 50%,var(--blue) 85%,transparent)}
+.rail.l{left:.9in}.rail.r{right:.9in}
+.ticks{position:absolute;top:1.2in;width:.5in;display:flex;flex-direction:column;gap:.28in}
+.ticks i{display:block;height:.1in;background:var(--accent);opacity:.55;border-radius:.05in}
+.ticks.l{left:1.3in}.ticks.r{right:1.3in}
+.ticks i:nth-child(odd){width:.5in}.ticks i:nth-child(even){width:.28in}
+.ticks.r i{margin-left:auto}
+
+/* top strip */
+.strip{position:absolute;top:0;left:0;right:0;height:.6in;background:linear-gradient(90deg,var(--deep),var(--blue) 60%,var(--light))}
+
+/* logo */
+.logo{position:absolute;top:2in;left:2.5in;width:24in}
+.logo img{width:100%;display:block}
+.logo .night-only{display:none}
+.night .logo .day-only{display:none}.night .logo .night-only{display:block}
+
+.zone{position:absolute;top:7.4in;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:.45in;font-family:Orbitron;font-weight:700;font-size:.62in;letter-spacing:.32in;color:var(--accent)}
+.zone::before,.zone::after{content:"";width:3.2in;height:.07in;background:var(--accent);opacity:.6}
+
+/* headline */
+.kick{position:absolute;top:10.1in;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:.4in;font-family:Orbitron;font-weight:700;font-size:.9in;letter-spacing:.3in;color:var(--accent)}
+.play{width:0;height:0;border-top:.42in solid transparent;border-bottom:.42in solid transparent;border-left:.66in solid var(--accent)}
+.h{position:absolute;left:0;right:0;text-align:center;font-family:Orbitron;font-weight:900;white-space:nowrap;line-height:1}
+.h1{top:11.7in}
+.h2{top:14.2in;background:linear-gradient(180deg,var(--light),var(--deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+.fit{display:inline-block}
+
+/* booking panel */
+.book{position:absolute;top:20.4in;left:2in;width:25in;height:11.2in;border-radius:.9in;background:var(--card);border:.12in solid var(--cardline);box-shadow:var(--cardshadow);display:flex;align-items:center;padding:0 1.1in;gap:1.1in}
+.qr{width:8.6in;height:8.6in;flex:none;background:#fff;border-radius:.4in;padding:.45in;border:.06in solid #DCEBFF}
+.qr img{width:100%;height:100%;display:block}
+.btxt{flex:1}
+.btxt .scan{display:inline-block;font-family:Orbitron;font-weight:900;font-size:.62in;letter-spacing:.12in;color:#fff;background:linear-gradient(90deg,var(--deep),var(--blue));padding:.22in .45in;border-radius:.5in}
+.btxt h3{font-family:Orbitron;font-weight:900;font-size:1.32in;line-height:1.08;margin-top:.55in}
+.btxt h3 em{font-style:normal;color:var(--accent)}
+.btxt p{font-weight:700;font-size:.82in;color:var(--sub);margin-top:.5in;line-height:1.15}
+.btxt .url{display:block;font-family:Orbitron;font-weight:700;font-size:.66in;color:var(--accent);margin-top:.12in;letter-spacing:.02in}
+
+/* setup cards */
+.cards{position:absolute;top:33.4in;left:2in;width:25in;height:11.4in;display:flex;gap:1in}
+.card{flex:1;border-radius:.8in;background:var(--card);border:.1in solid var(--cardline);box-shadow:var(--cardshadow);display:flex;flex-direction:column;align-items:center;padding-top:.8in;text-align:center}
+.card svg{height:3.6in}
+.card .num{font-family:Orbitron;font-weight:900;font-size:2.3in;line-height:1;margin-top:.45in;color:var(--accent)}
+.card b{display:block;font-family:Orbitron;font-weight:900;font-size:.88in;letter-spacing:.06in;margin-top:.25in}
+.card small{display:block;font-weight:700;font-size:.9in;color:var(--sub);margin-top:.15in}
+
+/* trophy hero */
+.hero{position:absolute;top:45.6in;left:0;right:0;height:18in}
+.glow{position:absolute;left:50%;top:8.2in;width:17in;height:17in;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,transparent 65%)}
+.ring{position:absolute;left:50%;top:8.2in;transform:translate(-50%,-50%);border-radius:50%;border:.1in solid var(--ring)}
+.ring.a{width:13in;height:13in}
+.ring.b{width:16.5in;height:16.5in;border-style:dashed}
+.rays{position:absolute;left:50%;top:8.2in;width:22in;height:22in;transform:translate(-50%,-50%);border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,var(--ring) 0 4deg,transparent 4deg 18deg);
+  -webkit-mask:radial-gradient(circle,transparent 30%,#000 31%,#000 45%,transparent 70%);mask:radial-gradient(circle,transparent 30%,#000 31%,#000 45%,transparent 70%);opacity:.8}
+.trophy{position:absolute;left:50%;top:2in;height:12.6in;transform:translateX(-50%);filter:drop-shadow(0 .3in .5in #1F6FE555)}
+.podium{position:absolute;left:50%;top:13.6in;transform:translateX(-50%);display:flex;align-items:flex-end;gap:.25in}
+.podium div{width:5.2in;border-radius:.3in .3in 0 0;background:linear-gradient(180deg,var(--light),var(--deep));display:flex;align-items:flex-start;justify-content:center;font-family:Orbitron;font-weight:900;color:#fff;font-size:1in;padding-top:.25in}
+.podium .p2{height:2.6in;opacity:.85}.podium .p1{height:3.6in}.podium .p3{height:2in;opacity:.7}
+
+/* footer */
+.foot{position:absolute;bottom:0;left:0;right:0;height:6.4in;background:var(--foot);color:var(--foottext);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3in}
+.foot::before{content:"";position:absolute;top:-.5in;left:0;right:0;height:.5in;background:repeating-linear-gradient(-45deg,var(--blue) 0 .35in,transparent .35in .7in);opacity:.9}
+.foot .t1{font-family:Orbitron;font-weight:900;font-size:.95in;letter-spacing:.14in}
+.foot .t2{font-weight:700;font-size:.95in;letter-spacing:.04in;opacity:.92}
+.foot .pin{display:inline-block;width:.6in;height:.6in;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--light);margin-right:.35in;vertical-align:-.05in;position:relative}
+.foot .pin::after{content:"";position:absolute;inset:.18in;border-radius:50%;background:var(--foot)}
+</style></head><body>
+<div class="door">
+  <div class="grid"></div>
+  <div class="strip"></div>
+  <div class="rail l"></div><div class="rail r"></div>
+  <div class="ticks l"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="ticks r"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div class="logo">
+    <img class="day-only" src="../../brand/logo-color-on-light.png">
+    <img class="night-only" src="../../brand/logo-white-gradient-trophy.png">
+  </div>
+  <div class="zone">GAMING ZONE</div>
+
+  <div class="kick"><span class="play"></span>PRESS START</div>
+  <div class="h h1"><span class="fit" data-w="22.5">ENTER THE</span></div>
+  <div class="h h2"><span class="fit" data-w="24.5">ARENA</span></div>
+
+  <div class="book">
+    <div class="qr"><img src="qr-booking.svg"></div>
+    <div class="btxt">
+      <span class="scan">SCAN ME</span>
+      <h3>Book Your<br><em>Slot Online</em></h3>
+      <p>Skip the wait. Pick your time.<span class="url">champion.gemten.com.bd</span></p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <!-- generic gamepad -->
+      <svg viewBox="0 0 220 140"><path d="M60 10h100c30 0 45 20 52 50l7 45c4 25-18 38-34 22l-25-25H60l-25 25c-16 16-38 3-34-22l7-45C15 30 30 10 60 10z" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linejoin="round"/>
+        <rect x="47" y="44" width="14" height="44" rx="3" fill="var(--accent)"/><rect x="32" y="59" width="44" height="14" rx="3" fill="var(--accent)"/>
+        <circle cx="160" cy="50" r="9" fill="var(--accent)"/><circle cx="178" cy="68" r="9" fill="var(--accent)"/><circle cx="142" cy="68" r="9" fill="var(--accent)"/><circle cx="160" cy="86" r="9" fill="var(--accent)"/>
+        <circle cx="88" cy="96" r="12" fill="none" stroke="var(--accent)" stroke-width="6"/><circle cx="132" cy="96" r="12" fill="none" stroke="var(--accent)" stroke-width="6"/></svg>
+      <div class="num">2</div>
+      <b>PS5 STATIONS</b>
+      <small>on 55" big screens</small>
+    </div>
+    <div class="card">
+      <!-- monitor + keyboard -->
+      <svg viewBox="0 0 220 140"><rect x="30" y="6" width="160" height="96" rx="8" fill="none" stroke="var(--accent)" stroke-width="9"/>
+        <rect x="44" y="20" width="132" height="68" rx="3" fill="var(--accent)" opacity=".22"/>
+        <path d="M62 74l22-22 16 14 26-30 30 38" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <rect x="100" y="102" width="20" height="16" fill="var(--accent)"/>
+        <rect x="40" y="118" width="140" height="18" rx="5" fill="var(--accent)"/></svg>
+      <div class="num">1</div>
+      <b>GAMING PC</b>
+      <small>with a 30" monitor</small>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="rays"></div>
+    <div class="glow"></div>
+    <div class="ring b"></div><div class="ring a"></div>
+    <img class="trophy" src="../../brand/trophy-gradient.png">
+    <div class="podium"><div class="p2">2</div><div class="p1">1</div><div class="p3">3</div></div>
+  </div>
+
+  <div class="foot">
+    <div class="t1">WELCOME, CHAMPION</div>
+    <div class="t2"><span class="pin"></span>IFIC Bank Building (4th Floor), Ranir Bazar, Cumilla</div>
+  </div>
+</div>
+<script>
+if (location.hash === '#night') document.body.classList.add('night');
+// scale each headline line to an exact width in inches
+document.fonts.ready.then(() => {
+  const IN = 96;
+  document.querySelectorAll('.fit').forEach(el => {
+    el.style.fontSize = '100px';
+    const w = el.getBoundingClientRect().width;
+    el.style.fontSize = (100 * (+el.dataset.w * IN) / w) + 'px';
+  });
+  document.body.dataset.ready = '1';
+});
+</script>
+</body></html>
