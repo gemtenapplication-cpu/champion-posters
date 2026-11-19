@@ -48,8 +48,9 @@ html,body{width:29in;height:70in;overflow:hidden}
 .logo .night-only{display:none}
 .night .logo .day-only{display:none}.night .logo .night-only{display:block}
 
-.zone{position:absolute;top:7.4in;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:.45in;font-family:Orbitron;font-weight:700;font-size:.62in;letter-spacing:.32in;color:var(--accent)}
-.zone::before,.zone::after{content:"";width:3.2in;height:.07in;background:var(--accent);opacity:.6}
+.zone{position:absolute;top:7.3in;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:.45in;font-family:Orbitron;font-weight:700;font-size:.88in;letter-spacing:.26in;color:var(--accent)}
+.zone::before,.zone::after{content:"";width:1.3in;height:.07in;background:var(--accent);opacity:.6}
+.syms{display:inline-flex;gap:.28in}.syms svg{width:.8in;height:.8in}
 
 /* headline */
 .kick{position:absolute;top:10.1in;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:.4in;font-family:Orbitron;font-weight:700;font-size:.9in;letter-spacing:.3in;color:var(--accent)}
@@ -70,13 +71,12 @@ html,body{width:29in;height:70in;overflow:hidden}
 .btxt p{font-weight:700;font-size:.82in;color:var(--sub);margin-top:.5in;line-height:1.15}
 .btxt .url{display:block;font-family:Orbitron;font-weight:700;font-size:.66in;color:var(--accent);margin-top:.12in;letter-spacing:.02in}
 
-/* setup cards */
-.cards{position:absolute;top:33.4in;left:2in;width:25in;height:11.4in;display:flex;gap:1in}
-.card{flex:1;border-radius:.8in;background:var(--card);border:.1in solid var(--cardline);box-shadow:var(--cardshadow);display:flex;flex-direction:column;align-items:center;padding-top:.8in;text-align:center}
-.card svg{height:3.6in}
-.card .num{font-family:Orbitron;font-weight:900;font-size:2.3in;line-height:1;margin-top:.45in;color:var(--accent)}
-.card b{display:block;font-family:Orbitron;font-weight:900;font-size:.88in;letter-spacing:.06in;margin-top:.25in}
-.card small{display:block;font-weight:700;font-size:.9in;color:var(--sub);margin-top:.15in}
+/* tagline pillars */
+.cards{position:absolute;top:33.4in;left:2in;width:25in;height:11.4in;display:flex;gap:.6in}
+.card{flex:1;border-radius:.8in;background:var(--card);border:.1in solid var(--cardline);box-shadow:var(--cardshadow);display:flex;flex-direction:column;align-items:center;padding-top:1.4in;text-align:center}
+.card svg{height:3.5in}
+.card b{display:block;font-family:Orbitron;font-weight:900;font-size:1.1in;letter-spacing:.05in;margin-top:1in;color:var(--accent)}
+.card small{display:block;font-weight:700;font-size:.95in;line-height:1.12;color:var(--sub);margin-top:.45in}
 
 /* trophy hero */
 .hero{position:absolute;top:45.6in;left:0;right:0;height:18in}
@@ -91,6 +91,9 @@ html,body{width:29in;height:70in;overflow:hidden}
 .podium{position:absolute;left:50%;top:13.6in;transform:translateX(-50%);display:flex;align-items:flex-end;gap:.25in}
 .podium div{width:5.2in;border-radius:.3in .3in 0 0;background:linear-gradient(180deg,var(--light),var(--deep));display:flex;align-items:flex-start;justify-content:center;font-family:Orbitron;font-weight:900;color:#fff;font-size:1in;padding-top:.25in}
 .podium .p2{height:2.6in;opacity:.85}.podium .p1{height:3.6in}.podium .p3{height:2in;opacity:.7}
+
+.fs{position:absolute;opacity:.55}.fs svg{display:block;width:100%;height:auto}
+.night .fs{opacity:.7}
 
 /* footer */
 .foot{position:absolute;bottom:0;left:0;right:0;height:6.4in;background:var(--foot);color:var(--foottext);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3in}
@@ -111,7 +114,7 @@ html,body{width:29in;height:70in;overflow:hidden}
     <img class="day-only" src="../../brand/logo-color-on-light.png">
     <img class="night-only" src="../../brand/logo-white-gradient-trophy.png">
   </div>
-  <div class="zone">GAMING ZONE</div>
+  <div class="zone"><span class="syms"><svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="14" stroke-linejoin="round"><polygon points="50,12 90,82 10,82" /></svg><svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="14" stroke-linejoin="round"><circle cx="50" cy="50" r="38" /></svg></span>PLAYSTATION<span class="syms"><svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="14" stroke-linejoin="round"><path d="M18 18L82 82M82 18L18 82" stroke-linecap="round"/></svg><svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="14" stroke-linejoin="round"><rect x="14" y="14" width="72" height="72" rx="4" /></svg></span></div>
 
   <div class="kick"><span class="play"></span>PRESS START</div>
   <div class="h h1"><span class="fit" data-w="22.5">ENTER THE</span></div>
@@ -131,22 +134,24 @@ html,body{width:29in;height:70in;overflow:hidden}
       <!-- generic gamepad -->
       <svg viewBox="0 0 220 140"><path d="M60 10h100c30 0 45 20 52 50l7 45c4 25-18 38-34 22l-25-25H60l-25 25c-16 16-38 3-34-22l7-45C15 30 30 10 60 10z" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linejoin="round"/>
         <rect x="47" y="44" width="14" height="44" rx="3" fill="var(--accent)"/><rect x="32" y="59" width="44" height="14" rx="3" fill="var(--accent)"/>
-        <circle cx="160" cy="50" r="9" fill="var(--accent)"/><circle cx="178" cy="68" r="9" fill="var(--accent)"/><circle cx="142" cy="68" r="9" fill="var(--accent)"/><circle cx="160" cy="86" r="9" fill="var(--accent)"/>
+        <g fill="none" stroke="var(--accent)" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"><polygon points="160,40 169,55 151,55"/><circle cx="181" cy="68" r="8"/><path d="M153 80l14 14M167 80l-14 14"/><rect x="132" y="61" width="14" height="14" rx="1"/></g>
         <circle cx="88" cy="96" r="12" fill="none" stroke="var(--accent)" stroke-width="6"/><circle cx="132" cy="96" r="12" fill="none" stroke="var(--accent)" stroke-width="6"/></svg>
-      <div class="num">2</div>
-      <b>PS5 STATIONS</b>
-      <small>on 55" big screens</small>
+      <b>PLAY</b>
+      <small>PlayStation<br>&amp; PC gaming</small>
     </div>
     <div class="card">
-      <!-- monitor + keyboard -->
-      <svg viewBox="0 0 220 140"><rect x="30" y="6" width="160" height="96" rx="8" fill="none" stroke="var(--accent)" stroke-width="9"/>
-        <rect x="44" y="20" width="132" height="68" rx="3" fill="var(--accent)" opacity=".22"/>
-        <path d="M62 74l22-22 16 14 26-30 30 38" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
-        <rect x="100" y="102" width="20" height="16" fill="var(--accent)"/>
-        <rect x="40" y="118" width="140" height="18" rx="5" fill="var(--accent)"/></svg>
-      <div class="num">1</div>
-      <b>GAMING PC</b>
-      <small>with a 30" monitor</small>
+      <!-- two players -->
+      <svg viewBox="0 0 220 140"><circle cx="146" cy="40" r="22" fill="var(--accent)" opacity=".35"/><path d="M106 134a40 40 0 0 1 80 0z" fill="var(--accent)" opacity=".35"/>
+        <circle cx="84" cy="38" r="26" fill="none" stroke="var(--accent)" stroke-width="9"/><path d="M36 134a48 48 0 0 1 96 0" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round"/></svg>
+      <b>CONNECT</b>
+      <small>Squad up<br>with friends</small>
+    </div>
+    <div class="card">
+      <!-- crown -->
+      <svg viewBox="0 0 220 140"><path d="M36 112L24 30l52 42 34-56 34 56 52-42-12 82z" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linejoin="round"/>
+        <rect x="36" y="122" width="148" height="14" rx="5" fill="var(--accent)"/><circle cx="110" cy="80" r="11" fill="var(--accent)"/></svg>
+      <b>WIN</b>
+      <small>Rise to<br>champion</small>
     </div>
   </div>
 
@@ -154,6 +159,10 @@ html,body{width:29in;height:70in;overflow:hidden}
     <div class="rays"></div>
     <div class="glow"></div>
     <div class="ring b"></div><div class="ring a"></div>
+    <div class="fs" style="left:2.4in;top:1.2in;width:2.6in;transform:rotate(-12deg)"><svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linejoin="round"><polygon points="50,12 90,82 10,82" /></svg></div>
+    <div class="fs" style="right:2.4in;top:2.6in;width:2.3in"><svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linejoin="round"><circle cx="50" cy="50" r="38" /></svg></div>
+    <div class="fs" style="left:3.1in;top:8.4in;width:2in;transform:rotate(8deg)"><svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="10" stroke-linejoin="round"><path d="M18 18L82 82M82 18L18 82" stroke-linecap="round"/></svg></div>
+    <div class="fs" style="right:2.9in;top:9.2in;width:2.3in;transform:rotate(14deg)"><svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linejoin="round"><rect x="14" y="14" width="72" height="72" rx="4" /></svg></div>
     <img class="trophy" src="../../brand/trophy-gradient.png">
     <div class="podium"><div class="p2">2</div><div class="p1">1</div><div class="p3">3</div></div>
   </div>
