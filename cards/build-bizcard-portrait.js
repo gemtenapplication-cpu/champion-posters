@@ -29,6 +29,9 @@ const ICON = {
   pin: '<path fill="currentColor" fill-rule="evenodd" d="M12 2.5a7 7 0 0 0-7 7c0 5.2 7 12 7 12s7-6.8 7-12a7 7 0 0 0-7-7zm0 4.4a2.7 2.7 0 1 1 0 5.4 2.7 2.7 0 0 1 0-5.4z"/>',
   clock: '<g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.3 2.1"/></g>',
 };
+// Champ, the site's mascot (banners/assets/champ-*.svg, taken from champion.gemten.com.bd)
+const champ = (mood, h) => fs.readFileSync(path.join(DIR, '..', 'banners', 'assets', `champ-${mood}.svg`), 'utf8')
+  .replace(/<!--[\s\S]*?-->\s*/, '').replace('<svg ', `<svg style="overflow:visible;display:block;height:${h}mm;width:auto" `);
 const theme = (night) => night
   ? { bg: 'linear-gradient(165deg,#0D1733 0%,#070B16 55%,#0A1531 100%)', ink: '#FFFFFF', muted: '#FFFFFFa8', acc: '#4DA3FF', line: '#4DA3FF', ghost: 0.11, glow: '#2B83F62e' }
   : { bg: 'linear-gradient(165deg,#FFFFFF 0%,#F7FAFF 55%,#E9F1FF 100%)', ink: '#0B0B0C', muted: '#0B0B0C99', acc: '#1F6FE5', line: '#2B83F6', ghost: 0.085, glow: '#DCEBFFcc' };
@@ -40,6 +43,7 @@ function head(night, css) {
 @font-face{font-family:Orbitron;font-weight:700;src:url(${F}/orbitron/files/orbitron-latin-700-normal.woff2)}
 @font-face{font-family:Rajdhani;font-weight:700;src:url(${F}/rajdhani/files/rajdhani-latin-700-normal.woff2)}
 @font-face{font-family:Rajdhani;font-weight:600;src:url(${F}/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(${F}/inter/files/inter-latin-800-normal.woff2)}
 @page{size:${PW}mm ${PH}mm;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:${PW}mm;height:${PH}mm;overflow:hidden}
@@ -88,6 +92,8 @@ function front(night) {
   ${row('pin', 'IFIC Bank Building, 4th Floor<br>Ranir Bazar, Cumilla', 'two')}
   ${row('clock', 'Open 10:00 – 23:00')}
  </div>
+ <div style="position:absolute;left:4.7mm;top:60.2mm;width:17.8mm;height:17.8mm;border-radius:50%;border:.3mm solid ${night ? '#2B83F6' : '#2B83F6'};background:${night ? 'radial-gradient(circle at 50% 40%,#2B83F666 0%,#13254E 75%)' : 'radial-gradient(circle at 50% 40%,#FFFFFF 0%,#E6F0FF 55%,#C9DFFF 100%)'}"></div>
+ <div style="position:absolute;left:${X0 - 1.2}mm;top:58.4mm">${champ('wave', 20.5)}</div>
  <div class="tag o7 mut">PLAY + CONNECT + WIN</div>
 </div></div></body></html>`;
 }
