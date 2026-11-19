@@ -52,11 +52,15 @@ html,body{width:29in;height:70in;overflow:hidden}
 .zone::before,.zone::after{content:"";width:2.6in;height:.07in;background:var(--accent);opacity:.6}
 
 /* headline */
-.kick{position:absolute;top:9.7in;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:.4in;font-family:Orbitron;font-weight:700;font-size:.9in;letter-spacing:.3in;color:var(--accent)}
-.play{width:0;height:0;border-top:.42in solid transparent;border-bottom:.42in solid transparent;border-left:.66in solid var(--accent)}
-.h{position:absolute;left:0;right:0;text-align:center;font-family:Orbitron;font-weight:900;white-space:nowrap;line-height:1}
-.h1{top:11.7in}
-.h2{top:14.2in;background:linear-gradient(180deg,var(--light),var(--deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+.headline{position:absolute;top:9.2in;left:2.4in;width:15.6in;height:10.8in;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.kick{display:flex;align-items:center;gap:.3in;font-family:Orbitron;font-weight:700;font-size:.6in;letter-spacing:.24in;color:var(--accent)}
+.play{width:0;height:0;border-top:.28in solid transparent;border-bottom:.28in solid transparent;border-left:.44in solid var(--accent)}
+.h{font-family:Orbitron;font-weight:700;white-space:nowrap;line-height:1}
+.h1{margin-top:.55in}
+.h2{margin-top:.25in;color:var(--accent)}
+.bar{margin-top:.6in;width:3.4in;height:.14in;border-radius:.07in;background:linear-gradient(90deg,var(--deep),var(--light))}
+.champ{position:absolute;top:9.1in;right:2.4in;height:10.9in}
+.champ-glow{position:absolute;top:9.6in;right:1.4in;width:9.6in;height:9.6in;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,transparent 68%)}
 .fit{display:inline-block}
 
 /* booking panel */
@@ -115,9 +119,14 @@ html,body{width:29in;height:70in;overflow:hidden}
   </div>
   <div class="zone">PLAYSTATION</div>
 
-  <div class="kick"><span class="play"></span>PRESS START</div>
-  <div class="h h1"><span class="fit" data-w="22.5">ENTER THE</span></div>
-  <div class="h h2"><span class="fit" data-w="24.5">ARENA</span></div>
+  <div class="headline">
+    <div class="kick"><span class="play"></span>PRESS START</div>
+    <div class="h h1"><span class="fit" data-w="11.6">ENTER THE</span></div>
+    <div class="h h2"><span class="fit" data-w="13.6">ARENA</span></div>
+    <div class="bar"></div>
+  </div>
+  <div class="champ-glow"></div>
+  <img class="champ" src="champ-wave.svg">
 
   <div class="book">
     <div class="qr"><img src="qr-booking.svg"></div>
@@ -171,7 +180,7 @@ html,body{width:29in;height:70in;overflow:hidden}
 <script>
 if (location.hash === '#night') document.body.classList.add('night');
 // scale each headline line to an exact width in inches
-document.fonts.ready.then(() => {
+Promise.all(['900 1in Orbitron','700 1in Orbitron','700 1in Rajdhani','600 1in Rajdhani'].map(f => document.fonts.load(f))).then(() => document.fonts.ready).then(() => {
   const IN = 96;
   document.querySelectorAll('.fit').forEach(el => {
     el.style.fontSize = '100px';
