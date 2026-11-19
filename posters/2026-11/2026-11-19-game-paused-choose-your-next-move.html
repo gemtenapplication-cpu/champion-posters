@@ -1,0 +1,66 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:500;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-500-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(170deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#2B83F60D 2px,transparent 2px),linear-gradient(90deg,#2B83F60D 2px,transparent 2px);background-size:60px 60px}
+.logo{position:absolute;top:58px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:208px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5;display:flex;align-items:center;gap:16px}
+.pz{display:inline-flex;gap:6px}.pz i{display:block;width:9px;height:26px;background:#1F6FE5;border-radius:2px}
+h1{position:absolute;top:250px;left:76px;font-family:Orbitron;font-weight:900;font-size:84px;line-height:1.05}
+h1 span{display:block;font-size:52px;margin-top:10px}
+h1 em{font-style:normal;color:#2B83F6}
+/* menu */
+.menu{position:absolute;top:470px;left:70px;width:940px;height:690px;border-radius:34px;background:#fff;border:3px solid #2B83F6;box-shadow:0 26px 50px #1F6FE530;overflow:hidden}
+.mh{height:86px;background:linear-gradient(90deg,#1F6FE5,#2B83F6 70%,#4DA3FF);color:#fff;display:flex;align-items:center;padding:0 40px;justify-content:space-between}
+.mh b{font-family:Orbitron;font-weight:900;font-size:30px;letter-spacing:6px;display:flex;align-items:center;gap:18px}
+.mh .pz i{background:#fff;height:28px}
+.mh small{font-family:Orbitron;font-weight:700;font-size:16px;letter-spacing:3px;opacity:.9}
+.rows{padding:20px 30px 0}
+.r{position:relative;height:86px;margin-bottom:8px;border-radius:18px;display:flex;align-items:center;padding:0 26px 0 30px}
+.r .n{width:54px;height:54px;border-radius:14px;background:#F4F8FF;border:2px solid #4DA3FF;font-family:Orbitron;font-weight:900;font-size:24px;color:#1F6FE5;display:flex;align-items:center;justify-content:center;flex:none}
+.r .t{margin-left:24px;flex:1}
+.r .t b{display:block;font-family:Orbitron;font-weight:700;font-size:25px;letter-spacing:2px;line-height:1.1}
+.r .t small{display:block;font-weight:600;font-size:25px;color:#3a4250;line-height:1.2;margin-top:3px}
+.r .chip{font-family:Orbitron;font-weight:700;font-size:14px;letter-spacing:2px;color:#1F6FE5;border:2px solid #4DA3FF;border-radius:30px;padding:7px 14px;flex:none}
+.r + .r{border-top:0}
+.sel{background:linear-gradient(90deg,#1F6FE5,#2B83F6);color:#fff;box-shadow:0 12px 24px #1F6FE545}
+.sel .n{background:#fff;border-color:#fff}
+.sel .t small{color:#E6F0FF}
+.sel .chip{color:#1F6FE5;background:#fff;border-color:#fff}
+.arrow{position:absolute;left:-2px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:18px solid #fff}
+/* footer */
+.cta{position:absolute;top:1188px;left:70px;width:940px;height:74px;border-radius:40px;background:#0B0B0C;color:#fff;display:flex;align-items:center;justify-content:center;gap:14px;font-family:Rajdhani;font-weight:700;font-size:30px;letter-spacing:.5px}
+.cta b{font-family:Orbitron;font-weight:900;color:#4DA3FF;font-size:26px}
+.foot{position:absolute;top:1284px;left:0;width:1080px;text-align:center;font-weight:600;font-size:24px;color:#1F6FE5;letter-spacing:1px}
+</style></head><body>
+<div class="p">
+  <div class="grid"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick"><span class="pz"><i></i><i></i></span>PAUSE MENU</div>
+  <h1>Game Paused.<span>Choose Your <em>Next Move.</em></span></h1>
+
+  <div class="menu">
+    <div class="mh"><b><span class="pz"><i></i><i></i></span>PAUSED</b><small>THE CHAMPION · CUMILLA</small></div>
+    <div class="rows">
+      <div class="r"><div class="n">1</div><div class="t"><b>CONTROLS</b><small>2 PS5 stations on 55" screens</small></div><div class="chip">CONSOLE</div></div>
+      <div class="r"><div class="n">2</div><div class="t"><b>PC MODE</b><small>1 gaming PC with a 30" monitor</small></div><div class="chip">DESK</div></div>
+      <div class="r"><div class="n">3</div><div class="t"><b>MULTIPLAYER</b><small>Bring your Player 2. Play + connect.</small></div><div class="chip">SQUAD</div></div>
+      <div class="r"><div class="n">4</div><div class="t"><b>MAP</b><small>IFIC Bank Building, 4th Floor, Ranir Bazar</small></div><div class="chip">FIND US</div></div>
+      <div class="r sel"><span class="arrow"></span><div class="n">5</div><div class="t"><b>BOOK A SLOT</b><small>champion.gemten.com.bd</small></div><div class="chip">ONLINE</div></div>
+      <div class="r"><div class="n">6</div><div class="t"><b>STATUS</b><small>Doors opening soon. Stay tuned.</small></div><div class="chip">LOADING</div></div>
+    </div>
+  </div>
+
+  <div class="cta">Pick 1 to 6 in the comments: <b>WHAT'S YOUR MOVE?</b></div>
+  <div class="foot">PLAY + CONNECT + WIN · Ranir Bazar, Cumilla</div>
+</div>
+</body></html>
