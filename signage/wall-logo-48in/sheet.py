@@ -95,7 +95,7 @@ html = f'''<!doctype html><html><head><meta charset="utf-8"><style>{fonts}{css}<
   <div class="top"><h1>TROPHY ICON <span>PIECES</span></h1><div class="badge">7 PIECES · INCH · CM · MM</div></div>
   <h2>BIG TROPHY ICON ABOVE THE WORDMARK · 7 PIECES</h2><table>{head}{tbl("icon")}</table>
   <ul class="notes">
-    <li>The sticker prints a thin, faint outline of every one of the 21 pieces at this exact size and spot. Stick each acrylic piece onto its own outline.</li>
+    <li>The wall sticker already prints the full logo (3D look) at this exact size and spot. When the acrylic is ready, mount each piece straight on top of its printed shape.</li>
     <li>Small trophy in the wordmark: the collar is only 3 mm tall and some pieces are 1 mm apart (collar–stem, podium steps). Ask the cutter whether to join collar + stem and the 3 podium steps into one piece.</li>
     <li>Big icon: the same 7 shapes at {IH:.0f}″ tall, so gaps are about 4 mm and every piece is easy to cut and place.</li>
     <li>Heights assume the sticker starts at the floor. If it starts higher, keep the wordmark bottom at {WB:.0f}″ above the floor and shift the outlines with it.</li>

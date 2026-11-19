@@ -1,7 +1,8 @@
 """4 ft x 10 ft (48 x 120 in) office wall sticker behind the manager's desk and chair.
 
-No printed logo: only thin, faint outlines of the 21 acrylic pieces (big trophy icon + CHAMPION wordmark)
-at their exact size and mounting spot, plus frame corners. pieces.json (from build.py) holds wall coordinates.
+The logo is printed in full as a 3D-look acrylic sign (white glossy letters, blue trophy pieces, thickness,
+wall shadow and a blue LED-style halo) at the exact size and spot of the 21 acrylic pieces, so the real acrylic
+can later be mounted straight on top. pieces.json (from build.py) holds wall coordinates.
 Open the HTML with #mock to overlay a desk / chair / seated-person silhouette and a height ruler
 (preview only, never in the print file)."""
 import json, os
@@ -13,12 +14,32 @@ BLOCK_TOP, BLOCK_BOT = IT, WT + LH
 CY = (BLOCK_TOP + BLOCK_BOT) / 2
 outlines = ''.join(f'<path d="{q["d"]}"/>' for q in P)
 
-# frame corners around the whole logo block (icon + wordmark)
-fx0, fx1, fy0, fy1, arm = X0 - 0.95, X0 + LW + 0.95, BLOCK_TOP - 1.6, BLOCK_BOT + 1.5, 2.6
-corners = (f'M{fx0} {fy0+arm}V{fy0}H{fx0+arm} M{fx1-arm} {fy0}H{fx1}V{fy0+arm} '
-           f'M{fx0} {fy1-arm}V{fy1}H{fx0+arm} M{fx1-arm} {fy1}H{fx1}V{fy1-arm}')
-ticks = (f'M24 {fy0-0.5}V{fy0+0.5} M24 {fy1-0.5}V{fy1+0.5} '
-         f'M{fx0-0.5} {WT+LH/2}H{fx0+0.5} M{fx1-0.5} {WT+LH/2}H{fx1+0.5}')
+# 3D-look printed logo: wall shadow, LED halo, extruded thickness, glossy face
+def paths(groups):
+    return ''.join(f'<path d="{q["d"]}"/>' for q in P if q['group'] in groups)
+ALL = paths(('letters', 'small-trophy', 'icon'))
+DEPTH = {'icon': 0.30, 'letters': 0.16, 'small-trophy': 0.07}
+# soft wall shadow: stacked translucent copies, each a little further and wider (vector, no blur filter)
+logo3d = ''.join(f'<g transform="translate({0.012*k:.3f} {0.05*k:.3f})" fill="#000000" fill-opacity="0.045" stroke="#000000" '
+                 f'stroke-opacity="0.045" stroke-width="{0.11*k:.3f}" stroke-linejoin="round" fill-rule="evenodd">{ALL}</g>'
+                 for k in range(1, 8))
+logo3d += ''.join(f'<g fill="none" stroke="#2B83F6" stroke-opacity="{o}" stroke-width="{w}" stroke-linejoin="round">{ALL}</g>'
+                  for w, o in [(1.1, 0.045), (0.85, 0.06), (0.62, 0.08), (0.42, 0.11), (0.25, 0.16)])
+for grp in ('icon', 'letters', 'small-trophy'):
+    d, n = DEPTH[grp], 10
+    side = ('#6F7B8E', '#A9B4C4') if grp == 'letters' else ('#0D2E6E', '#1F5BC4')
+    for i in range(n, 0, -1):
+        t = i / n
+        col = side[0] if i > n * 0.5 else side[1]
+        logo3d += (f'<g transform="translate({d*0.35*t:.4f} {d*t:.4f})" fill="{col}" fill-rule="evenodd">{paths((grp,))}</g>')
+    face = 'url(#faceW)' if grp == 'letters' else 'url(#faceB)'
+    edge = '#FFFFFF' if grp == 'letters' else '#BFE1FF'
+    logo3d += (f'<g fill="{face}" stroke="{edge}" stroke-opacity="0.85" stroke-width="0.025" fill-rule="evenodd">'
+               f'{paths((grp,))}</g>')
+FACE_DEFS = ('<linearGradient id="faceW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/>'
+             '<stop offset="0.55" stop-color="#EEF2F7"/><stop offset="1" stop-color="#C9D2DE"/></linearGradient>'
+             '<linearGradient id="faceB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CCBFF"/>'
+             '<stop offset="0.5" stop-color="#2B83F6"/><stop offset="1" stop-color="#1A5CD6"/></linearGradient>')
 
 def sym(k, x, y, s, r, o):
     shape = {'tri': '<polygon points="50,12 90,82 10,82"/>', 'cir': '<circle cx="50" cy="50" r="38"/>',
@@ -86,14 +107,13 @@ svg.o{{position:absolute;inset:0;width:48in;height:120in}}
 <div class="beams"></div><div class="sheen"></div><div class="horizon"></div><div class="hline"></div>
 <div class="rail l"></div><div class="rail r"></div><div class="top"></div><div class="bot"></div>
 <svg class="o" viewBox="0 0 48 120">
-  <defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient>
+  <defs>{FACE_DEFS}<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient>
   <mask id="gm"><rect x="0" y="84" width="48" height="36" fill="url(#fade)"/></mask></defs>
   <g stroke="#2B83F6" stroke-width="0.035" opacity=".55" mask="url(#gm)">{grid}</g>
   <g fill="none" stroke="#4DA3FF" stroke-linejoin="round" stroke-linecap="round">{syms}</g>
   <g stroke-linecap="round">{streaks}</g>
-  <!-- ACRYLIC PLACEHOLDER: thin faint outlines of the 21 pieces (icon + wordmark), exact size and position -->
-  <g id="acrylic-placeholder" fill="#FFFFFF" fill-opacity=".035" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="0.03" fill-rule="evenodd">{outlines}</g>
-  <path d="{corners} {ticks}" fill="none" stroke="#FFFFFF" stroke-opacity=".28" stroke-width="0.05" stroke-linecap="round"/>
+  <!-- PRINTED LOGO: 3D-look acrylic at the exact size and spot of the 21 pieces (real acrylic goes on top later) -->
+  <g id="logo-3d">{logo3d}</g>
   {mock}
 </svg>
 </div>
