@@ -119,7 +119,7 @@ async function back(night) {
 .url{font-weight:700;font-size:1.98mm;line-height:1}`;
   return head(night, css) + `
 <div class="glow"></div>
-<img class="ghost" src="${B}/trophy-blue.png" style="left:${BL + (W - 22 * 2000 / 2898) / 2}mm;top:${BL - 3}mm;height:22mm">
+<img class="ghost" src="${B}/trophy-blue.png" style="left:${BL + 24.5}mm;top:${BL - 9}mm;height:46mm;-webkit-mask-image:linear-gradient(to bottom,#000 50%,transparent 73%);mask-image:linear-gradient(to bottom,#000 50%,transparent 73%)">
 <div class="bar"></div>
 <div class="trim">
  <div class="c lab o7 acc" style="top:21.5mm">THE CHAMPION COMMUNITY</div>
