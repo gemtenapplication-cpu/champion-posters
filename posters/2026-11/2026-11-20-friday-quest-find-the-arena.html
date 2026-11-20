@@ -1,0 +1,86 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(170deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:radial-gradient(#2B83F622 2px,transparent 2px);background-size:36px 36px}
+.logo{position:absolute;top:58px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:208px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5;display:flex;align-items:center;gap:14px}
+.kick i{width:26px;height:26px;border:4px solid #1F6FE5;transform:rotate(45deg);border-radius:4px;display:block}
+h1{position:absolute;top:250px;left:76px;font-family:Orbitron;font-weight:900;font-size:84px;line-height:1.05}
+h1 span{display:block;color:#2B83F6}
+/* quest card */
+.card{position:absolute;top:478px;left:70px;width:940px;height:690px;border-radius:34px;background:#fff;border:3px solid #2B83F6;box-shadow:0 26px 50px #1F6FE530;overflow:hidden}
+.ch{height:86px;background:linear-gradient(90deg,#1F6FE5,#2B83F6 70%,#4DA3FF);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
+.ch b{font-family:Orbitron;font-weight:900;font-size:28px;letter-spacing:5px}
+.ch small{font-family:Orbitron;font-weight:700;font-size:16px;letter-spacing:3px}
+.body{position:relative;height:604px}
+/* route map on left */
+.map{position:absolute;left:30px;top:28px;width:300px;height:548px;border-radius:24px;background:#F4F8FF;border:2px solid #4DA3FF66;overflow:hidden}
+.map svg{position:absolute;inset:0}
+/* objectives */
+.obj{position:absolute;left:360px;top:26px;width:550px}
+.o{display:flex;align-items:center;height:106px;border-bottom:2px dashed #4DA3FF66}
+.o:last-child{border-bottom:0}
+.o .cb{width:46px;height:46px;border-radius:12px;border:3px solid #2B83F6;flex:none;display:flex;align-items:center;justify-content:center;font-family:Orbitron;font-weight:900;font-size:20px;color:#1F6FE5}
+.o .t{margin-left:22px}
+.o .t b{display:block;font-family:Orbitron;font-weight:700;font-size:16px;letter-spacing:3px;color:#1F6FE5}
+.o .t span{display:block;font-weight:700;font-size:29px;line-height:1.1;margin-top:4px}
+.o.last .cb{background:#2B83F6;color:#fff}
+.reward{position:absolute;left:360px;bottom:28px;width:550px;height:100px;border-radius:20px;background:linear-gradient(90deg,#1F6FE5,#2B83F6);color:#fff;display:flex;align-items:center;padding:0 24px;gap:20px}
+.reward img{width:62px}
+.reward b{display:block;font-family:Orbitron;font-weight:700;font-size:15px;letter-spacing:3px;color:#CFE3FF}
+.reward span{display:block;font-weight:700;font-size:26px;line-height:1.1;margin-top:4px}
+/* footer */
+.cta{position:absolute;top:1192px;left:70px;width:940px;height:74px;border-radius:40px;background:#0B0B0C;color:#fff;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:700;font-size:30px}
+.cta b{font-family:Orbitron;font-weight:900;color:#4DA3FF;font-size:26px}
+.foot{position:absolute;top:1286px;left:0;width:1080px;text-align:center;font-weight:600;font-size:24px;color:#1F6FE5;letter-spacing:1px}
+</style></head><body>
+<div class="p">
+  <div class="grid"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick"><i></i>NEW QUEST</div>
+  <h1>Friday Quest:<span>Find the Arena.</span></h1>
+
+  <div class="card">
+    <div class="ch"><b>QUEST LOG</b><small>MAIN QUEST · CUMILLA</small></div>
+    <div class="body">
+      <div class="map">
+        <svg width="300" height="548" viewBox="0 0 300 548">
+          <path d="M0 140 H300 M0 330 H300 M90 0 V548 M220 0 V548" stroke="#DCEBFF" stroke-width="18"/>
+          <path d="M70 490 C 70 420, 230 420, 220 340 S 70 260, 90 190 S 220 130, 200 80" fill="none" stroke="#2B83F6" stroke-width="6" stroke-dasharray="14 12" stroke-linecap="round"/>
+          <g font-family="Orbitron" font-weight="700" font-size="14" fill="#1F6FE5" letter-spacing="2">
+            <circle cx="70" cy="490" r="16" fill="#fff" stroke="#2B83F6" stroke-width="5"/><text x="96" y="495">START</text>
+            <circle cx="220" cy="340" r="12" fill="#4DA3FF"/>
+            <circle cx="90" cy="190" r="12" fill="#4DA3FF"/>
+          </g>
+          <g transform="translate(200 62)">
+            <path d="M0 26 C -22 0, -18 -30, 0 -30 S 22 0, 0 26 Z" fill="#1F6FE5"/>
+            <circle cx="0" cy="-10" r="8" fill="#fff"/>
+          </g>
+          <g font-family="Orbitron" font-weight="900" font-size="16" fill="#0B0B0C">
+            <text x="24" y="52">ARENA</text><text x="24" y="72" font-size="13" font-weight="700" fill="#1F6FE5">4TH FLOOR</text>
+          </g>
+        </svg>
+      </div>
+      <div class="obj">
+        <div class="o"><div class="cb">1</div><div class="t"><b>OBJECTIVE</b><span>Head to Ranir Bazar, Cumilla</span></div></div>
+        <div class="o"><div class="cb">2</div><div class="t"><b>OBJECTIVE</b><span>Find the IFIC Bank Building</span></div></div>
+        <div class="o"><div class="cb">3</div><div class="t"><b>OBJECTIVE</b><span>Level up to the 4th Floor</span></div></div>
+        <div class="o last"><div class="cb">4</div><div class="t"><b>BONUS</b><span>Book your slot online first</span></div></div>
+      </div>
+      <div class="reward"><img src="../../brand/trophy-white.png"><div><b>QUEST REWARD</b><span>2 PS5 on 55" screens + gaming PC</span></div></div>
+    </div>
+  </div>
+
+  <div class="cta">Book online: <b>champion.gemten.com.bd</b></div>
+  <div class="foot">Who's in your quest party? Tag them below.</div>
+</div>
+</body></html>
