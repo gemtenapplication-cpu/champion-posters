@@ -1,0 +1,85 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(170deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:radial-gradient(#2B83F622 2px,transparent 2px);background-size:36px 36px}
+.logo{position:absolute;top:58px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:208px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5;display:flex;align-items:center;gap:14px}
+.kick i{width:26px;height:26px;border:4px solid #1F6FE5;transform:rotate(45deg);border-radius:4px;display:block}
+h1{position:absolute;top:250px;left:76px;font-family:Orbitron;font-weight:900;font-size:84px;line-height:1.05}
+h1 span{display:block;color:#2B83F6}
+
+/* player card */
+.card{position:absolute;top:478px;left:70px;width:940px;height:700px;border-radius:34px;background:#fff;border:3px solid #2B83F6;box-shadow:0 26px 50px #1F6FE530;overflow:hidden}
+.top{display:flex;align-items:center;gap:30px;padding:28px 40px 0}
+.art{width:170px;height:170px;border-radius:24px;background:linear-gradient(135deg,#1F6FE5,#2B83F6 60%,#4DA3FF);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 14px 28px #1F6FE540;position:relative;overflow:hidden}
+.art img{width:100px;position:relative}
+.art:before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;border:26px solid #ffffff18;left:-50px;top:-50px}
+.meta b{display:block;font-family:Orbitron;font-weight:700;font-size:15px;letter-spacing:4px;color:#1F6FE5}
+.meta h2{font-family:Orbitron;font-weight:900;font-size:40px;line-height:1.1;margin:8px 0 6px}
+.meta span{display:block;font-weight:700;font-size:26px;color:#3a4a63}
+.eq{display:flex;align-items:flex-end;gap:7px;height:44px;margin-top:8px}
+.eq i{display:block;width:10px;border-radius:5px;background:#2B83F6}
+.bar{margin:20px 40px 0;height:12px;border-radius:6px;background:#DCEBFF;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:62%;border-radius:6px;background:linear-gradient(90deg,#1F6FE5,#4DA3FF)}
+.bar u{position:absolute;left:62%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:#fff;border:5px solid #2B83F6}
+.times{display:flex;justify-content:space-between;margin:10px 40px 0;font-family:Orbitron;font-weight:700;font-size:15px;color:#1F6FE5;letter-spacing:2px}
+.list{margin:8px 30px 0}
+.tr{display:flex;align-items:center;height:62px;border-radius:16px;padding:0 18px;gap:20px}
+.tr .n{width:36px;font-family:Orbitron;font-weight:900;font-size:20px;color:#4DA3FF;text-align:center;flex:none}
+.tr .t{flex:1}
+.tr .t b{display:block;font-weight:700;font-size:26px;line-height:1}
+.tr .t span{display:block;font-weight:600;font-size:19px;color:#4b5b75;margin-top:3px}
+.tr .d{font-family:Orbitron;font-weight:700;font-size:14px;letter-spacing:2px;color:#1F6FE5;background:#F4F8FF;border:2px solid #4DA3FF66;border-radius:20px;padding:6px 12px}
+.tr.on{background:#F4F8FF;border:2px solid #2B83F6}
+.tr.on .n{color:#2B83F6}
+.ctrl{position:absolute;bottom:0;left:0;right:0;height:96px;background:linear-gradient(90deg,#1F6FE5,#2B83F6 70%,#4DA3FF);display:flex;align-items:center;justify-content:center;gap:70px}
+.ctrl svg{display:block}
+.cta{position:absolute;top:1212px;left:0;right:0;text-align:center;font-weight:700;font-size:34px}
+.cta b{color:#1F6FE5}
+.foot{position:absolute;top:1268px;left:0;right:0;text-align:center;font-family:Orbitron;font-weight:700;font-size:20px;color:#1F6FE5;letter-spacing:1px}
+</style></head><body>
+<div class="p">
+  <div class="grid"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick"><i></i>SATURDAY PLAYLIST</div>
+  <h1>Now Playing:<span>Saturday Mode.</span></h1>
+
+  <div class="card">
+    <div class="top">
+      <div class="art"><img src="../../brand/trophy-white.png"></div>
+      <div class="meta">
+        <b>NOW PLAYING</b>
+        <h2>Saturday Mode</h2>
+        <span>The Champion &middot; Ranir Bazar, Cumilla</span>
+        <div class="eq"><i style="height:22px"></i><i style="height:40px"></i><i style="height:30px"></i><i style="height:44px"></i><i style="height:18px"></i><i style="height:34px"></i><i style="height:26px"></i></div>
+      </div>
+    </div>
+    <div class="bar"><i></i><u></u></div>
+    <div class="times"><span>PLAY</span><span>CONNECT</span><span>WIN</span></div>
+    <div class="list">
+      <div class="tr on"><div class="n">1</div><div class="t"><b>Big Screen Battles</b><span>2 PS5 stations on 55" screens</span></div><div class="d">PS5</div></div>
+      <div class="tr"><div class="n">2</div><div class="t"><b>Desk Session</b><span>1 gaming PC with a 30" monitor</span></div><div class="d">PC</div></div>
+      <div class="tr"><div class="n">3</div><div class="t"><b>Squad Remix</b><span>Bring your friends along</span></div><div class="d">CO-OP</div></div>
+      <div class="tr"><div class="n">4</div><div class="t"><b>Floor 4 Anthem</b><span>IFIC Bank Building, 4th Floor</span></div><div class="d">MAP</div></div>
+      <div class="tr"><div class="n">5</div><div class="t"><b>Book Your Slot</b><span>champion.gemten.com.bd</span></div><div class="d">ONLINE</div></div>
+    </div>
+    <div class="ctrl">
+      <svg width="40" height="34" viewBox="0 0 40 34"><path d="M6 2v30" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M36 2 12 17l24 15z" fill="#fff"/></svg>
+      <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#fff"/><path d="M25 18v28l22-14z" fill="#1F6FE5"/></svg>
+      <svg width="40" height="34" viewBox="0 0 40 34"><path d="M34 2v30" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M4 2l24 15L4 32z" fill="#fff"/></svg>
+    </div>
+  </div>
+
+  <div class="cta">Book online: <b>champion.gemten.com.bd</b></div>
+  <div class="foot">What song is on your gaming playlist? Comment below.</div>
+</div>
+</body></html>
