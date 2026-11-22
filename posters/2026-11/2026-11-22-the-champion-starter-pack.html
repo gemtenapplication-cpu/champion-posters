@@ -1,0 +1,75 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(170deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#2B83F612 2px,transparent 2px),linear-gradient(90deg,#2B83F612 2px,transparent 2px);background-size:54px 54px}
+.logo{position:absolute;top:58px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:200px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5;display:flex;align-items:center;gap:14px}
+.kick i{width:26px;height:26px;border:4px solid #1F6FE5;transform:rotate(45deg);border-radius:4px;display:block}
+h1{position:absolute;top:242px;left:76px;font-family:Orbitron;font-weight:900;font-size:80px;line-height:1.05}
+h1 span{color:#2B83F6}
+.sub{position:absolute;top:438px;left:80px;font-weight:700;font-size:30px;color:#3a4a63}
+
+.pack{position:absolute;top:500px;left:70px;width:940px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.it{position:relative;height:300px;background:#fff;border:3px solid #2B83F6;border-radius:28px;box-shadow:0 18px 36px #1F6FE522;display:flex;flex-direction:column;align-items:center;padding-top:22px;overflow:hidden}
+.it:nth-child(2n){transform:rotate(1.2deg)}
+.it:nth-child(2n+1){transform:rotate(-1.2deg)}
+.num{position:absolute;top:14px;left:16px;font-family:Orbitron;font-weight:900;font-size:16px;color:#4DA3FF}
+.ic{height:150px;width:240px;display:flex;align-items:center;justify-content:center}
+.it b{font-family:Orbitron;font-weight:900;font-size:21px;margin-top:14px;text-align:center;line-height:1.2}
+.it span{font-weight:700;font-size:22px;color:#3a4a63;text-align:center;margin-top:4px;padding:0 12px;line-height:1.15}
+
+/* tv */
+.tv{width:200px;height:118px;border:8px solid #0B0B0C;border-radius:12px;background:linear-gradient(135deg,#1F6FE5,#4DA3FF);position:relative;display:flex;align-items:center;justify-content:center;font-family:Orbitron;font-weight:900;color:#fff;font-size:30px}
+.tv:after{content:"";position:absolute;bottom:-26px;left:70px;width:44px;height:16px;background:#0B0B0C;border-radius:0 0 8px 8px}
+/* pc */
+.mon{width:180px;height:104px;border:8px solid #0B0B0C;border-radius:10px;background:linear-gradient(135deg,#2B83F6,#4DA3FF);position:relative;display:flex;align-items:center;justify-content:center;font-family:Orbitron;font-weight:900;color:#fff;font-size:28px;margin-top:-34px}
+.mon:after{content:"";position:absolute;bottom:-26px;left:72px;width:20px;height:18px;background:#0B0B0C}
+.kb{position:absolute;margin-top:128px;width:170px;height:22px;border-radius:6px;background:repeating-linear-gradient(90deg,#0B0B0C 0 14px,#3a4a63 14px 18px);}
+/* pin */
+.pin{width:96px;height:96px;border-radius:50% 50% 50% 0;background:#2B83F6;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px #1F6FE540}
+.pin i{transform:rotate(45deg);font-style:normal;font-family:Orbitron;font-weight:900;font-size:36px;color:#fff}
+/* phone */
+.ph{width:86px;height:144px;border:7px solid #0B0B0C;border-radius:18px;background:#F4F8FF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.ph u{display:block;width:52px;height:10px;border-radius:5px;background:#DCEBFF}
+.ph s{display:block;width:56px;height:24px;border-radius:8px;background:#2B83F6;text-decoration:none;color:#fff;font-family:Orbitron;font-weight:900;font-size:10px;line-height:24px;text-align:center}
+/* friends */
+.fr{display:flex;gap:16px}
+.av{width:76px;height:116px;position:relative}
+.av:before{content:"";position:absolute;left:18px;top:0;width:40px;height:40px;border-radius:50%;background:var(--c)}
+.av:after{content:"";position:absolute;left:0;top:48px;width:76px;height:66px;border-radius:38px 38px 12px 12px;background:var(--c)}
+.av em{position:absolute;z-index:1;left:0;right:0;top:64px;text-align:center;font-style:normal;font-family:Orbitron;font-weight:900;color:#fff;font-size:20px}
+.troph{height:140px}
+
+.cta{position:absolute;top:1172px;left:70px;width:940px;height:74px;border-radius:40px;background:linear-gradient(90deg,#1F6FE5,#2B83F6 60%,#4DA3FF);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:30px;gap:10px;box-shadow:0 14px 30px #1F6FE540}
+.cta b{font-family:Orbitron;font-weight:900;font-size:26px}
+.foot{position:absolute;top:1270px;left:0;right:0;text-align:center;font-weight:700;font-size:28px;color:#1F6FE5}
+</style></head>
+<body><div class="p">
+  <div class="grid"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick"><i></i>SUNDAY STARTER PACK</div>
+  <h1>The Champion<br><span>Starter Pack.</span></h1>
+  <div class="sub">Everything you need for game day in Cumilla.</div>
+
+  <div class="pack">
+    <div class="it"><div class="num">01</div><div class="ic"><div class="tv">55"</div></div><b>2 PS5 Stations</b><span>on 55" screens</span></div>
+    <div class="it"><div class="num">02</div><div class="ic"><div class="mon">30"</div><div class="kb"></div></div><b>1 Gaming PC</b><span>with a 30" monitor</span></div>
+    <div class="it"><div class="num">03</div><div class="ic"><div class="fr"><div class="av" style="--c:#1F6FE5"><em>P1</em></div><div class="av" style="--c:#4DA3FF"><em>P2</em></div></div></div><b>Your Player 2</b><span>bring a friend along</span></div>
+    <div class="it"><div class="num">04</div><div class="ic"><div class="pin"><i>4</i></div></div><b>4th Floor</b><span>IFIC Bank Building, Ranir Bazar</span></div>
+    <div class="it"><div class="num">05</div><div class="ic"><div class="ph"><u></u><u></u><s>BOOK</s></div></div><b>Online Booking</b><span>reserve your slot early</span></div>
+    <div class="it"><div class="num">06</div><div class="ic"><img class="troph" src="../../brand/trophy-gradient.png"></div><b>A Winner's Mindset</b><span>Play + Connect + Win</span></div>
+  </div>
+
+  <div class="cta">Book online: <b>champion.gemten.com.bd</b></div>
+  <div class="foot">What's in your gaming starter pack? Comment below.</div>
+</div>
+</body></html>
