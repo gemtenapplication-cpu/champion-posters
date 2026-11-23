@@ -1,0 +1,147 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "cinematic investigation documentary score",
+   "dark hybrid trailer music",
+   "modern thriller sound design",
+   "instrumental",
+   "high fidelity",
+   "punchy wide mix",
+   "consistent tempo"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "rap",
+   "lyrics",
+   "lo-fi",
+   "muddy mix",
+   "retro chiptune"
+  ],
+  "sections": [
+   {
+    "section_name": "Cold Open",
+    "positive_local_styles": [
+     "dark mysterious investigation underscore",
+     "low sustained drones",
+     "clock ticking percussion",
+     "distant metallic hits",
+     "suspense slowly rising",
+     "tension builds toward a hit at the end"
+    ],
+    "negative_local_styles": [
+     "drums groove",
+     "happy"
+    ],
+    "duration_ms": 14600,
+    "lines": []
+   },
+   {
+    "section_name": "Case File Hit",
+    "positive_local_styles": [
+     "massive cinematic braam impact on the downbeat",
+     "glitch stutter",
+     "huge reverb tail fading"
+    ],
+    "negative_local_styles": [
+     "melody"
+    ],
+    "duration_ms": 3000,
+    "lines": []
+   },
+   {
+    "section_name": "Legacy Investigation",
+    "positive_local_styles": [
+     "investigative documentary thriller pulse",
+     "ticking hi-hats and muted pulsing synth bass",
+     "dark piano motif",
+     "curious and mysterious",
+     "steadily driving momentum"
+    ],
+    "negative_local_styles": [
+     "happy",
+     "calm ambient"
+    ],
+    "duration_ms": 29900,
+    "lines": []
+   },
+   {
+    "section_name": "Evidence Action",
+    "positive_local_styles": [
+     "high energy cinematic action trailer music",
+     "hybrid orchestral percussion with pounding toms",
+     "aggressive pulsing synth bass",
+     "braams on downbeats",
+     "excitement and curiosity",
+     "building intensity"
+    ],
+    "negative_local_styles": [
+     "soft",
+     "slow"
+    ],
+    "duration_ms": 32500,
+    "lines": []
+   },
+   {
+    "section_name": "Heist Chase",
+    "positive_local_styles": [
+     "most intense heist chase music",
+     "fast driving percussion",
+     "staccato strings and distorted synth bass",
+     "adrenaline",
+     "relentless"
+    ],
+    "negative_local_styles": [
+     "calm"
+    ],
+    "duration_ms": 20000,
+    "lines": []
+   },
+   {
+    "section_name": "Verdict Peak",
+    "positive_local_styles": [
+     "epic triumphant climax",
+     "huge drums and big brass-like synth chords",
+     "victorious",
+     "ends with a hard stop"
+    ],
+    "negative_local_styles": [
+     "quiet"
+    ],
+    "duration_ms": 10300,
+    "lines": []
+   },
+   {
+    "section_name": "Case Closed",
+    "positive_local_styles": [
+     "sudden drop to near silence",
+     "single sustained eerie tone",
+     "soft ticking clock",
+     "anticipation"
+    ],
+    "negative_local_styles": [
+     "drums"
+    ],
+    "duration_ms": 5700,
+    "lines": []
+   },
+   {
+    "section_name": "Champion",
+    "positive_local_styles": [
+     "modern energetic electronic gaming hype",
+     "punchy confident beat",
+     "uplifting bright synths",
+     "premium brand commercial energy",
+     "strong final button hit ending"
+    ],
+    "negative_local_styles": [
+     "dark",
+     "sad"
+    ],
+    "duration_ms": 28340,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}
