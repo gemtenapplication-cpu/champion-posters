@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Builds the Champion opening trailer end to end.
 #   ./make.sh en <piper_voice.onnx> <frames_dir>   English: Piper TTS (en_US-ryan-high)          -> champion-opening-trailer-1080p.mp4
-#   ./make.sh bn <frames_dir>                      Bangla: ElevenLabs eleven_v3, voice Rakib,
+#   VOICE=rayhan ./make.sh bn <frames_dir>         Bangla: ElevenLabs eleven_v3, voice Rayhan (or rakib),
 #                                                  on-screen text in Tiro Bangla                  -> champion-opening-trailer-bangla-1080p.mp4
 # The Bangla cut reuses the English cut (build/timings.json) as its design timeline, so build English first.
 # Steps: vo.py (voice-over on the timeline) -> score.py (original score, ducked) -> frames.js (renders trailer.html

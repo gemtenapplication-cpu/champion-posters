@@ -1,7 +1,7 @@
 """Voice-over for the Champion opening trailer, placed on the trailer timeline.
 
   python3 vo.py en <piper_voice.onnx>   English, Piper TTS (en_US-ryan-high)          -> build/
-  python3 vo.py bn                      Bangla, ElevenLabs eleven_v3, voice Rakib     -> build_bn/
+  VOICE=rayhan python3 vo.py bn         Bangla, ElevenLabs eleven_v3 (rayhan | rakib)  -> build_bn/
                                         (the API key is injected by the network proxy)
 
 Each fragment is synthesised on its own so the dramatic pauses are exact, then processed into a trailer voice
@@ -36,17 +36,19 @@ FRAGS = {
            ('F1', 30.0, 'শুভ উদ্বোধন।'), ('F2', 31.4, 'পঁচিশে নভেম্বর।'), ('F3', 33.3, 'সকাল দশটায়।'),
            ('G1', 36.0, 'এখনই স্লট বুক করো, চ্যাম্পিয়ন ডট জেমটেন ডট কম ডট বিডি।'), ('G2', 40.4, 'শুরু হোক খেলা!')],
 }[LANG]
-EL_VOICE = 'VizHiwkPO7hXc967v4tE'        # Rakib - Deep, Authoritative (Bangladeshi Bengali, ElevenLabs voice library)
+EL_VOICES = {'rakib': 'VizHiwkPO7hXc967v4tE',     # Rakib - Deep, Authoritative (ElevenLabs voice library)
+             'rayhan': 'vvOYlSJHf8lTWIG4tDNP'}    # Rayhan - Engaging & Excitement, advertisement (ElevenLabs voice library)
+EL_NAME = os.environ.get('VOICE', 'rayhan'); EL_VOICE = EL_VOICES[EL_NAME]
 
 def synth(fid, text, raw):
     if LANG == 'en':
         subprocess.run([sys.executable, '-m', 'piper', '-m', sys.argv[2], '-f', raw, '--length-scale', '1.16',
                         '--sentence-silence', '0.25'], input=text.encode(), check=True, capture_output=True)
         return
-    mp3 = raw.replace('.wav', '.mp3')
+    mp3 = raw.replace('_raw.wav', f'_{EL_NAME}.mp3')
     if not os.path.exists(mp3):            # cache: each fragment costs API characters
         body = json.dumps({'text': text, 'model_id': 'eleven_v3', 'language_code': 'bn',
-                           'voice_settings': {'stability': 0.5, 'similarity_boost': 0.8, 'style': 0.35}}).encode()
+                           'voice_settings': {'stability': 0.45, 'similarity_boost': 0.8, 'style': 0.45}}).encode()
         req = urllib.request.Request(f'https://api.elevenlabs.io/v1/text-to-speech/{EL_VOICE}?output_format=mp3_44100_128',
                                      data=body, headers={'Content-Type': 'application/json', 'xi-api-key': 'proxy-injected'})
         open(mp3, 'wb').write(urllib.request.urlopen(req, timeout=180).read())
