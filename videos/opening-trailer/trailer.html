@@ -6,6 +6,8 @@
 @font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
 @font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
 @font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:'Tiro Bangla';font-weight:400;src:url(../../node_modules/@fontsource/tiro-bangla/files/tiro-bangla-bengali-400-normal.woff2);unicode-range:U+0951-0952,U+0964-0965,U+0980-09FE,U+1CD0,U+1CD5-1CD6,U+1CD8,U+1CE1,U+1CEA,U+1CED,U+1CF2,U+1CF5-1CF7,U+200C-200D,U+25CC,U+A8F1}
+@font-face{font-family:'Tiro Bangla';font-weight:400;src:url(../../node_modules/@fontsource/tiro-bangla/files/tiro-bangla-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 html,body{margin:0;background:#000}canvas{display:block}
 </style></head><body>
 <canvas id="c" width="1920" height="1080"></canvas>
@@ -14,6 +16,25 @@ const W = 1920, H = 1080, CX = W / 2, CY = H / 2;
 const c = document.getElementById('c'), g = c.getContext('2d');
 const BLUE = '#2B83F6', LIGHT = '#4DA3FF', DEEP = '#1F6FE5', SKY = '#6BB8FF';
 let TM, IMG = {}, NOISE = [];
+const Q = new URLSearchParams(location.search), LANG = Q.get('lang') || 'en', BUILD = LANG === 'en' ? 'build' : 'build_' + LANG;
+const BN = {
+  'CUMILLA': 'কুমিল্লা', 'YOUR GAME HAS BEEN WAITING': 'তোমার খেলা অপেক্ষা করছে', 'BIG SCREENS': 'বিশাল স্ক্রিন',
+  'REAL RIVALS': 'আসল প্রতিদ্বন্দ্বী', 'PLAYSTATION': 'প্লেস্টেশন', '& PC GAMING': 'আর পিসি গেমিং', 'FLOOR': 'তলা',
+  'A NEW ARENA RISES': 'জেগে উঠছে নতুন এরিনা', '4TH FLOOR': 'চারতলা', 'IFIC BANK BUILDING · RANIR BAZAR': 'আইএফআইসি ব্যাংক ভবন · রানীর বাজার',
+  'BRING YOUR SQUAD': 'দলবল নিয়ে এসো', 'JOIN THE': 'যোগ দাও', 'ARENA': 'এরিনায়', 'CLIMB THE RANKS': 'উঠে যাও শীর্ষে',
+  'BUT ONLY ONE...': 'কিন্তু একজনই...', 'WILL BE THE CHAMPION': 'হবে চ্যাম্পিয়ন', 'GRAND OPENING': 'শুভ উদ্বোধন', 'NOVEMBER': 'নভেম্বর',
+  'AM': 'সকাল', 'GRAND OPENING  ·  25 NOVEMBER  ·  10:00 AM': 'শুভ উদ্বোধন  ·  ২৫ নভেম্বর  ·  সকাল ১০টা',
+  'BOOK NOW: champion.gemten.com.bd': 'বুকিং: champion.gemten.com.bd',
+  'IFIC BANK BUILDING (4TH FLOOR) · RANIR BAZAR · CUMILLA': 'আইএফআইসি ব্যাংক ভবন (৪র্থ তলা) · রানীর বাজার · কুমিল্লা',
+  'GAME ON': 'শুরু হোক খেলা!' };
+const L = s => (LANG === 'bn' && BN[s]) ? BN[s] : s;
+const isBn = s => /[\u0980-\u09FF]/.test(s);
+const bnDigits = s => s.replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+let WR = [0, 1], WD = [0, 1];
+function warp(t) {            // real time -> design time (piecewise linear)
+  for (let i = 1; i < WR.length; i++) if (t <= WR[i]) return WD[i - 1] + (t - WR[i - 1]) * (WD[i] - WD[i - 1]) / Math.max(1e-6, WR[i] - WR[i - 1]);
+  return WD[WD.length - 1] + (t - WR[WR.length - 1]);
+}
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const p = (t, a, b) => clamp((t - a) / (b - a));
 const eo = x => 1 - Math.pow(1 - x, 3), ei = x => x * x * x, eio = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
@@ -21,13 +42,14 @@ const back = x => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x 
 function rnd(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
 
 async function init() {
-  TM = await (await fetch('build/timings.json')).json();
+  TM = await (await fetch(BUILD + '/timings.json')).json();
+  const w = TM.warp || [[0, 0], [TM.total, TM.total]]; WR = w.map(a => a[0]); WD = w.map(a => a[1]);
   const load = (k, src) => new Promise(r => { const i = new Image(); i.onload = () => { IMG[k] = i; r(); }; i.src = src; });
   await Promise.all([
     load('wordmark', '../../brand/wordmark-white-gradient-trophy.png'),
     load('logo', '../../brand/logo-white-gradient-trophy.png'),
     load('trophy', '../../brand/trophy-gradient.png'),
-    document.fonts.load('900 40px Orbitron'), document.fonts.load('700 40px Orbitron'), document.fonts.load('700 40px Rajdhani')]);
+    document.fonts.load('900 40px Orbitron'), document.fonts.load("400 40px 'Tiro Bangla'", 'কখগ'), document.fonts.load('700 40px Orbitron'), document.fonts.load('700 40px Rajdhani')]);
   const R = rnd(99);
   for (let k = 0; k < 4; k++) {           // film grain tiles
     const n = document.createElement('canvas'); n.width = n.height = 256; const nx = n.getContext('2d');
@@ -37,14 +59,20 @@ async function init() {
   }
   window.READY = true;
 }
-const S = k => TM.vo[k].start, E = k => TM.vo[k].end;
+const DES = () => TM.design || TM.vo;
+const S = k => DES()[k].start, E = k => DES()[k].end;
 
 // ---------- helpers
 function text(s, x, y, size, { font = 'Orbitron', w = 900, fill = '#fff', ls = 0, align = 'center', alpha = 1, glow = 0, glowColor = LIGHT, stroke = null, sw = 2 } = {}) {
+  s = L(s);
+  if (LANG === 'bn' && !/[A-Za-z]/.test(s)) s = bnDigits(s);
+  const bn = isBn(s);
+  if (bn) { font = "'Tiro Bangla'"; w = 400; ls = Math.min(ls, 4); size *= 1.05; }
   g.save(); g.globalAlpha *= alpha; g.font = `${w} ${size}px ${font}`; g.letterSpacing = ls + 'px';
   g.textAlign = align; g.textBaseline = 'middle';
   if (glow) { g.shadowColor = glowColor; g.shadowBlur = glow; }
   if (stroke) { g.strokeStyle = stroke; g.lineWidth = sw; g.strokeText(s, x, y); }
+  if (bn && fill) { g.strokeStyle = fill; g.lineWidth = Math.max(1.5, size * 0.035); g.lineJoin = 'round'; g.strokeText(s, x, y); g.shadowBlur = 0; }
   if (fill) { g.fillStyle = fill; g.fillText(s, x, y); }
   g.restore();
 }
@@ -165,7 +193,8 @@ function sheen(k, x, y, w, pos, alpha) {    // light sweep across an image (mask
 }
 
 // ---------- the frame
-function draw(t) {
+function draw(treal) {
+  const t = warp(treal);
   const LOGO = TM.logo, hits = TM.hits;
   g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
   // background
@@ -286,7 +315,7 @@ function draw(t) {
       g.save(); g.translate(CX, CY - 40); g.globalCompositeOperation = 'lighter';
       for (let k = 0; k < 3; k++) { g.strokeStyle = `rgba(77,163,255,${.6 - k * .15})`; g.lineWidth = 6 - k; g.beginPath(); g.ellipse(0, 0, (300 + k * 120) * eo(p(age, 0, .4)), (300 + k * 120) * .32 * eo(p(age, 0, .4)), 0, 0, 7); g.stroke(); }
       g.restore(); rays(CX, CY - 40, 14, 900, .14, age * .3);
-      const m = slam(age, 1.6); g.save(); g.translate(CX, CY - 40); g.scale(m.s, m.s); text('JOIN THE', 0, -140, 64, { w: 700, ls: 20, fill: SKY, alpha: m.a }); glitchText('ARENA', 0, 30, 220, age, { glow: 50, alpha: m.a }); g.restore();
+      const m = slam(age, 1.6); g.save(); g.translate(CX, CY - 40); g.scale(m.s, m.s); text('JOIN THE', 0, LANG === 'bn' ? -190 : -140, 64, { w: 700, ls: 20, fill: SKY, alpha: m.a }); glitchText('ARENA', 0, 30, 220, age, { glow: 50, alpha: m.a }); g.restore();
     } else {
       const age = t - d3;
       for (let k = 0; k < 5; k++) {        // rank chevrons stacking up
@@ -350,7 +379,8 @@ function draw(t) {
       g.fillStyle = 'rgba(11,30,70,.85)'; g.strokeStyle = LIGHT; g.lineWidth = 4; g.shadowColor = LIGHT; g.shadowBlur = 25;
       g.beginPath(); g.roundRect(-300, -62, 600, 124, 24); g.fill(); g.stroke(); g.shadowBlur = 0;
       const colon = (Math.floor(age * 2) % 2 === 0) ? ':' : ' ';
-      text('10' + colon + '00', -60, 4, 92, { alpha: m.a, glow: 20 }); text('AM', 190, 6, 60, { fill: SKY, alpha: m.a });
+      if (LANG === 'bn') { text('AM', -170, 4, 62, { fill: SKY, alpha: m.a }); text('10' + colon + '00', 70, 4, 92, { alpha: m.a, glow: 20 }); }
+      else { text('10' + colon + '00', -60, 4, 92, { alpha: m.a, glow: 20 }); text('AM', 190, 6, 60, { fill: SKY, alpha: m.a }); }
       g.restore();
     } else if (t > S('F2') + .2) {         // clock ticking toward 10:00 before the slam
       const k = Math.floor(p(t, S('F2') + .2, S('F3') - .05) * 6);
@@ -392,6 +422,7 @@ function draw(t) {
   g.restore();
   const bar = 108; g.fillStyle = '#000'; g.fillRect(0, 0, W, bar); g.fillRect(0, H - bar, W, bar);
   if (t < 0.6) { g.fillStyle = `rgba(0,0,0,${1 - t / 0.6})`; g.fillRect(0, 0, W, H); }
+  if (treal > TM.total - 0.8) { g.fillStyle = `rgba(0,0,0,${(treal - TM.total + 0.8) / 0.8})`; g.fillRect(0, 0, W, H); }
 }
 init();
 </script></body></html>

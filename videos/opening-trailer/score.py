@@ -2,14 +2,19 @@
 Drone bed, driving pulse, impacts / braams on the cuts, whooshes, risers, heartbeat, clock ticks, final logo hit.
 Hits are placed from build/timings.json so they land on the voice-over. Music ducks under the voice.
 Writes build/score.wav and build/mix.wav (stereo 48 kHz)."""
-import json, os, wave
+import json, os, sys, wave
 import numpy as np
 from scipy.signal import butter, sosfilt
 
-HERE = os.path.dirname(os.path.abspath(__file__)); B = os.path.join(HERE, 'build')
+HERE = os.path.dirname(os.path.abspath(__file__)); B = os.path.join(HERE, sys.argv[1] if len(sys.argv) > 1 else 'build')
 SR = 48000
-tm = json.load(open(os.path.join(B, 'timings.json'))); V = tm['vo']; TOTAL = tm['total']
+tm = json.load(open(os.path.join(B, 'timings.json')))
+V = tm.get('design', tm['vo'])                      # all event times below are DESIGN times (the English cut)
+TOTAL = tm['total']                                 # real length of this language's trailer
+WR, WD = (np.array(a) for a in zip(*tm.get('warp', [[0, 0], [TOTAL, TOTAL]])))
+def Wt(td): return float(np.interp(td, WD, WR))     # design time -> real time
 N = int(TOTAL * SR); t_all = np.arange(N) / SR
+tau_all = np.interp(t_all, WR, WD)                  # real sample -> design time
 L = np.zeros(N); R = np.zeros(N)
 rng = np.random.default_rng(7)
 
@@ -17,7 +22,7 @@ def lp(x, f, o=4): return sosfilt(butter(o, f, 'low', fs=SR, output='sos'), x)
 def hp(x, f, o=4): return sosfilt(butter(o, f, 'high', fs=SR, output='sos'), x)
 def bp(x, f1, f2, o=2): return sosfilt(butter(o, [f1, f2], 'band', fs=SR, output='sos'), x)
 def put(x, t0, gain=1.0, pan=0.0):
-    i = int(t0 * SR); n = min(len(x), N - i)
+    i = int(Wt(t0) * SR); n = min(len(x), N - i)
     if n <= 0: return
     L[i:i+n] += x[:n] * gain * np.sqrt(0.5 * (1 - pan)) * 1.414
     R[i:i+n] += x[:n] * gain * np.sqrt(0.5 * (1 + pan)) * 1.414
@@ -91,8 +96,8 @@ drone = np.zeros(N)
 for f, g in [(41.2, 0.5), (61.7, 0.3), (82.4, 0.22), (123.5, 0.08)]:
     drone += g * np.sin(2 * np.pi * f * t_all + 0.3 * np.sin(2 * np.pi * 0.07 * t_all))
 air = lp(hp(rng.standard_normal(N), 300), 2500) * 0.05
-shape = np.interp(t_all, [0, 3, 8, 22.5, 24, 26.3, 26.5, 29.5, 36, 42, 44], [0.2, 0.55, 0.6, 0.9, 0.35, 0.5, 1.0, 0.8, 0.55, 0.5, 0])
-put((drone + air) * shape * 0.32, 0)
+shape = np.interp(tau_all, [0, 3, 8, 22.5, 24, 26.3, 26.5, 29.5, 36, 42, 44], [0.2, 0.55, 0.6, 0.9, 0.35, 0.5, 1.0, 0.8, 0.55, 0.5, 0])
+L += (drone + air) * shape * 0.32; R += (drone + air) * shape * 0.32
 
 # ---- driving pulse 8.0 - 22.6 (120 bpm), ticks on the off-beats, building
 for i, tb in enumerate(np.arange(7.8, 22.6, 0.5)):
@@ -116,7 +121,7 @@ put(whoosh(1.4, True), 14.0, 0.3, pan=-0.5)
 # ---- tension: silence-ish, heartbeat, riser into the logo slam
 LOGO = round(V['E2']['end'] + 0.02, 2)
 put(heartbeat(), S('E1') - 0.2, 0.75); put(heartbeat(), S('E1') + 0.75, 0.6)
-put(riser(LOGO - 23.4), 23.4, 0.55)
+put(riser(Wt(LOGO) - Wt(23.4)), 23.4, 0.55)
 put(rev_swell(1.0), LOGO - 1.0, 0.8)
 put(add(braam(41.2, 4.5, 1.2), impact(1.2, 3.0)), LOGO, 0.95)
 put(hp(rng.standard_normal(int(2.5 * SR)), 5000) * env_exp(int(2.5 * SR), 1.8) * 0.12, LOGO, 1.0)   # shimmer
@@ -125,7 +130,7 @@ for k in range(6):
     put(tick(), S('F2') + 0.2 + k * 0.33, 0.18)
 put(impact(0.6), S('F3') - 0.05, 0.55)
 # ---- end
-fade = np.interp(t_all, [0, 42.6, 44], [1, 1, 0])
+fade = np.interp(tau_all, [0, 42.6, 44], [1, 1, 0])
 L *= fade; R *= fade
 score = np.stack([L, R], 1)
 score /= np.max(np.abs(score)) + 1e-9
@@ -145,5 +150,5 @@ def write(p, x):
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
         w.writeframes((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes())
 write(os.path.join(B, 'score.wav'), score * 0.9); write(os.path.join(B, 'mix.wav'), mix)
-json.dump({**tm, 'logo': LOGO, 'hits': [h[0] for h in hits]}, open(os.path.join(B, 'timings.json'), 'w'), indent=1)
-print('logo slam at', LOGO, 'hits', [round(h[0], 2) for h in hits])
+json.dump({**tm, 'logo': LOGO, 'hits': [h[0] for h in hits]}, open(os.path.join(B, 'timings.json'), 'w'), indent=1, ensure_ascii=False)
+print('logo slam at design', LOGO, 'real', round(Wt(LOGO), 2), 'hits', [round(h[0], 2) for h in hits])
