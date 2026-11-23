@@ -1,0 +1,188 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "cinematic documentary score",
+   "1980s Miami synthwave",
+   "analog synthesizers",
+   "neon nighttime atmosphere",
+   "instrumental",
+   "high fidelity",
+   "consistent key and tempo across sections"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "rap",
+   "lyrics",
+   "lo-fi",
+   "muddy mix"
+  ],
+  "sections": [
+   {
+    "section_name": "Cold Open",
+    "positive_local_styles": [
+     "slow atmospheric opening",
+     "warm analog synth pads",
+     "distant sunset ambience",
+     "soft pulsing sub bass",
+     "gradual tension build",
+     "rising swell into a big hit at the end"
+    ],
+    "negative_local_styles": [
+     "drums",
+     "busy melody"
+    ],
+    "duration_ms": 21480,
+    "lines": []
+   },
+   {
+    "section_name": "Title Hit",
+    "positive_local_styles": [
+     "massive cinematic synth impact on the downbeat",
+     "bold main theme statement",
+     "huge reverb tail",
+     "80s Miami neon power"
+    ],
+    "negative_local_styles": [
+     "quiet intro"
+    ],
+    "duration_ms": 5000,
+    "lines": []
+   },
+   {
+    "section_name": "Retro Era",
+    "positive_local_styles": [
+     "nostalgic 1980s synthwave groove",
+     "mid tempo gated reverb drums",
+     "arpeggiated synth bass",
+     "warm lead melody kept low",
+     "laid back"
+    ],
+    "negative_local_styles": [
+     "aggressive"
+    ],
+    "duration_ms": 27074,
+    "lines": []
+   },
+   {
+    "section_name": "The Leak",
+    "positive_local_styles": [
+     "dark tense minor key",
+     "glitchy digital textures",
+     "ticking hi-hats",
+     "ominous low drones",
+     "suspense thriller underscore"
+    ],
+    "negative_local_styles": [
+     "happy",
+     "bright"
+    ],
+    "duration_ms": 24615,
+    "lines": []
+   },
+   {
+    "section_name": "First Trailer",
+    "positive_local_styles": [
+     "energetic bright Miami synthwave drive",
+     "driving four on the floor kick",
+     "shimmering arpeggios",
+     "excitement and hype"
+    ],
+    "negative_local_styles": [
+     "dark"
+    ],
+    "duration_ms": 18316,
+    "lines": []
+   },
+   {
+    "section_name": "Leonida",
+    "positive_local_styles": [
+     "warm tropical sunset synthwave",
+     "smooth groove with congas and soft percussion",
+     "romantic yet dangerous Bonnie and Clyde mood",
+     "lush pads",
+     "cinematic"
+    ],
+    "negative_local_styles": [
+     "harsh"
+    ],
+    "duration_ms": 32978,
+    "lines": []
+   },
+   {
+    "section_name": "Delays",
+    "positive_local_styles": [
+     "suspenseful pulsing heist underscore",
+     "building tension",
+     "staccato synth ostinato",
+     "growing intensity",
+     "rising toward a peak"
+    ],
+    "negative_local_styles": [
+     "calm"
+    ],
+    "duration_ms": 27962,
+    "lines": []
+   },
+   {
+    "section_name": "Launch Day",
+    "positive_local_styles": [
+     "triumphant euphoric climax",
+     "full drums and big synth chords",
+     "main theme returns at full power",
+     "celebratory",
+     "epic cinematic"
+    ],
+    "negative_local_styles": [
+     "sad",
+     "quiet"
+    ],
+    "duration_ms": 31071,
+    "lines": []
+   },
+   {
+    "section_name": "Controversy",
+    "positive_local_styles": [
+     "stripped back tense mood",
+     "dark bass pulse",
+     "uneasy dissonant pads",
+     "sparse percussion"
+    ],
+    "negative_local_styles": [
+     "triumphant"
+    ],
+    "duration_ms": 20092,
+    "lines": []
+   },
+   {
+    "section_name": "What Next",
+    "positive_local_styles": [
+     "hopeful airy synth pads",
+     "gentle rebuilding rhythm",
+     "curious forward looking mood",
+     "soft arpeggios"
+    ],
+    "negative_local_styles": [
+     "aggressive"
+    ],
+    "duration_ms": 18316,
+    "lines": []
+   },
+   {
+    "section_name": "Outro",
+    "positive_local_styles": [
+     "warm reprise of the main theme",
+     "emotional nostalgic synthwave",
+     "gentle final chords",
+     "slow fade to silence at the end"
+    ],
+    "negative_local_styles": [
+     "abrupt ending"
+    ],
+    "duration_ms": 19856,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}
