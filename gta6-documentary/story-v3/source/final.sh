@@ -6,5 +6,5 @@ ffmpeg -v error -y -f concat -safe 0 -i clips/ov_list.txt -c copy clips/overlay.
 T=$(python3 -c "import json;print(json.load(open('timeline.json'))['total'])")
 ffmpeg -v error -y -i clips/base.mp4 -i clips/overlay.mov -i clips/mix.wav \
   -filter_complex "[0:v][1:v]overlay=eof_action=pass,format=yuv420p[v]" -map "[v]" -map 2:a -t $T \
-  -c:v libx264 -preset slow -crf 17 -profile:v high -r 30 -c:a aac -b:a 320k -movflags +faststart The_Story_of_GTA_VI_v3.mp4
-ffprobe -v error -show_entries format=duration,size -of compact The_Story_of_GTA_VI_v3.mp4
+  -c:v libx264 -preset medium -crf 19 -profile:v high -r 30 -c:a aac -b:a 320k -movflags +faststart The_Story_of_GTA_VI_v4.mp4
+ffprobe -v error -show_entries format=duration,size -of compact The_Story_of_GTA_VI_v4.mp4

@@ -55,7 +55,6 @@ for i in range(3): add(Ls("e7")+.4+i*.7, "notif", -9)
 a = Ls("p2") - .3
 add(a, "whoosh", -8); add(a + .1, "logo", -3, at_peak=True); add(a + .1, "subdrop", -8, at_peak=True)
 for t in [Ls("p3")-.1, Ls("p4")-.1, Ls("p5")-.1]: add(t - .1, "whoosh", -12)
-add(Ls("p4")+.6, "keys", -14, 2.2); add(Ls("p5")+1.4, "keypad", -17, 3.9)
 add(Ls("p6")-.2, "braam", -4, at_peak=True); add(Ls("p6")-.2, "logo", -5, at_peak=True); add(TOTAL - 3.0, "boomtail", -10)
 
 # --- footage-synced action SFX: (src, source_time, sfx, peak)
@@ -95,21 +94,65 @@ f.append("".join(vl) + f"amix=inputs={len(vl)}:normalize=0,apad=whole_dur={TOTAL
          "rubberband=pitch=0.9:formant=preserved:pitchq=quality,highpass=f=60,lowshelf=f=140:g=4,equalizer=f=320:t=q:w=1:g=-2.5,"
          "equalizer=f=3200:t=q:w=1.3:g=3,highshelf=f=9000:g=1.5,acompressor=threshold=-24dB:ratio=3.5:attack=5:release=110:makeup=3,"
          "aecho=0.85:0.35:28|46:0.07|0.04,aformat=channel_layouts=stereo,volume=8dB[vox]")
-f.append("[vox]asplit=3[vo][k1][k2]")
+f.append(f"[vox]atrim=0:{TOTAL}[vo]")
 f.append(f"[{mA}]aformat=sample_rates=48000:channel_layouts=stereo,afade=t=out:st=172.2:d=0.35[ma]")
 f.append(f"[{mB}]aformat=sample_rates=48000:channel_layouts=stereo,afade=t=in:d=0.15,adelay=172400:all=1[mb]")
 f.append(f"[ma][mb]amix=inputs=2:normalize=0,afade=t=out:st={TOTAL-2.5:.2f}:d=2.5,volume=-5dB[mus]")
-f.append("[mus]" + "".join(beds) + f"amix=inputs={1+len(beds)}:normalize=0:duration=first,equalizer=f=2800:t=q:w=1.3:g=-4,equalizer=f=1000:t=q:w=1:g=-1.5[bus]")
-f.append("[bus][k1]sidechaincompress=threshold=0.01:ratio=8:attack=12:release=480:knee=3[busd]")
-f.append("".join(fx) + f"amix=inputs={len(fx)}:normalize=0,apad=whole_dur={TOTAL}[fxb]")
-f.append("[fxb][k2]sidechaincompress=threshold=0.012:ratio=6:attack=5:release=300[fxd]")
-f.append(f"[vo][busd][fxd]amix=inputs=3:normalize=0:duration=first,atrim=0:{TOTAL}[pre]")
-# glue compression for a dense, heavy master
-f.append("[pre]acompressor=threshold=-16dB:ratio=2.2:attack=15:release=200:makeup=1,alimiter=limit=0.8:attack=4:release=60:level=disabled[out]")
-run(cmd + ["-filter_complex", ";".join(f), "-map", "[out]", "-c:a", "pcm_s24le", "clips/mix_pre.wav"])
+f.append("[mus]" + "".join(beds) + f"amix=inputs={1+len(beds)}:normalize=0:duration=first,equalizer=f=2800:t=q:w=1.3:g=-4,equalizer=f=1000:t=q:w=1:g=-1.5,atrim=0:{TOTAL}[bus]")
+f.append("".join(fx) + f"amix=inputs={len(fx)}:normalize=0,apad=whole_dur={TOTAL},atrim=0:{TOTAL}[fxb]")
+run(cmd + ["-filter_complex", ";".join(f), "-map", "[vo]", "-c:a", "pcm_f32le", "-ar", "48000", "clips/st_voice.wav",
+           "-map", "[bus]", "-c:a", "pcm_f32le", "-ar", "48000", "clips/st_music.wav", "-map", "[fxb]", "-c:a", "pcm_f32le", "-ar", "48000", "clips/st_sfx.wav"])
+
+# ---------------- exact, line-timed ducking (no slow compressor) ----------------
+SR = 48000
+def load(p):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", p, "-f", "f32le", "-ac", "2", "-ar", str(SR), "-"], capture_output=True).stdout
+    return np.frombuffer(raw, np.float32).reshape(-1, 2).copy()
+V, Mu, Fx = load("clips/st_voice.wav"), load("clips/st_music.wav"), load("clips/st_sfx.wav")
+N = min(len(V), len(Mu), len(Fx)); V, Mu, Fx = V[:N], Mu[:N], Fx[:N]
+# speech windows, merged when the gap is short so music doesn't pump between sentences
+win = sorted((l["start"] - 0.22, l["start"] + l["dur"] + 0.30) for l in TLJ["lines"])
+merged = []
+for a_, b_ in win:
+    if merged and a_ - merged[-1][1] < 0.9: merged[-1][1] = max(merged[-1][1], b_)
+    else: merged.append([a_, b_])
+speech = np.zeros(N, np.float32)
+for a_, b_ in merged: speech[max(0, int(a_ * SR)):min(N, int(b_ * SR))] = 1.0
+# smooth ramps: 0.2 s down, 0.45 s up
+def smooth(x, up, down):
+    y = np.empty_like(x); cu, cd = 1 / (up * SR), 1 / (down * SR); v = 0.0
+    for i in range(0, len(x), 480):            # 10 ms blocks
+        tgt = x[i]; v = min(tgt, v + cd * 480) if tgt > v else max(tgt, v - cu * 480); y[i:i+480] = v
+    return y
+duck = smooth(speech, up=0.45, down=0.2)
+def db(x): return 10 * np.log10(np.mean(x ** 2) + 1e-12)
+sp = speech > 0.5
+# voice level measured only where the narrator is actually talking (skip pauses inside the windows)
+vr = np.sqrt(np.convolve((V[:, 0] ** 2), np.ones(4800) / 4800, mode="same"))
+active = sp & (vr > 10 ** (-45 / 20))
+VOICE = db(V[active])
+# 1) static music level: in the gaps the score plays about 3 dB under the narration level (still big and cinematic)
+G_M = (VOICE - 3.0) - db(Mu[~sp]);  Mu *= 10 ** (G_M / 20)
+# 2) static sfx level: punchy hits in the gaps, about 1 dB under voice level on average where they sound
+fx_on = (~sp) & (np.abs(Fx[:, 0]) > 1e-4)
+G_F = (VOICE - 1.0) - db(Fx[fx_on]);  Fx *= 10 ** (G_F / 20)
+# 3) duck depth while talking: music >= 20 dB and sfx >= 16 dB under the voice
+DUCK_MUSIC_DB = max(-30.0, min(-12.0, (VOICE - 20.0) - db(Mu[active])))
+fx_sp = active & (np.abs(Fx[:, 0]) > 1e-4)
+DUCK_FX_DB = max(-30.0, min(-9.0, (VOICE - 16.0) - db(Fx[fx_sp]))) if fx_sp.any() else -12.0
+gm = 10 ** (DUCK_MUSIC_DB * duck / 20); gf = 10 ** (DUCK_FX_DB * duck / 20)
+mix = V + Mu * gm[:, None] + Fx * gf[:, None]
+mus_sp, fx_spl = db((Mu * gm[:, None])[active]), (db((Fx * gf[:, None])[fx_sp]) if fx_sp.any() else -99)
+print(f"static: music {G_M:+.1f} dB, sfx {G_F:+.1f} dB | duck while talking: music {DUCK_MUSIC_DB:.1f} dB, sfx {DUCK_FX_DB:.1f} dB")
+print(f"BALANCE while talking: voice {VOICE:.1f} | music {mus_sp:.1f} ({VOICE-mus_sp:.1f} dB under) | sfx {fx_spl:.1f} ({VOICE-fx_spl:.1f} dB under)")
+print(f"BALANCE in gaps: music {db((Mu*gm[:,None])[~sp]):.1f} dB (voice level {VOICE:.1f})")
+mix.astype(np.float32).tofile("clips/mix_raw.f32")
+run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "clips/mix_raw.f32",
+     "-af", "acompressor=threshold=-18dB:ratio=1.8:attack=20:release=250:makeup=1,alimiter=limit=0.8:attack=4:release=60:level=disabled",
+     "-c:a", "pcm_s24le", "clips/mix_pre.wav"])
 m = run(["ffmpeg", "-nostats", "-i", "clips/mix_pre.wav", "-af", "ebur128=peak=true", "-f", "null", "-"])
 I = float([l for l in m.splitlines() if l.strip().startswith("I:")][-1].split()[1])
-run(["ffmpeg", "-v", "error", "-y", "-i", "clips/mix_pre.wav", "-af", f"volume={-12.0-I:.2f}dB,alimiter=limit=0.84:attack=2:release=40:level=disabled",
+run(["ffmpeg", "-v", "error", "-y", "-i", "clips/mix_pre.wav", "-af", f"volume={-13.0-I:.2f}dB,alimiter=limit=0.84:attack=2:release=40:level=disabled",
      "-ar", "48000", "-c:a", "pcm_s16le", "clips/mix.wav"])
 m = run(["ffmpeg", "-nostats", "-i", "clips/mix.wav", "-af", "ebur128=peak=true", "-f", "null", "-"])
 print("events", len(E), "| pre I", I); print(" ".join(l.strip() for l in m.splitlines()[-12:] if any(k in l for k in ("I:", "LRA:", "Peak:"))))

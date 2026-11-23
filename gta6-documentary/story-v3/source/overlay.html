@@ -34,10 +34,11 @@ body{font-family:'Anek Bangla',sans-serif;color:#fff;position:relative}
 #chBN{left:0;width:1920px;top:410px;text-align:center;font-family:'Noto Serif Bengali';font-weight:900;font-size:120px;line-height:1.3;text-shadow:0 6px 30px rgba(0,0,0,.85)}
 #chLine{left:860px;top:625px;width:200px;height:4px;background:var(--red)}
 /* lower third (VoD name box) */
-.lt{position:absolute;left:120px;top:735px}
-.lt .a{display:inline-block;background:rgba(40,40,44,.88);padding:10px 26px;font-family:'Montserrat';font-weight:800;font-size:38px;letter-spacing:4px;white-space:nowrap}
-.lt .b{margin-top:8px;font-size:32px;font-weight:600;color:#eee;text-shadow:0 2px 8px #000;white-space:nowrap}
-.lt .bar2{position:absolute;left:0;top:0;width:6px;height:100%;background:var(--red)}
+.lt{position:absolute;left:110px;top:725px;display:flex;align-items:stretch;gap:16px}
+.lt .bar2{flex:none;width:8px;background:var(--red);box-shadow:0 0 10px rgba(224,49,59,.6)}
+.lt .c{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.lt .a{display:inline-block;background:rgba(18,18,22,.9);padding:10px 24px;font-family:'Montserrat';font-weight:800;font-size:38px;letter-spacing:4px;white-space:nowrap;color:#fff}
+.lt .b{display:inline-block;background:rgba(0,0,0,.55);padding:4px 14px;font-size:30px;font-weight:600;color:#f2f2f2;white-space:nowrap}
 /* big kinetic word */
 #big{left:0;width:1920px;top:360px;text-align:center;font-family:'Montserrat';font-weight:900;font-size:240px;line-height:1;white-space:nowrap;color:#fff;text-shadow:0 10px 40px rgba(0,0,0,.6)}
 /* statements */
@@ -88,16 +89,16 @@ body{font-family:'Anek Bangla',sans-serif;color:#fff;position:relative}
 #pTint{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse 1200px 620px at 50% 50%,rgba(5,8,14,.62),rgba(5,8,14,.3) 75%)}
 #pIcon{left:0;top:0;height:200px;filter:drop-shadow(0 0 26px rgba(120,180,255,.8))}
 #pWord{left:0;top:0;width:760px;filter:drop-shadow(0 4px 16px rgba(0,0,0,.8))}
-#pTag{left:0;width:1920px;top:700px;text-align:center;font-family:'Noto Serif Bengali';font-weight:700;font-size:50px;text-shadow:0 4px 18px #000}
+#pTag{left:0;width:1920px;top:720px;text-align:center;font-family:'Noto Serif Bengali';font-weight:700;font-size:50px;text-shadow:0 4px 18px #000}
 #pTag span{color:#8cc0ff}
-.pc{position:absolute;left:310px;top:390px;width:1300px;padding:32px 44px;background:rgba(7,9,13,.78);border:2px solid #3d8bf5;border-radius:22px;box-shadow:0 0 50px rgba(61,139,245,.3);display:flex;gap:36px;align-items:center}
+.pc{position:absolute;left:310px;top:430px;width:1300px;padding:32px 44px;background:rgba(7,9,13,.78);border:2px solid #3d8bf5;border-radius:22px;box-shadow:0 0 50px rgba(61,139,245,.3);display:flex;gap:36px;align-items:center}
 .pc .ic{width:126px;height:126px;flex:none;border-radius:28px;background:linear-gradient(145deg,#4aa0ff,#1f5fd6);display:flex;align-items:center;justify-content:center}
 .pc.wa .ic{background:linear-gradient(145deg,#3ee07a,#14a34a)}
 .pc .k{font-size:32px;color:#8cc0ff;font-weight:600}
 .pc .v{font-size:56px;font-weight:800;line-height:1.25}
 .pc .v.u{font-family:'Bebas Neue';font-size:96px;font-weight:400;letter-spacing:3px;line-height:1}
 .pc .v.n{font-family:'Bebas Neue';font-size:120px;font-weight:400;letter-spacing:6px;line-height:1}
-#pFin{left:0;width:1920px;top:560px;display:flex;flex-direction:column;align-items:center;gap:16px}
+#pFin{left:0;width:1920px;top:580px;display:flex;flex-direction:column;align-items:center;gap:16px}
 .fr{display:flex;align-items:center;gap:20px;font-size:40px;font-weight:700;padding:8px 26px;background:rgba(7,9,13,.72);border-radius:14px;border:1px solid rgba(61,139,245,.6)}
 .fr .i{width:48px;height:48px;border-radius:12px;background:#3d8bf5;display:flex;align-items:center;justify-content:center}
 .fr.wa .i{background:#1fbf5c}
@@ -161,7 +162,7 @@ function buildEvents(){
     [Ls('a4')+1.0,Le('a5')-.2,'GTA V','২০১৩ · রকস্টার গেমস'],[Ls('a6')+.3,Le('a6')+.2,'GTA ONLINE','২০১৩ থেকে আজও'],
     [Ls('e2')+.1,Le('e2')+.3,'LUCIA CAMINOS','প্রথম নারী প্রধান চরিত্র'],[Ls('e3')+.1,Le('e3')+1.0,'JASON DUVAL','প্রধান চরিত্র'],
     [Ls('e5')+.2,Le('e5')+.2,'CHARACTER SWITCH','লুসিয়া ⇄ জেসন'],[Ls('g2')+.3,Le('g2')+.3,'PS5 · XBOX SERIES X|S','১৯ নভেম্বর ২০২৬']];
-  $('lts').innerHTML=LT.map((x,i)=>`<div class="lt hide" id="lt${i}"><div class="a"><span class="bar2"></span>${x[2]}</div><div class="b">${x[3]}</div></div>`).join('');
+  $('lts').innerHTML=LT.map((x,i)=>`<div class="lt hide" id="lt${i}"><div class="bar2"></div><div class="c"><div class="a">${x[2]}</div><div class="b">${x[3]}</div></div></div>`).join('');
   EV={ch,LT,
     big:[[Le('c3')-1.3,Le('c3')+1.6,'VICE CITY'],[Ls('d1')+.2,Ls('d1')+3.4,'LEONIDA'],[Ls('e6')+1.4,Le('e6')+.2,'HEIST']],
     st:[[Ls('h4')+1.6,Le('h4')+.5,'কবে আসবে GTA VI?','#ff4552'],[Ls('a7')+2.0,Le('a7')+.7,'পাহাড়সমান প্রত্যাশা','#fff'],
@@ -252,9 +253,9 @@ function render(t){
   // promo
   { const a=Ls('p2')-.3; const o=t>=a; show($('promo'),o); if(o){ $('pTint').style.opacity=P(t,a,a+.5);
       const k=eio(P(t,Ls('p3')-.3,Ls('p3')+.2)), fin=eio(P(t,Ls('p6')-.3,Ls('p6')+.2)); const kk=k*(1-fin);
-      const ih=200-80*kk-40*fin, iy=300-110*kk-120*fin; $('pIcon').style.height=ih+'px';$('pIcon').style.left=(960-ih*0.6475/2)+'px';$('pIcon').style.top=(iy-ih/2)+'px';
+      const ih=200-90*kk-50*fin, iy=340-90*kk-40*fin; $('pIcon').style.height=ih+'px';$('pIcon').style.left=(960-ih*0.6475/2)+'px';$('pIcon').style.top=(iy-ih/2)+'px';
       $('pIcon').style.opacity=P(t,a+.1,a+.5); $('pIcon').style.transform=`scale(${.7+.3*eback(P(t,a+.1,a+.6))})`;
-      const ww=760-300*kk-60*fin; $('pWord').style.width=ww+'px';$('pWord').style.left=(960-ww/2)+'px';$('pWord').style.top=(iy+ih/2+30)+'px';
+      const ww=760-300*kk-60*fin; $('pWord').style.width=ww+'px';$('pWord').style.left=(960-ww/2)+'px';$('pWord').style.top=(iy+ih/2+(kk>0.5?18:28))+'px';
       $('pWord').style.clipPath=`inset(0 ${100-100*eo(P(t,a+.5,a+1.2))}% 0 0)`;
       $('pTag').style.opacity=vis(t,a+1.0,Ls('p3')-.3,.4,.3);
       const card=(el,x,y)=>{const v=vis(t,x,y,.35,.3);el.style.opacity=v;el.style.display=v>0?'flex':'none';el.style.transform=`translateY(${(1-eo(P(t,x,x+.5)))*60}px)`};
