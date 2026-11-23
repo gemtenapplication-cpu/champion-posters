@@ -26,7 +26,7 @@ add(41.6 - M["riser"]["dur"], "riser", -6); add(41.6, "logo", -2, at_peak=True);
 add(46.0, "whoosh", -8); add(46.6, "hit", -7, at_peak=True)
 for c in [47.2, 47.55, 47.9]: add(c, "whoosh", -16)
 add(54.6, "boomtail", -9)
-cmd = ["ffmpeg", "-v", "error", "-y", "-i", "music.mp3"]; f = ["[0]aformat=sample_rates=48000:channel_layouts=stereo,volume=-3dB,afade=t=out:st=54.8:d=1.2[mu]"]; lab = ["[mu]"]
+cmd = ["ffmpeg", "-v", "error", "-y", "-i", "music2.mp3"]; f = ["[0]aformat=sample_rates=48000:channel_layouts=stereo,volume=-3dB,afade=t=out:st=54.8:d=1.2[mu]"]; lab = ["[mu]"]
 for i, (t, n, p, L) in enumerate(E, start=1):
     cmd += ["-i", f"sfx/{n}.mp3"]; tr = f"atrim=0:{L},afade=t=out:st={max(0,L-.25)}:d=0.25," if L else ""
     f.append(f"[{i}]aformat=sample_rates=48000:channel_layouts=stereo,{tr}volume={p-M[n]['pk']-2:.1f}dB,adelay={int(max(0,t)*1000)}:all=1[e{i}]"); lab.append(f"[e{i}]")

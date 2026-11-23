@@ -1,0 +1,132 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "high energy",
+   "fast tempo 145 BPM",
+   "hybrid trailer EDM",
+   "gaming hype",
+   "punchy loud modern mix",
+   "instrumental"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lyrics",
+   "rap",
+   "lo-fi",
+   "slow",
+   "sad",
+   "ambient",
+   "chiptune"
+  ],
+  "sections": [
+   {
+    "section_name": "Intro Pulse",
+    "positive_local_styles": [
+     "fast pulsing synth bass intro",
+     "rising filter sweep",
+     "energetic anticipation",
+     "snare roll building"
+    ],
+    "negative_local_styles": [
+     "silence",
+     "slow",
+     "ambient"
+    ],
+    "duration_ms": 3000,
+    "lines": []
+   },
+   {
+    "section_name": "Build",
+    "positive_local_styles": [
+     "energetic driving beat at 145 BPM",
+     "fast hi-hats and claps",
+     "rising synth arpeggio",
+     "building hype toward a drop"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "dark ambient",
+     "calm"
+    ],
+    "duration_ms": 7000,
+    "lines": []
+   },
+   {
+    "section_name": "Drop 1",
+    "positive_local_styles": [
+     "massive bass drop on the downbeat",
+     "huge kick and trailer impact",
+     "energetic synth stab"
+    ],
+    "negative_local_styles": [
+     "quiet",
+     "slow"
+    ],
+    "duration_ms": 4000,
+    "lines": []
+   },
+   {
+    "section_name": "Action Montage",
+    "positive_local_styles": [
+     "high energy trap and EDM hybrid with trailer drums",
+     "pounding fast drums",
+     "aggressive wobbly bass",
+     "relentless adrenaline"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "calm"
+    ],
+    "duration_ms": 10000,
+    "lines": []
+   },
+   {
+    "section_name": "Now Playing",
+    "positive_local_styles": [
+     "high energy electronic gaming anthem",
+     "four on the floor punchy kick",
+     "bright catchy synth lead",
+     "sidechained bass",
+     "party hype energy"
+    ],
+    "negative_local_styles": [
+     "sad",
+     "slow",
+     "dark ambient"
+    ],
+    "duration_ms": 16000,
+    "lines": []
+   },
+   {
+    "section_name": "Reveal",
+    "positive_local_styles": [
+     "euphoric peak drop",
+     "massive drums and bright supersaw chords",
+     "triumphant energy"
+    ],
+    "negative_local_styles": [
+     "quiet",
+     "slow"
+    ],
+    "duration_ms": 6000,
+    "lines": []
+   },
+   {
+    "section_name": "End Card",
+    "positive_local_styles": [
+     "energetic groove continues",
+     "punchy beat and bright synths",
+     "strong final button hit then quick ring out"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 10000,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}
