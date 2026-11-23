@@ -63,8 +63,8 @@ vr = np.sqrt(np.convolve(V[:, 0] ** 2, np.ones(4800) / 4800, mode="same")); acti
 VOICE = db(V[active])
 Mu *= 10 ** (((VOICE - 3.0) - db(Mu[~sp])) / 20)
 fx_on = (~sp) & (np.abs(Fx[:, 0]) > 1e-4); Fx *= 10 ** (((VOICE - 1.0) - db(Fx[fx_on])) / 20)
-DM = max(-30.0, min(-12.0, (VOICE - 20.0) - db(Mu[active])))
-fx_sp = active & (np.abs(Fx[:, 0]) > 1e-4); DF = max(-30.0, min(-9.0, (VOICE - 16.0) - db(Fx[fx_sp]))) if fx_sp.any() else -12.0
+DM = max(-30.0, min(-6.0, (VOICE - 14.0) - db(Mu[active])))
+fx_sp = active & (np.abs(Fx[:, 0]) > 1e-4); DF = max(-30.0, min(-6.0, (VOICE - 14.0) - db(Fx[fx_sp]))) if fx_sp.any() else -10.0
 gm = 10 ** (DM * duck / 20); gf = 10 ** (DF * duck / 20)
 mix = V + Mu * gm[:, None] + Fx * gf[:, None]
 print(f"while talking: music {VOICE-db((Mu*gm[:,None])[active]):.1f} dB under, sfx {VOICE-(db((Fx*gf[:,None])[fx_sp]) if fx_sp.any() else -99):.1f} dB under the voice")

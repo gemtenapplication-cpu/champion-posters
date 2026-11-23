@@ -137,9 +137,9 @@ G_M = (VOICE - 3.0) - db(Mu[~sp]);  Mu *= 10 ** (G_M / 20)
 fx_on = (~sp) & (np.abs(Fx[:, 0]) > 1e-4)
 G_F = (VOICE - 1.0) - db(Fx[fx_on]);  Fx *= 10 ** (G_F / 20)
 # 3) duck depth while talking: music >= 20 dB and sfx >= 16 dB under the voice
-DUCK_MUSIC_DB = max(-30.0, min(-12.0, (VOICE - 20.0) - db(Mu[active])))
+DUCK_MUSIC_DB = max(-30.0, min(-6.0, (VOICE - 14.0) - db(Mu[active])))
 fx_sp = active & (np.abs(Fx[:, 0]) > 1e-4)
-DUCK_FX_DB = max(-30.0, min(-9.0, (VOICE - 16.0) - db(Fx[fx_sp]))) if fx_sp.any() else -12.0
+DUCK_FX_DB = max(-30.0, min(-6.0, (VOICE - 14.0) - db(Fx[fx_sp]))) if fx_sp.any() else -10.0
 gm = 10 ** (DUCK_MUSIC_DB * duck / 20); gf = 10 ** (DUCK_FX_DB * duck / 20)
 mix = V + Mu * gm[:, None] + Fx * gf[:, None]
 mus_sp, fx_spl = db((Mu * gm[:, None])[active]), (db((Fx * gf[:, None])[fx_sp]) if fx_sp.any() else -99)
