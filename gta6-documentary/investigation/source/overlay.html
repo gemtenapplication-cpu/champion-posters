@@ -44,8 +44,18 @@ body{font-family:'Anek Bangla','Noto Sans Bengali',sans-serif;color:#fff;positio
 #loadFill{height:100%;width:0;background:var(--red);box-shadow:0 0 14px var(--red)}
 #loadP{margin-top:14px;font-size:24px;color:#aaa;text-align:right}
 
+/* intro */
+#intro{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.25),rgba(0,0,0,.7) 75%)}
+#iIcon{left:885px;top:250px;height:230px;filter:drop-shadow(0 0 30px rgba(120,180,255,.85))}
+#iWord{left:620px;top:520px;width:680px}
+#iPres{left:0;width:1920px;top:660px;text-align:center;font-size:34px;letter-spacing:18px;color:#cfe3ff}
+#iStory{left:0;width:1920px;top:330px;text-align:center;font-size:40px;letter-spacing:22px;color:#ddd}
+#iGta{left:0;width:1920px;top:390px;text-align:center;font-size:300px;line-height:1;letter-spacing:22px;color:#fff;text-shadow:0 0 40px rgba(255,255,255,.3)}
+#iLine{left:760px;top:720px;height:5px;width:0;background:var(--red);box-shadow:0 0 14px var(--red)}
+body.intro > *:not(#intro):not(#barTop):not(#barBot):not(#flash):not(#blackout):not(#scanlines):not(#glitchcut){display:none!important}
+body.intro #hudL,body.intro #hudR{display:none}
 /* title card */
-#title{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse at 50% 50%,#16090b 0%,#050304 70%)}
+#title{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse at 50% 50%,rgba(30,4,8,.35) 0%,rgba(5,2,3,.7) 75%)}
 #titleGrid{left:0;top:0;width:1920px;height:1080px;opacity:.18;
   background-image:linear-gradient(rgba(255,43,59,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,43,59,.5) 1px,transparent 1px);background-size:80px 80px}
 #tKicker{left:0;width:1920px;top:300px;text-align:center;font-size:84px;font-weight:800;color:var(--red);letter-spacing:4px;text-shadow:0 0 30px rgba(255,43,59,.7)}
@@ -54,7 +64,8 @@ body{font-family:'Anek Bangla','Noto Sans Bengali',sans-serif;color:#fff;positio
 #tCase{left:0;width:1920px;top:250px;text-align:center;font-size:26px;color:#aaa;letter-spacing:8px}
 
 /* evidence board */
-#board{left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:#140f0c}
+#board{left:0;top:0;width:1920px;height:1080px;overflow:hidden}
+#bShade{left:0;top:0;width:1920px;height:1080px;background:linear-gradient(90deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.62) 62%,rgba(0,0,0,.75))}
 #world{left:0;top:0;width:5000px;height:1400px;transform-origin:0 0;background:url(tex_board.png);background-size:512px 512px}
 .card{position:absolute;width:480px;height:580px;background:url(tex_paper.png);background-size:256px;box-shadow:0 18px 40px rgba(0,0,0,.6),0 2px 0 rgba(255,255,255,.2) inset;padding:22px}
 .card .photo{height:330px;background:linear-gradient(160deg,#1b1d22,#0a0b0e);position:relative;overflow:hidden;border:1px solid #000}
@@ -169,7 +180,7 @@ body{font-family:'Anek Bangla','Noto Sans Bengali',sans-serif;color:#fff;positio
 
 /* promo */
 #promo{left:0;top:0;width:1920px;height:1080px}
-#pTint{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse at 30% 30%,rgba(61,139,245,.45),rgba(7,9,13,.75) 70%)}
+#pTint{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse 1100px 600px at 50% 48%,rgba(7,9,13,.55),rgba(7,9,13,.25) 70%,rgba(7,9,13,.5))}
 #pSweep{left:-600px;top:0;width:500px;height:1080px;background:linear-gradient(90deg,transparent,rgba(160,205,255,.35),transparent);transform:skewX(-18deg)}
 #pIcon{left:0;top:0;height:230px}
 #pWord{left:0;top:0;width:820px}
@@ -190,13 +201,12 @@ body{font-family:'Anek Bangla','Noto Sans Bengali',sans-serif;color:#fff;positio
 #pPCW{left:0;width:1920px;top:470px;text-align:center;font-family:'Share Tech Mono';font-size:30px;letter-spacing:10px;color:#cfe3ff}
 </style></head>
 <body>
+<div id="intro" class="abs hide"><img id="iIcon" class="abs" src="brand/icon_white.png"><img id="iWord" class="abs" src="brand/wordmark_clean.png"><div id="iPres" class="abs mono"></div>
+ <div id="iStory" class="abs mono"></div><div id="iGta" class="abs bebas">GTA VI</div><div id="iLine" class="abs"></div></div>
 <div id="title" class="abs hide"><div id="titleGrid" class="abs"></div><div id="tCase" class="abs mono">EVIDENCE LOG · FILE 06</div><div id="tKicker" class="abs">কেস ফাইল</div><div id="tMain" class="abs bebas">GTA VI</div><div id="tStamp" class="abs stamp">TOP SECRET</div></div>
 
 <div id="board" class="abs hide">
-  <div id="world" class="abs">
-    <svg id="strings" class="abs" style="left:0;top:0" width="5000" height="1400"></svg>
-  </div>
-  <div id="spot" class="abs"></div>
+  <div id="bShade" class="abs"></div><div id="world" class="abs" style="background:none;width:1920px;height:1080px"></div>
   <div id="exLabel" class="abs mono"></div>
 </div>
 
@@ -311,16 +321,12 @@ function buildBoard(){
     d.style.left=c.x+'px';d.style.top=c.y+'px';d.style.transform=`rotate(${c.r}deg)`;
     d.innerHTML=`<div class="pin"></div><div class="photo"><div class="yr">${c.yr}</div><div class="ex">${c.ex}</div>${c.vi?'<div id="qmark">?</div>':''}<div class="nm">${c.nm}</div></div><div class="note">${c.note}</div><div class="meta">${c.meta}</div>`;
     w.appendChild(d)});
-  const s=document.createElement('div');s.id='gtavStamp';s.className='stamp';s.textContent='২১ কোটি+';s.style.left='3200px';s.style.top='520px';w.appendChild(s);
-  let path='';
-  for(let i=0;i<CARDS.length-1;i++){const a=CARDS[i],b=CARDS[i+1];const ax=a.x+240,ay=a.y,bx=b.x+240,by=b.y;
-    path+=`<path id="str${i}" d="M${ax} ${ay} Q ${(ax+bx)/2} ${Math.max(ay,by)+160} ${bx} ${by}" fill="none" stroke="#c4101f" stroke-width="5" stroke-linecap="round" filter="drop-shadow(0 4px 3px rgba(0,0,0,.6))"/>`}
-  $('strings').innerHTML=path;
-  for(let i=0;i<CARDS.length-1;i++){const p=$('str'+i),L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.dataset.L=L}
+  const s=document.createElement('div');s.id='gtavStamp';s.className='stamp';s.textContent='২১ কোটি+';s.style.left='170px';s.style.top='210px';$('card4').appendChild(s);
 }
 // camera keys: [t, cx, cy, scale]
 const CAM=[[17.6,2600,650,.34],[20.4,2600,650,.38],[21.1,660,620,1.0],[27.0,690,610,1.06],[27.6,1310,930,1.0],[28.85,1320,925,1.02],[29.45,1960,590,1.0],[30.45,1965,585,1.02],[31.05,2610,930,1.0],[34.8,2640,920,1.07],
  [35.45,3260,610,1.0],[39.2,3290,600,1.06],[39.85,3910,930,1.0],[43.3,3930,920,1.05],[43.95,4560,620,1.04],[45.5,4580,610,1.1],[46.6,2600,650,.34],[47.6,2600,650,.33]];
+const CW=[[21.1,27.0,1250,230,-3],[27.5,34.9,1090,250,-6],[28.85,34.9,1240,225,2],[30.45,34.9,1390,260,5],[35.3,43.4,1130,230,-3],[39.6,43.4,1330,265,4],[43.8,47.3,1260,230,-2]];
 function cam(t){let i=0;while(i<CAM.length-2&&t>CAM[i+1][0])i++;const a=CAM[i],b=CAM[i+1];
   const k=eio(P(t,a[0],b[0]));const L=(u,v)=>u+(v-u)*k;return [L(a[1],b[1]),L(a[2],b[2]),L(a[3],b[3])]}
 
@@ -362,13 +368,27 @@ function buildNotifs(){$('notifs').innerHTML=NOTIF.map((n,i)=>`<div class="notif
 const EVID=[[17.75,20.45,'EVIDENCE #01','সূত্র ১','রকস্টার গেমস'],[47.9,50.35,'EVIDENCE #02','সূত্র ২','লিওনিডা'],
  [65.0,67.25,'EVIDENCE #03','সূত্র ৩','দুই অপরাধী'],[80.1,82.9,'EVIDENCE #04','সূত্র ৪','জীবন্ত শহর']];
 
+function renderIntro(t,f){ const u=t+3; document.body.classList.add('intro'); show($('intro'),true);
+  const ia=vis(u,.15,1.55,.01,.08); $('iIcon').style.opacity=Math.min(1,P(u,.15,.35))*ia; const k=eback(P(u,.15,.6));
+  $('iIcon').style.transform=`scale(${.55+.45*k})`; glitch($('iIcon'),0,f);
+  $('iWord').style.opacity=ia; $('iWord').style.clipPath=`inset(0 ${100-100*eo(P(u,.45,.95))}% 0 0)`;
+  $('iPres').style.opacity=ia; $('iPres').textContent=typeT('CHAMPION PRESENTS',P(u,.75,1.2));
+  const ib=vis(u,1.55,3.0,.01,.25); $('iStory').style.opacity=ib; $('iStory').textContent=typeT('THE STORY OF',P(u,1.6,2.0));
+  $('iGta').style.opacity=ib; $('iGta').style.transform=`scale(${1+.06*P(u,1.55,3.0)})`; glitch($('iGta'),u<1.95?1-P(u,1.55,1.95):(hash(f*.71)>.92?.5:0),f);
+  $('iLine').style.width=(eo(P(u,2.0,2.5))*400)+'px'; $('iLine').style.left=(960-200*eo(P(u,2.0,2.5)))+'px'; $('iLine').style.opacity=ib;
+  let gc='';if(u>1.45&&u<1.7){for(let i=0;i<7;i++){const r=hash(f*3.3+i*7.7);gc+=`<i style="top:${r*1000}px;height:${8+hash(i+f)*70}px;background:${['rgba(255,0,60,.55)','rgba(0,220,255,.5)','rgba(255,255,255,.35)'][i%3]};transform:translateX(${(hash(i*9+f)-.5)*300}px)"></i>`}}
+  $('glitchcut').innerHTML=gc; $('flash').style.opacity=vis(u,1.5,1.85,.03,.3)*.7;
+  $('blackout').style.opacity=Math.max(1-P(u,0,.35),P(u,2.72,3.0)); $('scanlines').style.opacity=1;
+}
 function render(t){
   const f=Math.round(t*30);
+  if(t<0){renderIntro(t,f);return}
+  document.body.classList.remove('intro'); show($('intro'),false);
   // ---- HUD
   const tcs=`${String(Math.floor(t/60)).padStart(2,'0')}:${String(Math.floor(t%60)).padStart(2,'0')}:${String(f%30).padStart(2,'0')}`;
   $('tc').textContent='REC  '+tcs; $('rec').style.opacity=(Math.floor(t*1.6)%2)?.25:1;
-  const footage=(t<14.6)||(t>=47.5&&t<116.0);
-  $('hudR').textContent=t>=116?'FOOTAGE: ROCKSTAR GAMES':footage?'FOOTAGE: ROCKSTAR GAMES — OFFICIAL TRAILERS':'EVIDENCE LOG // CLASSIFIED';
+  const footage=true;
+  $('hudR').textContent='FOOTAGE: ROCKSTAR GAMES — OFFICIAL TRAILERS';
   $('hudL').style.opacity=t>=116?0:1;
   // ---- subtitles
   let st='';for(const l of TL.lines){if(t>=l.start-.05&&t<=l.start+l.dur+.15){st=l.sub;break}} $('subT').textContent=st;
@@ -395,13 +415,13 @@ function render(t){
   }
   // ---- BOARD
   { const o=t>=17.6&&t<47.5; show($('board'),o);
-    if(o){const [cx,cy,s]=cam(t);$('world').style.transform=`translate(${960-cx*s}px,${540-cy*s}px) scale(${s})`;
-      const strT=[[20.6,21.2],[27.2,27.8],[28.6,29.3],[30.2,31.0],[35.0,35.6],[39.4,40.0]];
-      strT.forEach(([a,b],i)=>{const p=$('str'+i);p.style.strokeDashoffset=p.dataset.L*(1-eio(P(t,a,b)))});
-      $('qmark').style.opacity=t>43.9?(0.6+0.4*Math.abs(Math.sin(t*5))):0.15;
-      stampAt($('gtavStamp'),t,36.6,47.5,-10);
-      $('spot').style.opacity=s>.8?1:P(s,.34,.8);
-      const ex=[[21.1,27.0,'EXHIBIT 01 // ২০০১'],[27.6,28.85,'EXHIBIT 02 // ২০০২'],[29.45,30.45,'EXHIBIT 03 // ২০০৪'],[31.05,34.8,'EXHIBIT 04 // ২০০৮'],[35.45,39.2,'EXHIBIT 05 // ২০১৩'],[39.85,43.3,'EXHIBIT 06 // ২০১৮'],[43.95,46.2,'EXHIBIT 07 // ২০২৬ — ?']];
+    if(o){ $('bShade').style.opacity=Math.min(P(t,17.6,18.2),1-P(t,47.0,47.45));
+      CW.forEach(([a,b,x,y,r],i)=>{const el=$('card'+i);const v=vis(t,a,b,.01,.25);el.style.display=v>0?'block':'none';if(!v)return;
+        const k=eback(P(t,a,a+.4));el.style.left=x+'px';el.style.top=y+'px';el.style.opacity=Math.min(1,P(t,a,a+.12))*v;
+        el.style.transform=`translateX(${(1-v)*120}px) rotate(${r+(1-k)*8}deg) scale(${(0.78)*(1.3-.3*k)})`;el.style.transformOrigin='50% 0';el.style.zIndex=i;});
+      $('qmark').style.opacity=t>44.2?(0.6+0.4*Math.abs(Math.sin(t*5))):0.15;
+      stampAt($('gtavStamp'),t,36.6,43.4,-10);
+      const ex=[[21.1,27.0,'EXHIBIT 01 // ২০০১'],[27.5,28.85,'EXHIBIT 02 // ২০০২'],[28.85,30.45,'EXHIBIT 03 // ২০০৪'],[30.45,34.9,'EXHIBIT 04 // ২০০৮'],[35.3,39.6,'EXHIBIT 05 // ২০১৩'],[39.6,43.4,'EXHIBIT 06 // ২০১৮'],[43.8,47.0,'EXHIBIT 07 // ২০২৬ — ?']];
       let e='';for(const [a,b,s2] of ex){if(t>=a&&t<b){e=typeT(s2,P(t,a,a+.5))}} $('exLabel').textContent=e;}
   }
   // ---- EVIDENCE HEADERS

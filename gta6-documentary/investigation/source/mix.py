@@ -28,7 +28,7 @@ add(14.6 - MEAS["riser"]["dur"], "riser", -6)
 add(14.58, "braam", -2)
 # board
 add(17.6, "paper", -12)
-for t in [20.4, 27.0, 28.85, 30.45, 34.8, 39.2, 43.3, 45.5]: add(t, "whoosh", -12)
+for t in [21.1, 27.5, 28.85, 30.45, 35.3, 39.6, 43.8]: add(t - 0.15, "whoosh", -15); add(t, "paper", -11)
 # evidence headers
 for t in [17.75, 47.9, 65.0, 80.1]: add(t + 0.15, "hit", -5); add(t + 0.35, "glitch", -13)
 # leonida tags + map
@@ -99,5 +99,17 @@ run(["ffmpeg", "-v", "error", "-y", "-i", "clips/mix_pre.wav", "-af", f"volume={
 m = run(["ffmpeg", "-nostats", "-i", "clips/mix.wav", "-af", "ebur128=peak=true", "-f", "null", "-"])
 print("events", len(E), "pre I", I); print("\n".join(l for l in m.splitlines()[-12:] if any(k in l for k in ("I:", "Peak:", "LRA:"))))
 
-# stems for a balance check: voice-only and everything-but-voice
-run(["ffmpeg", "-v", "error", "-y", "-i", "clips/mix_pre.wav", "-t", "1", "-f", "null", "-"])
+
+# ---------------- 3 s Champion intro + main mix delayed by 3 s ----------------
+INTRO = 3.0
+IE = [(0.15, "logo", -4, None), (0.75, "typewriter", -17, 0.45), (1.35, "whoosh", -10, None), (1.5, "glitch", -10, None), (1.55, "braam", -2, None)]
+cmd = ["ffmpeg", "-v", "error", "-y", "-i", "clips/mix.wav"]; f = ["[0]adelay=3000:all=1[main]"]; lab = ["[main]"]
+for k, (t, n, p, L) in enumerate(IE, start=1):
+    cmd += ["-i", f"sfx/{n}.mp3"]; tr = f"atrim=0:{L},afade=t=out:st={max(0,L-0.15)}:d=0.15," if L else ""
+    f.append(f"[{k}]aformat=sample_rates=48000:channel_layouts=stereo,{tr}volume={p-PK[n]:.1f}dB,adelay={int(t*1000)}:all=1[i{k}]"); lab.append(f"[i{k}]")
+k = len(IE) + 1; cmd += ["-i", "sfx/drone.mp3"]
+f.append(f"[{k}]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:3.4,volume={-29-MEAS['drone']['I']:.1f}dB,afade=t=in:d=0.4,afade=t=out:st=2.6:d=0.8[i{k}]"); lab.append(f"[i{k}]")
+f.append("".join(lab) + f"amix=inputs={len(lab)}:normalize=0:duration=first,atrim=0:{TOTAL+INTRO:.3f},alimiter=limit=0.89:attack=3:release=50:level=disabled[out]")
+run(cmd + ["-filter_complex", ";".join(f), "-map", "[out]", "-ar", "48000", "-c:a", "pcm_s16le", "clips/mix_full.wav"])
+m = run(["ffmpeg", "-nostats", "-i", "clips/mix_full.wav", "-af", "ebur128=peak=true", "-f", "null", "-"])
+print("FULL:", " ".join(l.strip() for l in m.splitlines()[-12:] if any(k in l for k in ("I:", "Peak:"))))
