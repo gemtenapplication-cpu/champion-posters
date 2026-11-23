@@ -1,0 +1,110 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "high energy",
+   "fast tempo 140 BPM",
+   "commercial promo music",
+   "gaming hype",
+   "punchy loud modern mix",
+   "instrumental"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lyrics",
+   "rap",
+   "lo-fi",
+   "sad",
+   "ambient"
+  ],
+  "sections": [
+   {
+    "section_name": "Intro Hit",
+    "positive_local_styles": [
+     "energetic logo hit",
+     "fast riser and snare roll",
+     "hype build into a big drop"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 4979,
+    "lines": []
+   },
+   {
+    "section_name": "Offer Drop",
+    "positive_local_styles": [
+     "massive bass drop on the downbeat",
+     "high energy EDM and trailer drums hybrid",
+     "bright supersaw chords",
+     "sale hype excitement"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 9009,
+    "lines": []
+   },
+   {
+    "section_name": "Prices",
+    "positive_local_styles": [
+     "punchy energetic beat with stabs on the downbeats",
+     "room for a voiceover",
+     "exciting"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 8932,
+    "lines": []
+   },
+   {
+    "section_name": "Venue Groove",
+    "positive_local_styles": [
+     "energetic gaming groove",
+     "punchy kick and claps",
+     "catchy synth hook"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 4096,
+    "lines": []
+   },
+   {
+    "section_name": "Info",
+    "positive_local_styles": [
+     "driving energetic beat with space for a voiceover",
+     "punchy drums",
+     "bright plucky synths",
+     "steady hype"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 16208,
+    "lines": []
+   },
+   {
+    "section_name": "Outro",
+    "positive_local_styles": [
+     "big final hit",
+     "short energetic tag",
+     "clean ring out"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 6456,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}

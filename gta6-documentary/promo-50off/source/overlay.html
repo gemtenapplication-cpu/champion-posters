@@ -1,0 +1,181 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@600;700;800&family=Noto+Serif+Bengali:wght@800;900&family=Montserrat:wght@700;800;900&family=Bebas+Neue&family=Anton&display=block" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow:hidden;background:transparent}
+body{font-family:'Anek Bangla',sans-serif;color:#fff;position:relative}
+body.h{width:1920px;height:1080px} body.v{width:1080px;height:1920px}
+.abs{position:absolute}.hide{display:none!important}
+:root{--y:#ffd400;--navy:#0b1d4f;--blue:#2f7cf6;--red:#e8202f}
+.full{left:0;top:0;width:100%;height:100%}
+#scrim{background:radial-gradient(ellipse 60% 45% at 50% 50%,rgba(3,8,25,.62),rgba(3,8,25,.2));opacity:0}
+.ctr{left:0;width:100%;text-align:center;white-space:nowrap}
+/* intro logo */
+#lg img.i{position:absolute;filter:drop-shadow(0 0 30px rgba(120,180,255,.9))}
+#lg img.w{position:absolute;filter:drop-shadow(0 6px 20px rgba(0,0,0,.8))}
+/* headline */
+#go{font-family:'Montserrat';font-weight:900;letter-spacing:10px;color:#fff;text-shadow:0 6px 24px rgba(0,0,0,.8)}
+#dh{font-family:'Noto Serif Bengali';font-weight:900;color:var(--y);text-shadow:0 0 2px var(--navy),0 6px 0 var(--navy),0 10px 30px rgba(0,0,0,.7)}
+/* 50% */
+#off{display:flex;justify-content:center}
+#offIn{position:relative;padding:0 60px}
+#offBrush{position:absolute;left:-3%;right:-3%;top:-6%;bottom:-8%;background:var(--y);transform:skewX(-10deg) rotate(-3deg);
+  clip-path:polygon(2% 10%,98% 0,100% 85%,96% 100%,4% 95%,0 40%);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+#offT{position:relative;font-family:'Anton';color:var(--navy);line-height:1;transform:rotate(-3deg);letter-spacing:2px}
+#offT small{font-size:.42em;margin-left:10px}
+#offS{font-family:'Noto Serif Bengali';font-weight:900;text-shadow:0 4px 18px rgba(0,0,0,.9)}
+/* date badge */
+#date{display:flex;justify-content:center}
+#dateIn{display:flex;align-items:center;gap:26px;background:rgba(6,14,40,.86);border:3px solid var(--y);border-radius:22px;padding:18px 34px;box-shadow:0 0 40px rgba(255,212,0,.25)}
+#dateIc{width:92px;height:92px;border-radius:18px;background:var(--y);display:flex;align-items:center;justify-content:center}
+#dateT .a{font-weight:800;color:var(--y);font-size:30px}
+#dateT .b{font-family:'Noto Serif Bengali';font-weight:900;font-size:56px;line-height:1.15}
+#dateT .c{font-family:'Montserrat';font-weight:800;font-size:26px;letter-spacing:6px;color:#cfe0ff}
+/* price cards */
+.pc{position:absolute;background:linear-gradient(160deg,rgba(32,92,230,.95),rgba(10,30,100,.95));border:3px solid #7fb2ff;border-radius:26px;box-shadow:0 0 50px rgba(47,124,246,.55),0 20px 50px rgba(0,0,0,.5);overflow:hidden;text-align:center}
+.pc .t{font-family:'Anton';font-size:66px;letter-spacing:2px;padding:14px 0 8px;background:rgba(0,0,0,.15)}
+.pc .old{position:relative;display:inline-block;font-family:'Anton';font-size:86px;color:#dfe9ff;margin-top:8px}
+.pc .old i{position:absolute;left:-10px;right:-10px;top:52%;height:9px;background:var(--red);transform-origin:0 50%;transform:rotate(-12deg) scaleX(0);box-shadow:0 0 10px rgba(232,32,47,.8)}
+.pc .newW{position:relative;margin:6px 24px 0}
+.pc .nb{position:absolute;left:0;right:0;top:12%;bottom:6%;background:var(--y);transform:skewX(-8deg);clip-path:polygon(2% 8%,98% 0,100% 88%,95% 100%,3% 96%,0 30%)}
+.pc .new{position:relative;font-family:'Anton';font-size:150px;line-height:1.05;color:var(--navy)}
+.pc .ph{font-weight:800;font-size:30px;padding:8px 0 16px;color:#fff}
+/* corner sticker */
+#stk{width:210px;height:210px}
+#stkStar{position:absolute;inset:0;background:var(--y);clip-path:polygon(50% 0%,61% 12%,77% 6%,80% 22%,96% 25%,90% 40%,100% 50%,90% 60%,96% 75%,80% 78%,77% 94%,61% 88%,50% 100%,39% 88%,23% 94%,20% 78%,4% 75%,10% 60%,0% 50%,10% 40%,4% 25%,20% 22%,23% 6%,39% 12%);box-shadow:0 0 30px rgba(255,212,0,.5)}
+#stkT{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--navy);text-align:center}
+#stkT .a{font-family:'Anton';font-size:66px;line-height:.9}
+#stkT .b{font-family:'Anton';font-size:30px;line-height:1}
+#stkT .c{font-family:'Montserrat';font-weight:900;font-size:15px;letter-spacing:1px;margin-top:4px}
+/* lower third */
+.lt{position:absolute;display:flex;gap:18px;align-items:stretch}
+.lt .bar{flex:none;width:10px;background:var(--y)}
+.lt .c{display:flex;flex-direction:column;gap:8px}
+.lt .k{display:inline-block;align-self:flex-start;font-family:'Montserrat';font-weight:800;font-size:26px;letter-spacing:6px;background:var(--y);color:var(--navy);padding:4px 14px}
+.lt .h{display:inline-block;align-self:flex-start;font-family:'Noto Serif Bengali';font-weight:900;font-size:58px;background:rgba(6,14,40,.82);padding:6px 20px}
+/* info cards */
+.card{position:absolute;display:flex;gap:26px;align-items:center;padding:24px 34px;background:rgba(6,12,30,.86);border:2px solid var(--blue);border-radius:24px;box-shadow:0 0 40px rgba(47,124,246,.35)}
+.card .ic{width:110px;height:110px;flex:none;border-radius:26px;background:linear-gradient(145deg,#4aa0ff,#1f5fd6);display:flex;align-items:center;justify-content:center}
+.card.wa .ic{background:linear-gradient(145deg,#3ee07a,#14a34a)}
+.card .k{font-size:30px;color:#9cc4ff;font-weight:700}
+.card .v{font-size:50px;font-weight:800;line-height:1.25}
+.card .v.u{font-family:'Bebas Neue';font-weight:400;font-size:80px;letter-spacing:2px;line-height:1}
+.card .v.n{font-family:'Bebas Neue';font-weight:400;font-size:104px;letter-spacing:5px;line-height:1}
+/* final */
+#fin{display:flex;flex-direction:column;align-items:center;gap:14px}
+#finB{font-family:'Anton';letter-spacing:2px;text-shadow:0 6px 20px rgba(0,0,0,.8)}
+#finB span{color:var(--y)}
+.fr{display:flex;align-items:center;gap:16px;font-weight:800;padding:10px 26px;background:rgba(6,12,30,.84);border-radius:14px;border:1px solid rgba(127,178,255,.8);white-space:nowrap}
+.fr .i{width:46px;height:46px;border-radius:11px;background:var(--blue);display:flex;align-items:center;justify-content:center}
+.fr.wa .i{background:#1fbf5c}.fr.dt .i{background:var(--y)}
+/* captions (vertical) */
+#cap{left:70px;width:940px;top:1500px;text-align:center;font-size:62px;font-weight:800;line-height:1.3}
+#cap span{display:inline-block;margin:0 8px;text-shadow:0 0 2px #000,0 4px 14px rgba(0,0,0,.95);-webkit-text-stroke:2px rgba(0,0,0,.6);paint-order:stroke fill}
+#cap span.on{color:var(--y);transform:scale(1.08)}
+#wm{display:flex;align-items:center;gap:12px}
+#flash{background:#fff;opacity:0}#black{background:#000;opacity:0}
+</style></head><body>
+<div id="scrim" class="abs full"></div>
+<div id="lg" class="abs full hide"><img class="i" src="../inv/brand/icon_white.png"><img class="w" src="../inv/brand/wordmark_clean.png"></div>
+<div id="wm" class="abs"><img src="../inv/brand/icon_white.png" style="height:56px"><img src="../inv/brand/wordmark_clean.png" style="width:250px"></div>
+<div id="go" class="abs ctr hide">GRAND OPENING</div><div id="dh" class="abs ctr hide">ধামাকা অফার!</div>
+<div id="off" class="abs ctr hide"><div id="offIn"><div id="offBrush"></div><div id="offT">50%<small>OFF</small></div></div></div>
+<div id="offS" class="abs ctr hide">GTA VI সহ সকল গেমে</div>
+<div id="date" class="abs ctr hide"><div id="dateIn"><div id="dateIc"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0b1d4f" stroke-width="2.2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7 14h3M14 14h3M7 18h3"/></svg></div>
+  <div id="dateT"><div class="a">অফারের মেয়াদ</div><div class="b">২৫ নভেম্বর — ০১ ডিসেম্বর</div><div class="c">25 NOV – 01 DEC</div></div></div></div>
+<div id="pA" class="pc hide"><div class="t">43" SCREEN</div><div class="old">৳200<i></i></div><div class="newW"><div class="nb"></div><div class="new">৳100</div></div><div class="ph">প্রতি ঘণ্টা · PER HOUR</div></div>
+<div id="pB" class="pc hide"><div class="t">55" SCREEN</div><div class="old">৳250<i></i></div><div class="newW"><div class="nb"></div><div class="new">৳125</div></div><div class="ph">প্রতি ঘণ্টা · PER HOUR</div></div>
+<div id="lt" class="lt hide"><div class="bar"></div><div class="c"><div class="k">PREMIUM PLAYROOM · EXPERIENCE GTA VI</div><div class="h">বন্ধুদের নিয়ে চলে আসুন</div></div></div>
+<div id="cA" class="card hide"><div class="ic"><svg width="60" height="60" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div><div><div class="k">ঠিকানা</div><div class="v">রানীর বাজার, IFIC ব্যাংক বিল্ডিং<br>৪র্থ তলা, কুমিল্লা</div></div></div>
+<div id="cU" class="card hide"><div class="ic"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.9 2.8 16.1 0 19M12 2.5c-2.8 2.9-2.8 16.1 0 19"/></svg></div><div><div class="k">অনলাইন বুকিং</div><div class="v u">champion.gemten.com.bd</div></div></div>
+<div id="cW" class="card wa hide"><div class="ic"><svg width="64" height="64" viewBox="0 0 24 24"><path fill="#fff" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2z"/></svg></div><div><div class="k">হোয়াটসঅ্যাপ</div><div class="v n">01603-754074</div></div></div>
+<div id="fin" class="abs ctr hide"><img id="finI" src="../inv/brand/icon_white.png"><img id="finW" src="../inv/brand/wordmark_clean.png"><div id="finB">BOOK NOW &amp; <span>SAVE 50%!</span></div>
+  <div class="fr dt"><div class="i"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0b1d4f" stroke-width="2.4"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>২৫ নভেম্বর — ০১ ডিসেম্বর</div>
+  <div class="fr"><div class="i"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>রানীর বাজার, IFIC ব্যাংক বিল্ডিং, ৪র্থ তলা, কুমিল্লা</div>
+  <div class="fr"><div class="i"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.9 2.8 16.1 0 19M12 2.5c-2.8 2.9-2.8 16.1 0 19"/></svg></div>champion.gemten.com.bd</div>
+  <div class="fr wa"><div class="i"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="#fff" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2z"/></svg></div>WhatsApp: 01603-754074</div></div>
+<div id="stk" class="abs hide"><div id="stkStar"></div><div id="stkT"><div class="a">50%</div><div class="b">OFF</div><div class="c">25 NOV–01 DEC</div></div></div>
+<div id="cap" class="abs hide"></div>
+<div id="flash" class="abs full"></div><div id="black" class="abs full"></div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),P=(t,a,b)=>clamp((t-a)/(b-a)),eo=x=>1-Math.pow(1-x,3);
+const eback=x=>{const c1=2.0,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+function vis(t,a,b,fi=.25,fo=.25){if(t<a||t>b)return 0;return Math.min(fi?clamp((t-a)/fi):1,fo?clamp((b-t)/fo):1)}
+function show(el,on){el.classList.toggle('hide',!on)}
+const V=new URLSearchParams(location.search).get('fmt')==='v';
+let TL,L={};
+const S=i=>L[i].start,E=i=>L[i].start+L[i].dur;
+function pos(el,o){for(const k in o)el.style[k]=typeof o[k]==='number'?o[k]+'px':o[k]}
+async function init(){ document.body.className=V?'v':'h'; TL=await (await fetch('timeline.json')).json(); for(const l of TL.lines)L[l.id]=l;
+  if(!V){ // 16:9 layout
+    pos($('go'),{top:330,fontSize:84}); pos($('dh'),{top:430,fontSize:150});
+    pos($('off'),{top:250}); $('offT').style.fontSize='330px'; pos($('offS'),{top:720,fontSize:64});
+    pos($('date'),{top:720});
+    pos($('pA'),{left:230,top:190,width:680}); pos($('pB'),{left:1010,top:190,width:680});
+    pos($('lt'),{left:120,top:690});
+    for(const id of ['cA','cU','cW']) pos($(id),{left:310,top:640,width:1300});
+    pos($('fin'),{top:150}); $('finI').style.height='130px'; $('finW').style.width='600px'; $('finB').style.fontSize='80px';
+    document.querySelectorAll('.fr').forEach(e=>e.style.fontSize='34px');
+    pos($('stk'),{right:60,top:60}); pos($('wm'),{left:60,top:70});
+  } else { // 9:16 layout
+    pos($('go'),{top:250,fontSize:58}); pos($('dh'),{top:320,fontSize:104});
+    pos($('off'),{top:600}); $('offT').style.fontSize='260px'; pos($('offS'),{top:330,fontSize:64});
+    pos($('date'),{top:250}); $('dateT').querySelector('.b').style.fontSize='48px';
+    pos($('pA'),{left:90,top:480,width:900}); pos($('pB'),{left:90,top:980,width:900});
+    pos($('lt'),{left:70,top:270}); $('lt').querySelector('.h').style.fontSize='52px'; $('lt').querySelector('.k').style.fontSize='22px';
+    for(const id of ['cA','cU','cW']) pos($(id),{left:60,top:1500,width:960});
+    pos($('fin'),{top:200}); $('finI').style.height='130px'; $('finW').style.width='560px'; $('finB').style.fontSize='74px';
+    document.querySelectorAll('.fr').forEach(e=>{e.style.fontSize='34px'});
+    pos($('stk'),{right:30,top:478}); $('stk').style.transform='scale(.8)'; pos($('wm'),{left:0,top:96,width:1080,justifyContent:'center'});
+    document.querySelectorAll('.pc .new').forEach(e=>e.style.fontSize='130px');
+  }
+  await document.fonts.ready }
+function slam(el,t,a,b,s0=2.2){const v=vis(t,a,b,.01,.25);show(el,v>0);if(!v)return 0;const k=eback(P(t,a,a+.35));
+  const sh=t<a+.5?(Math.sin(t*90)*10*(1-P(t,a,a+.5))):0; el.style.opacity=Math.min(1,P(t,a,a+.08))*v;
+  el.style.transform=`translate(${sh}px,${sh*.6}px) scale(${s0-(s0-1)*k})`; return v}
+function render(t){
+  let scr=0,fl=0;
+  // intro logo hit
+  {const o=t<1.75;show($('lg'),o);if(o){const ih=V?220:240,iw=ih*0.6475,ww=V?640:700,cy=V?820:400;const i=$('lg').querySelector('.i'),w=$('lg').querySelector('.w');
+    const k=eback(P(t,.05,.5));i.style.height=ih+'px';i.style.left=((V?1080:1920)/2-iw/2)+'px';i.style.top=(cy-ih/2)+'px';i.style.transform=`scale(${.5+.5*k})`;
+    w.style.width=ww+'px';w.style.left=((V?1080:1920)/2-ww/2)+'px';w.style.top=(cy+ih/2+20)+'px';w.style.clipPath=`inset(0 ${100-100*eo(P(t,.3,.8))}% 0 0)`;
+    const o2=1-P(t,1.45,1.7);i.style.opacity=o2;w.style.opacity=o2;scr=Math.max(scr,.8*o2)}}
+  fl=Math.max(fl,vis(t,0,.3,.01,.29)*.8);
+  $('wm').style.opacity=(V?1:.85)*Math.min(P(t,1.6,2.0),1-P(t,S('q8')-.4,S('q8')));
+  // grand opening dhamaka
+  {const a=S('n1')+.05,b=E('n1')+.5;const v1=slam($('go'),t,a,b,1.6);const v2=slam($('dh'),t,a+.45,b,2.4);scr=Math.max(scr,v1,v2);fl=Math.max(fl,vis(t,a+.45,a+.7,.01,.24)*.6)}
+  // 50% OFF
+  {const a=S('q2')+1.6,b=E('n2')+.2;const v=slam($('off'),t,a,b,2.6);scr=Math.max(scr,v);fl=Math.max(fl,vis(t,a,a+.3,.01,.29)*.85);
+   const vs=vis(t,a+.4,S('n2')-.1,.25,.25);show($('offS'),vs>0);$('offS').style.opacity=vs;}
+  // date
+  {const a=S('n2')-.05,b=E('n2')+.35;const v=slam($('date'),t,a,b,1.4);if(V)$('off').style.top=(600+P(t,a,a+.3)*100)+'px';}
+  // prices
+  {const b=E('n4')+.6;
+   const pa=vis(t,S('n3')-.1,b,.01,.3),pb=vis(t,S('n4')-.1,b,.01,.3);
+   for(const [el,a,v] of [[$('pA'),S('n3')-.1,pa],[$('pB'),S('n4')-.1,pb]]){show(el,v>0);if(!v)continue;const k=eback(P(t,a,a+.4));
+     el.style.opacity=Math.min(1,P(t,a,a+.1))*v;el.style.transform=`translateY(${(1-k)*80}px) scale(${.85+.15*k})`;
+     el.querySelector('.old i').style.transform=`rotate(-12deg) scaleX(${eo(P(t,a+.7,a+1.0))})`;
+     const nk=P(t,a+1.1,a+1.45);el.querySelector('.newW').style.opacity=nk;el.querySelector('.newW').style.transform=`scale(${1.8-.8*eback(nk)})`;
+     fl=Math.max(fl,vis(t,a+1.1,a+1.3,.01,.19)*.4)}
+   scr=Math.max(scr,pa*.8)}
+  // squad lower third
+  {const a=S('q4')-.1,b=E('q4')+.4,v=vis(t,a,b,.25,.3);show($('lt'),v>0);if(v){const k=eo(P(t,a,a+.5));$('lt').style.opacity=v;$('lt').style.transform=`translateX(${(1-k)*-80}px)`}}
+  // info cards
+  const card=(el,a,b)=>{const v=vis(t,a,b,.3,.25);show(el,v>0);if(v){el.style.opacity=v;el.style.transform=`translateY(${(1-eo(P(t,a,a+.4)))*60}px)`}return v};
+  scr=Math.max(scr,.6*card($('cA'),S('q5')-.15,S('q6')-.2),.6*card($('cU'),S('q6')-.15,S('q7')-.2),.6*card($('cW'),S('q7')-.15,S('q8')-.3));
+  // final
+  {const a=S('q8')-.3,o=t>=a;show($('fin'),o);if(o){$('fin').style.opacity=P(t,a,a+.4);$('finB').style.transform=`scale(${1.5-.5*eback(P(t,a+.2,a+.6))})`;
+    document.querySelectorAll('.fr').forEach((e,i)=>{const v=P(t,a+.5+i*.25,a+.85+i*.25);e.style.opacity=v;e.style.transform=`translateY(${(1-eo(v))*30}px)`});scr=Math.max(scr,.75)}
+   fl=Math.max(fl,vis(t,a,a+.3,.01,.29)*.6)}
+  // sticker (from the 50% moment to the end, except over the final lockup in 9:16)
+  {const a=S('q2')+2.4;const v=t>=a?Math.min(1,P(t,a,a+.3))*(V?1-P(t,S('q8')-.4,S('q8')):1):0;show($('stk'),v>0);if(v){$('stk').style.opacity=v;
+    $('stkStar').style.transform=`rotate(${t*25}deg) scale(${1+.04*Math.sin(t*6)})`;}}
+  // captions (vertical only, hidden while cards carry the same info)
+  if(V){let cap='';for(const l of TL.lines){if(['q5','q6','q7','q8'].includes(l.id))continue;if(t>=l.start-.05&&t<=l.start+l.dur+.25){const W=l.words,T=l.wt;let ci=0;for(let i=0;i<W.length;i++)if(t>=T[i])ci=i;const c0=Math.floor(ci/4)*4;cap=W.slice(c0,c0+4).map((w,j)=>`<span class="${(c0+j)===ci?'on':''}">${w}</span>`).join(' ');break}}
+    $('cap').innerHTML=cap;show($('cap'),!!cap)}
+  $('scrim').style.opacity=scr;$('flash').style.opacity=fl;$('black').style.opacity=P(t,TL.total-.5,TL.total);
+}
+window.init=init;window.render=render;
+</script></body></html>
