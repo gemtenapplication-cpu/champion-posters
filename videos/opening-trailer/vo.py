@@ -28,13 +28,14 @@ FRAGS = {
            ('E1', 23.8, 'But only one...'), ('E2', 25.2, 'will be the Champion.'),
            ('F1', 30.0, 'Grand opening.'), ('F2', 31.4, 'November twenty fifth.'), ('F3', 33.3, 'Ten A M.'),
            ('G1', 36.0, 'Book your slot at champion dot gemten dot com dot B D.'), ('G2', 40.4, 'Game on.')],
-    'bn': [('A1', 1.0, 'কুমিল্লা...'), ('A2', 2.2, 'তোমার খেলা অপেক্ষা করছে।'),
-           ('B1', 8.0, 'বিশাল স্ক্রিন।'), ('B2', 9.3, 'আসল প্রতিদ্বন্দ্বী।'), ('B3', 10.6, 'প্লেস্টেশন আর পিসি গেমিং।'),
-           ('C1', 13.8, 'জেগে উঠছে নতুন এক এরিনা।'), ('C2', 15.8, 'চারতলা। রানীর বাজার।'),
-           ('D1', 18.6, 'দলবল নিয়ে এসো।'), ('D2', 20.0, 'যোগ দাও এরিনায়।'), ('D3', 21.4, 'উঠে যাও শীর্ষে।'),
-           ('E1', 23.6, 'কিন্তু একজনই...'), ('E2', 25.0, 'হবে চ্যাম্পিয়ন।'),
-           ('F1', 30.0, 'শুভ উদ্বোধন।'), ('F2', 31.4, 'পঁচিশে নভেম্বর।'), ('F3', 33.3, 'সকাল দশটায়।'),
-           ('G1', 36.0, 'এখনই স্লট বুক করো, চ্যাম্পিয়ন ডট জেমটেন ডট কম ডট বিডি।'), ('G2', 40.4, 'শুরু হোক খেলা!')],
+    'bn': [('A1', 1.0, 'কুমিল্লার গেমাররা...'), ('A2', 2.2, 'অনেক দিন তো অপেক্ষা করলে, তাই না?'),
+           ('B1', 8.0, 'এবার খেলা হবে বড় স্ক্রিনে।'), ('B2', 9.3, 'বন্ধুর সাথে, একদম সামনাসামনি।'),
+           ('B3', 10.6, 'প্লেস্টেশন আছে, গেমিং পিসিও আছে।'),
+           ('C1', 13.8, 'জায়গাটা চেনো তো?'), ('C2', 15.6, 'রানীর বাজার, আইএফআইসি ব্যাংক ভবনের চারতলায়।'),
+           ('D1', 18.6, 'দলবল নিয়ে চলে আসো।'), ('D2', 20.0, 'এরিনায় যোগ দাও...'), ('D3', 21.4, 'আর দেখিয়ে দাও, কে আসল খেলোয়াড়।'),
+           ('E1', 23.6, 'কারণ এখানে জিতবে একজনই...'), ('E2', 25.0, 'চ্যাম্পিয়ন।'),
+           ('F1', 30.0, 'আমরা খুলছি...'), ('F2', 31.4, 'পঁচিশে নভেম্বর,'), ('F3', 33.3, 'সকাল দশটায়।'),
+           ('G1', 36.0, 'স্লট বুক করে ফেলো অনলাইনেই, চ্যাম্পিয়ন ডট জেমটেন ডট কম ডট বিডি।'), ('G2', 40.4, 'তাহলে দেখা হচ্ছে!')],
 }[LANG]
 EL_VOICES = {'rakib': 'VizHiwkPO7hXc967v4tE',     # Rakib - Deep, Authoritative (ElevenLabs voice library)
              'rayhan': 'vvOYlSJHf8lTWIG4tDNP'}    # Rayhan - Engaging & Excitement, advertisement (ElevenLabs voice library)
@@ -45,7 +46,8 @@ def synth(fid, text, raw):
         subprocess.run([sys.executable, '-m', 'piper', '-m', sys.argv[2], '-f', raw, '--length-scale', '1.16',
                         '--sentence-silence', '0.25'], input=text.encode(), check=True, capture_output=True)
         return
-    mp3 = raw.replace('_raw.wav', f'_{EL_NAME}.mp3')
+    import hashlib
+    mp3 = raw.replace('_raw.wav', f'_{EL_NAME}_{hashlib.md5(text.encode()).hexdigest()[:8]}.mp3')   # cache per voice + text
     if not os.path.exists(mp3):            # cache: each fragment costs API characters
         body = json.dumps({'text': text, 'model_id': 'eleven_v3', 'language_code': 'bn',
                            'voice_settings': {'stability': 0.45, 'similarity_boost': 0.8, 'style': 0.45}}).encode()

@@ -18,15 +18,15 @@ const BLUE = '#2B83F6', LIGHT = '#4DA3FF', DEEP = '#1F6FE5', SKY = '#6BB8FF';
 let TM, IMG = {}, NOISE = [];
 const Q = new URLSearchParams(location.search), LANG = Q.get('lang') || 'en', BUILD = LANG === 'en' ? 'build' : 'build_' + LANG;
 const BN = {
-  'CUMILLA': 'কুমিল্লা', 'YOUR GAME HAS BEEN WAITING': 'তোমার খেলা অপেক্ষা করছে', 'BIG SCREENS': 'বিশাল স্ক্রিন',
-  'REAL RIVALS': 'আসল প্রতিদ্বন্দ্বী', 'PLAYSTATION': 'প্লেস্টেশন', '& PC GAMING': 'আর পিসি গেমিং', 'FLOOR': 'তলা',
-  'A NEW ARENA RISES': 'জেগে উঠছে নতুন এরিনা', '4TH FLOOR': 'চারতলা', 'IFIC BANK BUILDING · RANIR BAZAR': 'আইএফআইসি ব্যাংক ভবন · রানীর বাজার',
-  'BRING YOUR SQUAD': 'দলবল নিয়ে এসো', 'JOIN THE': 'যোগ দাও', 'ARENA': 'এরিনায়', 'CLIMB THE RANKS': 'উঠে যাও শীর্ষে',
-  'BUT ONLY ONE...': 'কিন্তু একজনই...', 'WILL BE THE CHAMPION': 'হবে চ্যাম্পিয়ন', 'GRAND OPENING': 'শুভ উদ্বোধন', 'NOVEMBER': 'নভেম্বর',
+  'CUMILLA': 'কুমিল্লা', 'YOUR GAME HAS BEEN WAITING': 'অনেক দিন তো অপেক্ষা করলে...', 'BIG SCREENS': 'বড় স্ক্রিনে খেলা',
+  'REAL RIVALS': 'বন্ধুর সাথে, সামনাসামনি', 'PLAYSTATION': 'প্লেস্টেশন', '& PC GAMING': 'আর গেমিং পিসি', 'FLOOR': 'তলা',
+  'A NEW ARENA RISES': 'জায়গাটা চেনো তো?', '4TH FLOOR': 'চারতলা', 'IFIC BANK BUILDING · RANIR BAZAR': 'আইএফআইসি ব্যাংক ভবন · রানীর বাজার',
+  'BRING YOUR SQUAD': 'দলবল নিয়ে চলে আসো', 'JOIN THE': 'যোগ দাও', 'ARENA': 'এরিনায়', 'CLIMB THE RANKS': 'দেখিয়ে দাও কে আসল খেলোয়াড়',
+  'BUT ONLY ONE...': 'জিতবে একজনই...', 'WILL BE THE CHAMPION': 'চ্যাম্পিয়ন', 'GRAND OPENING': 'শুভ উদ্বোধন', 'NOVEMBER': 'নভেম্বর',
   'AM': 'সকাল', 'GRAND OPENING  ·  25 NOVEMBER  ·  10:00 AM': 'শুভ উদ্বোধন  ·  ২৫ নভেম্বর  ·  সকাল ১০টা',
   'BOOK NOW: champion.gemten.com.bd': 'বুকিং: champion.gemten.com.bd',
   'IFIC BANK BUILDING (4TH FLOOR) · RANIR BAZAR · CUMILLA': 'আইএফআইসি ব্যাংক ভবন (৪র্থ তলা) · রানীর বাজার · কুমিল্লা',
-  'GAME ON': 'শুরু হোক খেলা!' };
+  'GAME ON': 'তাহলে দেখা হচ্ছে!' };
 const L = s => (LANG === 'bn' && BN[s]) ? BN[s] : s;
 const isBn = s => /[\u0980-\u09FF]/.test(s);
 const bnDigits = s => s.replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
