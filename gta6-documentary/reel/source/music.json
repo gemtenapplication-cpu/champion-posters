@@ -1,0 +1,80 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "epic cinematic action trailer score",
+   "hybrid orchestral with heavy trailer percussion",
+   "deep braams",
+   "instrumental",
+   "punchy wide mix"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lyrics",
+   "rap",
+   "lo-fi",
+   "chiptune"
+  ],
+  "sections": [
+   {
+    "section_name": "Cold Open",
+    "positive_local_styles": [
+     "dark tense cinematic opening",
+     "deep sub hits",
+     "heartbeat pulse",
+     "fast rising tension toward a drop"
+    ],
+    "negative_local_styles": [
+     "happy",
+     "melody"
+    ],
+    "duration_ms": 8100,
+    "lines": []
+   },
+   {
+    "section_name": "Title Drop",
+    "positive_local_styles": [
+     "gigantic trailer braam drop on the downbeat",
+     "huge drums kick in",
+     "epic main theme"
+    ],
+    "negative_local_styles": [
+     "quiet"
+    ],
+    "duration_ms": 6500,
+    "lines": []
+   },
+   {
+    "section_name": "Hype",
+    "positive_local_styles": [
+     "fast driving epic action trailer music",
+     "pounding hybrid percussion",
+     "aggressive synth bass",
+     "excitement building to a peak"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 27200,
+    "lines": []
+   },
+   {
+    "section_name": "Champion",
+    "positive_local_styles": [
+     "modern energetic gaming hype anthem",
+     "punchy confident beat",
+     "uplifting bright synths",
+     "strong final button hit and short ring out"
+    ],
+    "negative_local_styles": [
+     "dark",
+     "sad"
+    ],
+    "duration_ms": 27340,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}
