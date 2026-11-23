@@ -1,0 +1,121 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "epic cinematic action trailer",
+   "hybrid orchestral with heavy trailer percussion",
+   "modern electronic elements",
+   "instrumental",
+   "punchy wide loud mix"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lyrics",
+   "rap",
+   "lo-fi",
+   "chiptune"
+  ],
+  "sections": [
+   {
+    "section_name": "Presents",
+    "positive_local_styles": [
+     "near silence",
+     "low ominous drone",
+     "single deep boom at the end"
+    ],
+    "negative_local_styles": [
+     "drums",
+     "melody"
+    ],
+    "duration_ms": 3000,
+    "lines": []
+   },
+   {
+    "section_name": "Cold Open",
+    "positive_local_styles": [
+     "dark slow cinematic tension",
+     "ticking clock percussion",
+     "low pulsing strings",
+     "rising suspense"
+    ],
+    "negative_local_styles": [
+     "happy",
+     "fast"
+    ],
+    "duration_ms": 7000,
+    "lines": []
+   },
+   {
+    "section_name": "The Drop",
+    "positive_local_styles": [
+     "gigantic trailer braam on the downbeat",
+     "huge sub boom",
+     "epic choir-like synth stab"
+    ],
+    "negative_local_styles": [
+     "quiet"
+    ],
+    "duration_ms": 4000,
+    "lines": []
+   },
+   {
+    "section_name": "Action Montage",
+    "positive_local_styles": [
+     "explosive fast action trailer music",
+     "pounding taiko and hybrid drums",
+     "aggressive distorted synth bass",
+     "relentless energy"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "calm"
+    ],
+    "duration_ms": 10000,
+    "lines": []
+   },
+   {
+    "section_name": "Now Playing",
+    "positive_local_styles": [
+     "modern hybrid trailer groove",
+     "driving electronic beat with cinematic percussion",
+     "neon nightclub energy",
+     "confident and hype",
+     "building"
+    ],
+    "negative_local_styles": [
+     "sad",
+     "dark ambient"
+    ],
+    "duration_ms": 16000,
+    "lines": []
+   },
+   {
+    "section_name": "Reveal",
+    "positive_local_styles": [
+     "epic triumphant peak",
+     "massive drums and brass-like synth chords",
+     "victorious logo reveal"
+    ],
+    "negative_local_styles": [
+     "quiet"
+    ],
+    "duration_ms": 6000,
+    "lines": []
+   },
+   {
+    "section_name": "End Card",
+    "positive_local_styles": [
+     "confident outro groove",
+     "punchy beat",
+     "strong final button hit then short ring out and silence"
+    ],
+    "negative_local_styles": [
+     "sad"
+    ],
+    "duration_ms": 10000,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}

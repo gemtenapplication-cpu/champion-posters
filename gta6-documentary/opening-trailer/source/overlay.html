@@ -1,0 +1,103 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Bebas+Neue&family=Playfair+Display:ital@1&display=block" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:transparent}
+body{font-family:'Montserrat',sans-serif;color:#fff;position:relative}
+.abs{position:absolute}.hide{display:none!important}
+:root{--blue:#3d8bf5;--blue2:#7fb6ff}
+.bar{left:0;width:1920px;height:138px;background:#000}#bt{top:0}#bb{bottom:0}
+#scrim{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse 1100px 480px at 50% 50%,rgba(0,0,0,.55),rgba(0,0,0,.15));opacity:0}
+#pres{left:0;top:0;width:1920px;height:1080px;background:#000}
+#presW{left:735px;top:480px;width:450px}
+#presT{left:0;width:1920px;top:565px;text-align:center;font-family:'Montserrat';font-weight:600;font-size:24px;letter-spacing:16px;color:#aab}
+.ctr{left:0;width:1920px;text-align:center;white-space:nowrap}
+#t1{top:470px;font-weight:800;font-size:76px;letter-spacing:22px}
+#big{top:380px;font-family:'Bebas Neue';font-size:250px;line-height:1;letter-spacing:12px;text-shadow:0 10px 40px rgba(0,0,0,.7)}
+#gta{top:350px;font-family:'Bebas Neue';font-size:360px;line-height:1;letter-spacing:24px;text-shadow:0 0 50px rgba(127,182,255,.35),0 10px 40px rgba(0,0,0,.7)}
+#gtaS{top:720px;font-weight:700;font-size:30px;letter-spacing:18px;color:var(--blue2)}
+#vice{top:380px;font-weight:900;font-size:220px;letter-spacing:14px;color:#fff;text-shadow:0 10px 40px rgba(0,0,0,.6)}
+.lt{position:absolute;left:150px;top:640px;display:flex;align-items:stretch;gap:22px}
+.lt .b{flex:none;width:10px;background:var(--blue);box-shadow:0 0 18px rgba(61,139,245,.8)}
+.lt .c{display:flex;flex-direction:column;gap:10px}
+.lt .k{font-weight:700;font-size:28px;letter-spacing:10px;color:var(--blue2);text-shadow:0 2px 10px #000}
+.lt .h{font-family:'Bebas Neue';font-size:120px;line-height:.95;letter-spacing:6px;text-shadow:0 6px 24px rgba(0,0,0,.8)}
+#rev{left:0;top:0;width:1920px;height:1080px}
+#revI{left:0;top:0;height:210px;filter:drop-shadow(0 0 30px rgba(120,180,255,.9))}
+#revW{left:0;top:0;width:860px;filter:drop-shadow(0 6px 20px rgba(0,0,0,.8))}
+#revS{top:760px;font-weight:800;font-size:32px;letter-spacing:16px;color:#cfe3ff;text-shadow:0 0 12px #000,0 3px 14px #000}
+#end{left:0;top:0;width:1920px;height:1080px}
+#endI{left:885px;top:170px;height:150px;filter:drop-shadow(0 0 24px rgba(120,180,255,.8))}
+#endW{left:630px;top:330px;width:660px}
+#endB{top:455px;font-family:'Bebas Neue';font-size:96px;letter-spacing:10px}
+.row{position:absolute;left:0;width:1920px;display:flex;justify-content:center}
+.pill{display:flex;align-items:center;gap:18px;font-weight:700;font-size:36px;padding:12px 30px;background:rgba(6,10,18,.78);border:2px solid rgba(61,139,245,.85);border-radius:16px;box-shadow:0 0 30px rgba(61,139,245,.3)}
+.pill .i{width:50px;height:50px;border-radius:12px;background:var(--blue);display:flex;align-items:center;justify-content:center}
+.pill.wa .i{background:#1fbf5c}
+#flash{left:0;top:0;width:1920px;height:1080px;background:#fff;opacity:0}
+#streak{left:0;top:530px;width:1920px;height:20px;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(180,215,255,.95),rgba(61,139,245,.35) 40%,transparent 70%);opacity:0;filter:blur(2px)}
+#black{left:0;top:0;width:1920px;height:1080px;background:#000;opacity:0}
+</style></head><body>
+<div id="scrim" class="abs"></div>
+<div id="t1" class="abs ctr hide"></div>
+<div id="big" class="abs ctr hide">THE WAIT IS OVER</div>
+<div id="gta" class="abs ctr hide">GTA VI</div><div id="gtaS" class="abs ctr hide">NOW ON PLAYSTATION 5</div>
+<div id="vice" class="abs ctr hide">VICE CITY</div>
+<div id="nowP" class="abs ctr hide" style="top:390px;font-family:'Bebas Neue';font-size:230px;letter-spacing:16px;line-height:1">NOW PLAYING</div>
+<div id="lts"></div>
+<div id="rev" class="abs hide"><img id="revI" class="abs" src="../inv/brand/icon_white.png"><img id="revW" class="abs" src="../inv/brand/wordmark_clean.png"><div id="revS" class="abs ctr">PS5 GAMING ZONE · CUMILLA</div></div>
+<div id="end" class="abs hide"><img id="endI" class="abs" src="../inv/brand/icon_white.png"><img id="endW" class="abs" src="../inv/brand/wordmark_clean.png">
+  <div id="endB" class="abs ctr">BOOK YOUR SLOT NOW</div>
+  <div class="row" id="e1" style="top:585px"><div class="pill"><div class="i"><svg width="30" height="30" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>Ranir Bazar, IFIC Bank Building (4th Floor), Cumilla</div></div>
+  <div class="row" id="e2" style="top:680px"><div class="pill"><div class="i"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.9 2.8 16.1 0 19M12 2.5c-2.8 2.9-2.8 16.1 0 19"/></svg></div>champion.gemten.com.bd</div></div>
+  <div class="row" id="e3" style="top:775px"><div class="pill wa"><div class="i"><svg width="30" height="30" viewBox="0 0 24 24"><path fill="#fff" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2z"/></svg></div>WhatsApp: 01603-754074</div></div>
+</div>
+<div id="streak" class="abs"></div>
+<div id="flash" class="abs"></div>
+<div id="pres" class="abs hide"><img id="presW" class="abs" src="../inv/brand/wordmark_clean.png"><div id="presT" class="abs">PRESENTS</div></div>
+<div id="black" class="abs"></div>
+<div id="bt" class="abs bar"></div><div id="bb" class="abs bar"></div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),P=(t,a,b)=>clamp((t-a)/(b-a)),eo=x=>1-Math.pow(1-x,3);
+const eback=x=>{const c1=1.7,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+function vis(t,a,b,fi=.3,fo=.3){if(t<a||t>b)return 0;return Math.min(fi?clamp((t-a)/fi):1,fo?clamp((b-t)/fo):1)}
+function show(el,on){el.classList.toggle('hide',!on)}
+// cinematic text: blur-in + letter-spacing settle + blur-out
+function cine(el,t,a,b,ls0,ls1,blur=26){const v=vis(t,a,b,.35,.35);show(el,v>0);if(!v)return 0;const k=eo(P(t,a,a+.9));
+  el.style.opacity=v;el.style.filter=`blur(${(1-k)*blur+P(t,b-.35,b)*18}px)`;el.style.letterSpacing=(ls0+(ls1-ls0)*P(t,a,b))+'px';el.style.transform=`scale(${1.05-.05*k})`;return v}
+const LT=[[26.4,29.9,'LIVE ON THE','BIG SCREEN'],[30.4,33.2,'NEXT-GEN','PS5 GAMING ZONE'],[33.7,36.0,'GTA VI','PLAY IT LIVE'],[36.4,40.0,'BRING YOUR','SQUAD']];
+function init(){ $('lts').innerHTML=LT.map((x,i)=>`<div class="lt hide" id="lt${i}"><div class="b"></div><div class="c"><div class="k">${x[2]}</div><div class="h">${x[3]}</div></div></div>`).join(''); return document.fonts.ready }
+function render(t){
+  {const o=t<3.05;show($('pres'),o);if(o){const v=Math.min(P(t,.3,1.0),1-P(t,2.4,2.95));$('presW').style.opacity=v;$('presW').style.filter=`blur(${(1-P(t,.3,1.0))*10}px)`;$('presT').style.opacity=v*P(t,.8,1.3);$('presT').style.letterSpacing=(16+10*P(t,.3,2.95))+'px'}}
+  let scr=0;
+  // cold open lines
+  {let on=null;for(const [a,b,s] of [[4.0,6.3,'13 YEARS.'],[6.7,9.7,'THE WHOLE WORLD WAITED.']])if(t>=a&&t<b)on=[a,b,s];
+   show($('t1'),!!on);if(on){$('t1').textContent=on[2];scr=Math.max(scr,cine($('t1'),t,on[0],on[1],30,18,20))}}
+  scr=Math.max(scr,cine($('big'),t,10.02,12.15,30,8,30));
+  {const v=cine($('gta'),t,12.2,14.0,60,24,34);scr=Math.max(scr,v);show($('gtaS'),v>0);$('gtaS').style.opacity=v*P(t,12.6,13.0)}
+  {const v=cine($('vice'),t,19.65,20.85,30,10,16)}
+  scr=Math.max(scr,cine($('nowP'),t,24.02,26.0,40,14,28));
+  LT.forEach((x,i)=>{const el=$('lt'+i),v=vis(t,x[0],x[1],.3,.3);show(el,v>0);if(!v)return;const k=eo(P(t,x[0],x[0]+.6));el.style.opacity=v;el.style.transform=`translateX(${(1-k)*-80}px)`;
+    el.querySelector('.h').style.filter=`blur(${(1-k)*14}px)`;el.querySelector('.k').style.opacity=P(t,x[0]+.25,x[0]+.6)});
+  // reveal
+  {const a=41.6,b=46.0,o=t>=a&&t<b;show($('rev'),o);if(o){const v=Math.min(1,1-P(t,b-.3,b));const k=eback(P(t,a,a+.7));
+    const ih=210;$('revI').style.height=ih+'px';$('revI').style.left=(960-ih*0.6475/2)+'px';$('revI').style.top='245px';$('revI').style.opacity=v*P(t,a,a+.25);$('revI').style.transform=`scale(${.6+.4*k})`;
+    $('revW').style.left=(960-430)+'px';$('revW').style.top='485px';$('revW').style.opacity=v;$('revW').style.clipPath=`inset(0 ${100-100*eo(P(t,a+.5,a+1.3))}% 0 0)`;
+    $('revS').style.opacity=v*P(t,a+1.3,a+1.8);$('revS').style.letterSpacing=(26-8*P(t,a+1.3,b))+'px'; scr=Math.max(scr,.95*v)}}
+  // end card
+  {const a=46.0,o=t>=a;show($('end'),o);if(o){$('endI').style.opacity=P(t,a,a+.4);$('endW').style.opacity=P(t,a+.2,a+.6);
+    $('endB').style.opacity=P(t,a+.6,a+1.0);$('endB').style.filter=`blur(${(1-eo(P(t,a+.6,a+1.2)))*16}px)`;
+    ['e1','e2','e3'].forEach((id,i)=>{const v=P(t,a+1.2+i*.35,a+1.6+i*.35);$(id).style.opacity=v;$(id).style.transform=`translateY(${(1-eo(v))*30}px)`})}}
+  $('scrim').style.opacity=scr;
+  // flashes + lens streak on the big beats; quick flashes on montage cuts
+  const beats=[3.0,10.0,12.2,24.0,41.6,46.0];
+  let fl=0,st=0;for(const c of beats){fl=Math.max(fl,vis(t,c-.02,c+.35,.02,.33)*.85);st=Math.max(st,vis(t,c-.05,c+.9,.05,.7))}
+  const cuts=[14.0,14.9,15.8,16.7,17.6,18.7,19.6,20.8,21.7,22.6,23.5];for(const c of cuts)fl=Math.max(fl,vis(t,c-.01,c+.1,.01,.09)*.45);
+  for(const c of [26.0,30.1,33.4,36.1,37.5,39.1,40.25])fl=Math.max(fl,vis(t,c-.01,c+.12,.01,.11)*.3);
+  $('flash').style.opacity=fl;$('streak').style.opacity=st;$('streak').style.transform=`scaleX(${.4+.8*st})`;
+  $('black').style.opacity=Math.max(P(t,55.2,56.0),(t>=9.85&&t<10.02)?1:0,(t>=23.9&&t<24.02)?1:0);
+}
+window.init=init;window.render=render;
+</script></body></html>
