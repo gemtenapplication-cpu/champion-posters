@@ -1,0 +1,100 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "epic cinematic action trailer score",
+   "hybrid orchestral with heavy trailer percussion",
+   "deep braams and sub bass impacts",
+   "dark modern crime thriller atmosphere",
+   "instrumental",
+   "huge wide punchy mix",
+   "high fidelity"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lyrics",
+   "rap",
+   "lo-fi",
+   "chiptune",
+   "thin mix",
+   "comedy"
+  ],
+  "sections": [
+   {
+    "section_name": "Criminals",
+    "positive_local_styles": [
+     "gritty crime thriller action",
+     "heavy distorted bass pulse",
+     "heist energy",
+     "aggressive staccato strings",
+     "tension and swagger"
+    ],
+    "negative_local_styles": [
+     "calm",
+     "happy"
+    ],
+    "duration_ms": 38100,
+    "lines": []
+   },
+   {
+    "section_name": "Delays",
+    "positive_local_styles": [
+     "suspenseful waiting",
+     "clock ticking percussion",
+     "slow building pressure",
+     "dark pads"
+    ],
+    "negative_local_styles": [
+     "triumphant"
+    ],
+    "duration_ms": 23900,
+    "lines": []
+   },
+   {
+    "section_name": "Launch",
+    "positive_local_styles": [
+     "epic triumphant climax",
+     "massive drums and choir-like synths",
+     "victorious anthem",
+     "biggest moment of the score"
+    ],
+    "negative_local_styles": [
+     "quiet",
+     "sad"
+    ],
+    "duration_ms": 37100,
+    "lines": []
+   },
+   {
+    "section_name": "Reflection",
+    "positive_local_styles": [
+     "calm emotional resolve",
+     "soft piano and strings",
+     "breath before the finale"
+    ],
+    "negative_local_styles": [
+     "drums"
+    ],
+    "duration_ms": 6800,
+    "lines": []
+   },
+   {
+    "section_name": "Champion",
+    "positive_local_styles": [
+     "modern energetic action hype",
+     "punchy confident beat with trailer percussion",
+     "uplifting bright synth anthem",
+     "premium commercial energy",
+     "strong final button hit and short ring out"
+    ],
+    "negative_local_styles": [
+     "dark",
+     "sad"
+    ],
+    "duration_ms": 29790,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}

@@ -1,0 +1,272 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@600;700;900&family=Galada&family=Montserrat:wght@500;600;800;900&family=Playfair+Display:ital,wght@0,700;1,400;1,600&family=Bebas+Neue&display=block" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:transparent}
+body{font-family:'Anek Bangla',sans-serif;color:#fff;position:relative}
+.abs{position:absolute}
+.hide{display:none!important}
+:root{--red:#e0313b;--gold:#f0b24a;--maroon:#8b1e2e}
+.bar{left:0;width:1920px;height:138px;background:#000}
+#barTop{top:0}#barBot{bottom:0}
+#flash{left:0;top:0;width:1920px;height:1080px;background:#fff;opacity:0}
+#leak{left:0;top:0;width:1920px;height:1080px;mix-blend-mode:screen;opacity:0}
+#black{left:0;top:0;width:1920px;height:1080px;background:#000;opacity:0}
+#scrim{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse 1100px 520px at 50% 50%,rgba(0,0,0,.55),rgba(0,0,0,.2));opacity:0}
+/* presents */
+#pres{left:0;top:0;width:1920px;height:1080px;background:#000}
+#presW{left:760px;top:470px;width:400px}
+#presT{left:0;width:1920px;top:545px;text-align:center;font-family:'Playfair Display';font-style:italic;font-size:30px;color:#bbb;letter-spacing:2px}
+/* watermark */
+#wm{left:58px;top:870px;display:flex;align-items:center;gap:12px;opacity:.82}
+#wm img.i{height:46px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7))}
+#wm img.w{width:170px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7))}
+/* title */
+#ttl{left:0;top:0;width:1920px;height:1080px}
+#ttlA{left:0;width:1920px;top:330px;text-align:center;font-family:'Montserrat';font-weight:600;font-size:34px;letter-spacing:18px;color:#ddd}
+#ttlB{left:0;width:1920px;top:370px;text-align:center;font-family:'Bebas Neue';font-size:330px;line-height:1;color:#fff;text-shadow:0 10px 40px rgba(0,0,0,.6)}
+#ttlC{left:0;width:1920px;top:700px;text-align:center;font-family:'Noto Serif Bengali';font-weight:700;font-size:46px;color:var(--gold);text-shadow:0 4px 14px #000}
+/* chapter */
+#chap{left:0;top:0;width:1920px;height:1080px}
+#chEN{left:0;width:1920px;top:360px;text-align:center;font-family:'Montserrat';font-weight:900;font-size:230px;line-height:1;color:rgba(255,255,255,.16);white-space:nowrap}
+#chNo{left:0;width:1920px;top:345px;text-align:center;font-size:36px;font-weight:600;letter-spacing:10px;color:var(--gold);text-shadow:0 2px 10px #000}
+#chBN{left:0;width:1920px;top:410px;text-align:center;font-family:'Noto Serif Bengali';font-weight:900;font-size:120px;line-height:1.3;text-shadow:0 6px 30px rgba(0,0,0,.85)}
+#chLine{left:860px;top:625px;width:200px;height:4px;background:var(--red)}
+/* lower third (VoD name box) */
+.lt{position:absolute;left:120px;top:735px}
+.lt .a{display:inline-block;background:rgba(40,40,44,.88);padding:10px 26px;font-family:'Montserrat';font-weight:800;font-size:38px;letter-spacing:4px;white-space:nowrap}
+.lt .b{margin-top:8px;font-size:32px;font-weight:600;color:#eee;text-shadow:0 2px 8px #000;white-space:nowrap}
+.lt .bar2{position:absolute;left:0;top:0;width:6px;height:100%;background:var(--red)}
+/* big kinetic word */
+#big{left:0;width:1920px;top:360px;text-align:center;font-family:'Montserrat';font-weight:900;font-size:240px;line-height:1;white-space:nowrap;color:#fff;text-shadow:0 10px 40px rgba(0,0,0,.6)}
+/* statements */
+#st{left:160px;width:1600px;top:440px;text-align:center;font-family:'Noto Serif Bengali';font-weight:900;font-size:96px;line-height:1.35;text-shadow:0 6px 26px rgba(0,0,0,.9)}
+#hw{left:160px;width:1600px;top:400px;text-align:center;font-family:'Galada',cursive;font-size:150px;line-height:1.3;text-shadow:0 6px 26px rgba(0,0,0,.85)}
+/* counter */
+#cnt{left:0;width:1920px;top:360px;text-align:center}
+#cntN{font-family:'Bebas Neue';font-size:260px;line-height:1;color:#fff;text-shadow:0 8px 40px rgba(0,0,0,.7)}
+#cntN.bn{font-family:'Noto Serif Bengali';font-weight:900;font-size:190px;line-height:1.25}
+#cntL{font-size:42px;font-weight:600;color:var(--gold);text-shadow:0 3px 12px #000;margin-top:4px}
+/* headline card */
+#news{left:980px;top:250px;width:800px;padding:40px 44px;background:#f3efe6;color:#151515;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+#news .src{font-family:'Montserrat';font-weight:800;font-size:22px;letter-spacing:4px;color:#8b1e2e}
+#news .h{position:relative;font-family:'Playfair Display';font-weight:700;font-size:52px;line-height:1.25;margin-top:16px}
+#news mark{background:linear-gradient(transparent 52%,rgba(224,49,59,.55) 52%);background-repeat:no-repeat;background-size:0% 100%;color:inherit}
+#news .d{font-family:'Montserrat';font-size:20px;color:#666;margin-top:18px}
+/* quote card */
+#quote{left:0;top:0;width:1920px;height:1080px}
+#qShade{left:0;top:0;width:1920px;height:1080px;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.55) 55%,rgba(0,0,0,.1))}
+#qNum{left:140px;top:250px;font-family:'Bebas Neue';font-size:300px;line-height:1;color:#fff}
+#qNum span{font-size:110px;color:#aaa}
+#qMeta{left:150px;top:560px;font-family:'Montserrat';font-weight:800;font-size:30px;letter-spacing:8px;color:#5fe08a}
+#qTxt{left:150px;top:620px;width:1100px;font-family:'Playfair Display';font-style:italic;font-size:50px;line-height:1.3;color:#f2f2f2}
+#qBox{left:150px;top:770px;background:rgba(40,40,44,.9);padding:8px 22px;font-family:'Montserrat';font-weight:800;font-size:26px;letter-spacing:4px}
+/* map */
+#map{left:1060px;top:190px;width:760px;height:690px;background:#12384f;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+#mapT{left:30px;top:20px;font-family:'Montserrat';font-weight:800;font-size:26px;letter-spacing:8px;color:#e8dcc0}
+#mapSvg{left:20px;top:60px;width:720px;height:500px}
+#mapS{left:30px;top:575px;font-size:46px;font-weight:700;color:#fff}
+#mapS b{font-family:'Bebas Neue';font-weight:400;font-size:84px;color:var(--gold);vertical-align:-10px;margin:0 6px}
+#mapN{left:32px;top:648px;font-size:20px;color:#9bb}
+#mapFT{left:30px;top:640px;font-size:40px;font-weight:800;color:#ff5a63;white-space:nowrap}
+/* delays timeline */
+#tl{left:260px;top:700px;width:1400px;height:150px}
+#tlLine{left:0;top:40px;height:4px;width:0;background:rgba(255,255,255,.7)}
+.node{position:absolute;top:22px;width:300px;margin-left:-150px;text-align:center}
+.node .dot{width:40px;height:40px;margin:0 auto;border-radius:50%;border:4px solid #fff;background:rgba(0,0,0,.6)}
+.node .lab{margin-top:12px;font-size:36px;font-weight:700;text-shadow:0 3px 10px #000;white-space:nowrap;position:relative;display:inline-block}
+.node .lab i{position:absolute;left:-6px;right:-6px;top:52%;height:5px;background:var(--red);transform-origin:0 50%;transform:scaleX(0)}
+.node.final .dot{border-color:var(--gold);background:var(--gold);box-shadow:0 0 30px var(--gold)}
+.node.final .lab{color:var(--gold)}
+/* notifications */
+.nt{position:absolute;right:120px;width:430px;height:92px;background:rgba(255,255,255,.94);color:#111;border-radius:18px;display:flex;align-items:center;gap:18px;padding:0 22px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.nt .ic{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.nt .tx{font-size:30px;font-weight:700;line-height:1.1}.nt .tx small{display:block;font-size:20px;font-weight:500;color:#666}
+/* promo */
+#promo{left:0;top:0;width:1920px;height:1080px}
+#pTint{left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse 1200px 620px at 50% 50%,rgba(5,8,14,.62),rgba(5,8,14,.3) 75%)}
+#pIcon{left:0;top:0;height:200px;filter:drop-shadow(0 0 26px rgba(120,180,255,.8))}
+#pWord{left:0;top:0;width:760px;filter:drop-shadow(0 4px 16px rgba(0,0,0,.8))}
+#pTag{left:0;width:1920px;top:700px;text-align:center;font-family:'Noto Serif Bengali';font-weight:700;font-size:50px;text-shadow:0 4px 18px #000}
+#pTag span{color:#8cc0ff}
+.pc{position:absolute;left:310px;top:390px;width:1300px;padding:32px 44px;background:rgba(7,9,13,.78);border:2px solid #3d8bf5;border-radius:22px;box-shadow:0 0 50px rgba(61,139,245,.3);display:flex;gap:36px;align-items:center}
+.pc .ic{width:126px;height:126px;flex:none;border-radius:28px;background:linear-gradient(145deg,#4aa0ff,#1f5fd6);display:flex;align-items:center;justify-content:center}
+.pc.wa .ic{background:linear-gradient(145deg,#3ee07a,#14a34a)}
+.pc .k{font-size:32px;color:#8cc0ff;font-weight:600}
+.pc .v{font-size:56px;font-weight:800;line-height:1.25}
+.pc .v.u{font-family:'Bebas Neue';font-size:96px;font-weight:400;letter-spacing:3px;line-height:1}
+.pc .v.n{font-family:'Bebas Neue';font-size:120px;font-weight:400;letter-spacing:6px;line-height:1}
+#pFin{left:0;width:1920px;top:560px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.fr{display:flex;align-items:center;gap:20px;font-size:40px;font-weight:700;padding:8px 26px;background:rgba(7,9,13,.72);border-radius:14px;border:1px solid rgba(61,139,245,.6)}
+.fr .i{width:48px;height:48px;border-radius:12px;background:#3d8bf5;display:flex;align-items:center;justify-content:center}
+.fr.wa .i{background:#1fbf5c}
+</style></head><body>
+<div id="scrim" class="abs"></div>
+<div id="ttl" class="abs hide"><div id="ttlA" class="abs">THE STORY OF</div><div id="ttlB" class="abs">GTA VI</div><div id="ttlC" class="abs">অপেক্ষার ১৩ বছর</div></div>
+<div id="chap" class="abs hide"><div id="chEN" class="abs"></div><div id="chNo" class="abs"></div><div id="chBN" class="abs"></div><div id="chLine" class="abs"></div></div>
+<div id="big" class="abs hide"></div>
+<div id="st" class="abs hide"></div>
+<div id="hw" class="abs hide"></div>
+<div id="cnt" class="abs hide"><div id="cntN"></div><div id="cntL"></div></div>
+<div id="lts"></div>
+<div id="news" class="abs hide"><div class="src"></div><div class="h"></div><div class="d"></div></div>
+<div id="quote" class="abs hide"><div id="qShade" class="abs"></div><div id="qNum" class="abs">৯৯<span>/১০০</span></div><div id="qMeta" class="abs">METACRITIC · ক্রিটিক স্কোর</div>
+  <div id="qTxt" class="abs">“Setting the bar for open worlds impossibly high.”</div><div id="qBox" class="abs">GAMESPOT · REVIEW</div></div>
+<div id="map" class="abs hide"><div id="mapT" class="abs">LEONIDA</div><svg id="mapSvg" class="abs" viewBox="0 0 720 500"></svg>
+  <div id="mapS" class="abs">আয়তন ≈<b id="mapX">১.০×</b>GTA V</div><div id="mapN" class="abs">*প্রকাশিত রিপোর্ট অনুযায়ী</div><div id="mapFT" class="abs">✕ সাধারণ ফাস্ট ট্রাভেল নেই</div></div>
+<div id="tl" class="abs hide"><div id="tlLine" class="abs"></div>
+  <div class="node" id="n0" style="left:150px"><div class="dot"></div><div class="lab">শরৎ ২০২৫<i></i></div></div>
+  <div class="node" id="n1" style="left:700px"><div class="dot"></div><div class="lab">২৬ মে ২০২৬<i></i></div></div>
+  <div class="node final" id="n2" style="left:1250px"><div class="dot"></div><div class="lab">১৯ নভেম্বর ২০২৬</div></div></div>
+<div id="nts"></div>
+<div id="promo" class="abs hide"><div id="pTint" class="abs"></div><img id="pIcon" class="abs" src="../inv/brand/icon_white.png"><img id="pWord" class="abs" src="../inv/brand/wordmark_clean.png">
+  <div id="pTag" class="abs">লাইভ খেলুন <span>GTA VI</span> — বড় স্ক্রিনে, PS5-এ</div>
+  <div id="cA" class="pc"><div class="ic"><svg width="66" height="66" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div><div><div class="k">ঠিকানা</div><div class="v">রানীর বাজার, IFIC ব্যাংক বিল্ডিং<br>৪র্থ তলা, কুমিল্লা</div></div></div>
+  <div id="cU" class="pc"><div class="ic"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.9 2.8 16.1 0 19M12 2.5c-2.8 2.9-2.8 16.1 0 19"/></svg></div><div><div class="k">অনলাইন বুকিং</div><div class="v u" id="uT"></div></div></div>
+  <div id="cW" class="pc wa"><div class="ic"><svg width="70" height="70" viewBox="0 0 24 24"><path fill="#fff" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2zm5 13.6c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-3.2-.8-2.7-1.1-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></div><div><div class="k">হোয়াটসঅ্যাপ</div><div class="v n" id="nT"></div></div></div>
+  <div id="pFin" class="abs">
+    <div class="fr" id="r1"><div class="i"><svg width="30" height="30" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>রানীর বাজার, IFIC ব্যাংক বিল্ডিং, ৪র্থ তলা, কুমিল্লা</div>
+    <div class="fr" id="r2"><div class="i"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.9 2.8 16.1 0 19M12 2.5c-2.8 2.9-2.8 16.1 0 19"/></svg></div>champion.gemten.com.bd</div>
+    <div class="fr wa" id="r3"><div class="i"><svg width="30" height="30" viewBox="0 0 24 24"><path fill="#fff" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2z"/></svg></div>WhatsApp: 01603-754074</div></div>
+</div>
+<div id="wm" class="abs"><img class="i" src="../inv/brand/icon_white.png"><img class="w" src="../inv/brand/wordmark_clean.png"></div>
+<div id="leak" class="abs"></div>
+<div id="flash" class="abs"></div>
+<div id="pres" class="abs hide"><img id="presW" class="abs" src="../inv/brand/wordmark_clean.png"><div id="presT" class="abs">Presents</div></div>
+<div id="black" class="abs"></div>
+<div id="barTop" class="abs bar"></div><div id="barBot" class="abs bar"></div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const P=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3), eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eback=x=>{const c1=1.8,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const SEG=new Intl.Segmenter('bn',{granularity:'grapheme'});
+const typeT=(s,p)=>{const g=[...SEG.segment(s)].map(x=>x.segment);return g.slice(0,Math.round(g.length*clamp(p))).join('')};
+const BN='০১২৩৪৫৬৭৮৯', bn=n=>String(n).replace(/\d/g,d=>BN[d]);
+function vis(t,a,b,fi=.35,fo=.35){if(t<a||t>b)return 0;return Math.min(fi?clamp((t-a)/fi):1,fo?clamp((b-t)/fo):1)}
+function show(el,on){el.classList.toggle('hide',!on)}
+let TL,LS={},LE={},EV={};
+const Ls=id=>LS[id], Le=id=>LE[id];
+async function init(){ TL=await (await fetch('timeline.json')).json();
+  for(const l of TL.lines){LS[l.id]=l.start;LE[l.id]=l.start+l.dur}
+  buildEvents(); buildMap(); await document.fonts.ready; }
+
+function buildEvents(){
+  const ch=TL.lines.filter(l=>l.chapter).map(l=>({t0:l.start-3.35,t1:l.start+0.35,c:l.chapter}));
+  // lower thirds: [t0,t1,title,sub]
+  const LT=[[Ls('a2')+1.2,Le('a2')+.2,'GTA III','২০০১ · লিবার্টি সিটি'],
+    [Ls('a3')+1.0,Ls('a3')+2.9,'VICE CITY','২০০২'],[Ls('a3')+2.9,Ls('a3')+4.8,'SAN ANDREAS','২০০৪'],[Ls('a3')+4.8,Le('a3')+.3,'GTA IV','২০০৮'],
+    [Ls('a4')+1.0,Le('a5')-.2,'GTA V','২০১৩ · রকস্টার গেমস'],[Ls('a6')+.3,Le('a6')+.2,'GTA ONLINE','২০১৩ থেকে আজও'],
+    [Ls('e2')+.1,Le('e2')+.3,'LUCIA CAMINOS','প্রথম নারী প্রধান চরিত্র'],[Ls('e3')+.1,Le('e3')+1.0,'JASON DUVAL','প্রধান চরিত্র'],
+    [Ls('e5')+.2,Le('e5')+.2,'CHARACTER SWITCH','লুসিয়া ⇄ জেসন'],[Ls('g2')+.3,Le('g2')+.3,'PS5 · XBOX SERIES X|S','১৯ নভেম্বর ২০২৬']];
+  $('lts').innerHTML=LT.map((x,i)=>`<div class="lt hide" id="lt${i}"><div class="a"><span class="bar2"></span>${x[2]}</div><div class="b">${x[3]}</div></div>`).join('');
+  EV={ch,LT,
+    big:[[Le('c3')-1.3,Le('c3')+1.6,'VICE CITY'],[Ls('d1')+.2,Ls('d1')+3.4,'LEONIDA'],[Ls('e6')+1.4,Le('e6')+.2,'HEIST']],
+    st:[[Ls('h4')+1.6,Le('h4')+.5,'কবে আসবে GTA VI?','#ff4552'],[Ls('a7')+2.0,Le('a7')+.7,'পাহাড়সমান প্রত্যাশা','#fff'],
+        [Ls('b5')+2.3,Le('b5')+.4,'রকস্টারের জন্য এক দুঃস্বপ্ন','#ff4552'],[Ls('b3')+.2,Le('b3')+.3,'বিস্ফোরণ!','#ff4552']],
+    hw:[[Ls('h1')-.1,Ls('h3')-.1,'১৩ বছর'],[Ls('b6')-.1,Le('b6')+.8,'তবু থেমে থাকেনি কাজ…'],[Ls('g7')+1.2,Le('g7')+1.2,'গল্প সবে শুরু…'],[Ls('p1')+.2,Le('p1')+.1,'অপেক্ষার স্বাদ…']],
+    cnt:[[Ls('a5')+.2,Le('a5')+.3,21,'{n} কোটি+','কপি বিক্রি · GTA V'],[Ls('c2')+.2,Le('c2')+.3,9,'{n} কোটি+','২৪ ঘণ্টায় ইউটিউব ভিউ · প্রথম ট্রেলার'],
+         [Ls('f3')+.8,Le('f3')+.3,47.5,'{n} কোটি','২৪ ঘণ্টায় ভিউ · দ্বিতীয় ট্রেলার'],[Ls('g3')+.2,Le('g3')+.4,379,'${n} কোটি','প্রথম দিনের বিক্রি · টেক-টুর দাবি']],
+  };
+}
+const PINS=[['ভাইস সিটি',500,345,1],['লিওনিডা কিজ',360,462,0],['গ্রাসরিভার্স',380,318,0],['পোর্ট গেলহর্ন',165,100,1],['অ্যামব্রোসিয়া',365,190,1],['মাউন্ট কালাগা',460,66,1]];
+function buildMap(){
+  const d='M66 76 L275 68 L330 86 L515 77 L572 101 L550 165 L526 231 L517 295 L530 352 L515 398 L484 431 L446 446 L409 420 L387 374 L363 319 L330 264 L313 209 L288 165 L236 134 L176 130 L110 121 Z';
+  let h=`<path id="mapPath" d="${d}" fill="#e8dcc0" stroke="#8b1e2e" stroke-width="3"/>`;
+  h+='<g fill="#e8dcc0">'+[[363,482,7],[387,494,6],[416,504,6],[446,510,5],[476,512,5]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}"/>`).join('')+'</g>';
+  PINS.forEach((p,i)=>{h+=`<g id="pin${i}" opacity="0"><circle cx="${p[1]}" cy="${p[2]}" r="10" fill="#8b1e2e"/><circle cx="${p[1]}" cy="${p[2]}" r="20" fill="none" stroke="#8b1e2e" stroke-width="3"/><text text-anchor="${p[3]?'start':'end'}" x="${p[3]?p[1]+18:p[1]-18}" y="${p[2]-12}" fill="#1d1d1d" font-size="25" font-weight="700" font-family="Anek Bangla">${p[0]}</text></g>`});
+  $('mapSvg').innerHTML=h; const mp=$('mapPath'),L=mp.getTotalLength();mp.style.strokeDasharray=L;mp.dataset.L=L;
+}
+function blurIn(el,t,a,b,dist=24){const v=vis(t,a,b,.5,.45);show(el,v>0);if(!v)return 0;const k=eo(P(t,a,a+.8));
+  el.style.opacity=v;el.style.filter=`blur(${(1-k)*dist+(1-vis(t,a,b,1e-3,.45))*14}px)`;el.style.transform=`scale(${1.06-.06*k})`;return v}
+
+function render(t){
+  // presents card
+  { const o=t<3.6; show($('pres'),o); if(o){ const v=Math.min(P(t,.45,1.2),1-P(t,2.75,3.4)); $('presW').style.opacity=v;$('presT').style.opacity=v*P(t,.9,1.5);
+      $('presW').style.filter=`blur(${(1-P(t,.45,1.2))*8}px)`; } }
+  // watermark (hidden on presents, title drop and in the promo lockup)
+  $('wm').style.opacity=.82*Math.min(P(t,3.6,4.2),1-vis(t,32.2,36.8,.3,.3),1-P(t,Ls('p2')-.3,Ls('p2')+.2));
+  // montage flashes
+  let fl=0; for(let c=3.5;c<8.0;c+=0.75){fl=Math.max(fl,vis(t,c-.02,c+.12,.02,.1)*.55)}
+  // title drop
+  const T0=Le('h5')+.15, T1=36.75;
+  { const o=t>=T0&&t<T1; show($('ttl'),o); if(o){ const k=eo(P(t,T0,T0+.9));
+      $('ttlB').style.filter=`blur(${(1-k)*28+P(t,T1-.45,T1)*20}px)`; $('ttlB').style.letterSpacing=(40-30*k)+'px'; $('ttlB').style.opacity=Math.min(1,P(t,T0,T0+.25))*(1-P(t,T1-.4,T1));
+      $('ttlA').style.opacity=P(t,T0+.6,T0+1.1)*(1-P(t,T1-.4,T1)); $('ttlA').style.letterSpacing=(26-8*P(t,T0+.6,T1))+'px';
+      $('ttlC').style.opacity=P(t,T0+1.2,T0+1.7)*(1-P(t,T1-.4,T1)); } fl=Math.max(fl,vis(t,T0-.02,T0+.35,.02,.33)*.9); }
+  // chapter cards
+  let chOn=null; for(const c of EV.ch){if(t>=c.t0&&t<c.t1)chOn=c} show($('chap'),!!chOn);
+  if(chOn){ const {t0,t1,c}=chOn; const out=P(t,t1-.45,t1);
+    $('chEN').textContent=c[2]; $('chEN').style.letterSpacing=(10+30*P(t,t0,t1))+'px'; $('chEN').style.opacity=P(t,t0,t0+.6)*(1-out);
+    $('chNo').textContent=c[0]; $('chNo').style.opacity=P(t,t0+.35,t0+.8)*(1-out);
+    $('chBN').textContent=c[1]; const k=eo(P(t,t0+.15,t0+.9)); $('chBN').style.filter=`blur(${(1-k)*22+out*16}px)`; $('chBN').style.opacity=Math.min(1,P(t,t0+.15,t0+.4))*(1-out);
+    $('chBN').style.transform=`scale(${1.08-.08*k})`; $('chLine').style.width=(eo(P(t,t0+.6,t0+1.2))*200)+'px'; $('chLine').style.left=(960-100*eo(P(t,t0+.6,t0+1.2)))+'px'; $('chLine').style.opacity=1-out;
+    fl=Math.max(fl,vis(t,t0-.02,t0+.3,.02,.28)*.75); }
+  // lower thirds
+  EV.LT.forEach((x,i)=>{const el=$('lt'+i);const v=vis(t,x[0],x[1],.3,.3);show(el,v>0);if(!v)return;const k=eo(P(t,x[0],x[0]+.5));
+    el.style.opacity=v;el.style.transform=`translateX(${(1-k)*-60}px)`;el.querySelector('.b').style.opacity=P(t,x[0]+.25,x[0]+.6)});
+  // big words
+  { let on=null;for(const b of EV.big)if(t>=b[0]&&t<b[1])on=b; show($('big'),!!on); if(on){const [a,b,w]=on;$('big').textContent=w;
+      const k=eo(P(t,a,a+.9));$('big').style.opacity=Math.min(P(t,a,a+.3),1-P(t,b-.4,b))*0.92;$('big').style.letterSpacing=(6+24*P(t,a,b))+'px';
+      $('big').style.filter=`blur(${(1-k)*18+P(t,b-.4,b)*14}px)`;}}
+  // statements / handwriting
+  let scr=0;
+  { let on=null;for(const s of EV.st)if(t>=s[0]&&t<s[1])on=s; if(on){$('st').textContent=on[2];$('st').style.color=on[3];} const v=on?blurIn($('st'),t,on[0],on[1]):(show($('st'),false),0); scr=Math.max(scr,v);}
+  { let on=null;for(const s of EV.hw)if(t>=s[0]&&t<s[1])on=s; if(on){$('hw').textContent=typeT(on[2],P(t,on[0],on[0]+.9));} const v=on?blurIn($('hw'),t,on[0],on[1],10):(show($('hw'),false),0); scr=Math.max(scr,v);}
+  // counters
+  { let on=null;for(const c of EV.cnt)if(t>=c[0]&&t<c[1])on=c; show($('cnt'),!!on); if(on){const [a,b,n,fmt,lab]=on; const k=eo(P(t,a+.1,a+1.6));
+      const val=(n%1)?(n*k).toFixed(1):Math.round(n*k); $('cntN').textContent=fmt.replace('{n}',bn(val)); $('cntN').className='bn';
+      $('cntL').textContent=lab; const v=vis(t,a,b,.3,.35); $('cnt').style.opacity=v; $('cnt').style.transform=`scale(${1.04-.04*eo(P(t,a,a+.6))})`;
+      $('cntL').style.opacity=P(t,a+.5,a+.9); scr=Math.max(scr,v);}}
+  // headline card (ABC) at g4
+  { const a=Ls('g4')-.3,b=Le('g4')+.5,v=vis(t,a,b,.35,.35); show($('news'),v>0); if(v){
+      $('news').querySelector('.src').textContent='ABC NEWS';
+      $('news').querySelector('.h').innerHTML='GTA 6 breaks entertainment box office records with <mark>$3.79B in 1st-day sales</mark>';
+      $('news').querySelector('.d').textContent='নভেম্বর ২০২৬ · শিরোনাম';
+      $('news').style.opacity=v;$('news').style.transform=`translateY(${(1-eo(P(t,a,a+.5)))*60}px) rotate(-1.5deg)`;
+      $('news').querySelector('mark').style.backgroundSize=(eio(P(t,a+.7,a+1.6))*100)+'% 100%'; scr=Math.max(scr,v*.6);}}
+  // quote / metacritic at g5
+  { const a=Ls('g5')-.1,b=Le('g5')+.6,v=vis(t,a,b,.4,.4); show($('quote'),v>0); if(v){ $('quote').style.opacity=v;
+      const k=eo(P(t,a+.1,a+1.3)); $('qNum').innerHTML=bn(Math.round(99*k))+'<span>/১০০</span>';
+      $('qTxt').style.opacity=P(t,a+1.0,a+1.6); $('qBox').style.opacity=P(t,a+1.5,a+1.9); $('qMeta').style.opacity=P(t,a+.4,a+.8);}}
+  // map d3-d4
+  { const a=Ls('d3')-.3,b=Le('d4')+.3,v=vis(t,a,b,.35,.35); show($('map'),v>0); if(v){ $('map').style.opacity=v;$('map').style.transform=`translateX(${(1-eo(P(t,a,a+.5)))*90}px)`;
+      const mp=$('mapPath');mp.style.strokeDashoffset=mp.dataset.L*(1-eio(P(t,a+.1,a+1.0)));mp.style.fillOpacity=P(t,a+.6,a+1.1);
+      PINS.forEach((p,i)=>$('pin'+i).setAttribute('opacity',P(t,a+.9+i*.15,a+1.1+i*.15)));
+      $('mapX').textContent=bn((1+eio(P(t,a+.9,a+2.2))).toFixed(1))+'×';$('mapS').style.opacity=P(t,a+.8,a+1.0);
+      const ft=P(t,Ls('d4'),Ls('d4')+.25);$('mapFT').style.opacity=ft;$('mapFT').style.transform=`scale(${1.4-.4*eo(ft)})`;$('mapFT').style.transformOrigin='0 50%';$('mapN').style.opacity=1-ft;}}
+  // delays timeline
+  { const on=(t>=Ls('f1')-.2&&t<Le('f2')+.6)||(t>=Ls('f4')-.2&&t<Le('f4')+.6); show($('tl'),on); if(on){
+      const a=Ls('f1')-.2; $('tl').style.opacity=Math.max(vis(t,a,Le('f2')+.6,.4,.4),vis(t,Ls('f4')-.2,Le('f4')+.6,.4,.4));
+      $('tlLine').style.width=(eo(P(t,a,a+1.2))*1250+150)+'px';
+      $('n0').style.opacity=P(t,a+.2,a+.6); $('n1').style.opacity=t>=Ls('f4')-.2?1:P(t,Ls('f2')+.2,Ls('f2')+.6); $('n2').style.opacity=P(t,Ls('f4')+1.6,Ls('f4')+2.0);
+      $('n0').querySelector('i').style.transform=`scaleX(${eo(P(t,Ls('f2')+.6,Ls('f2')+1.0))})`; $('n1').querySelector('i').style.transform=`scaleX(${eo(P(t,Ls('f4')+.4,Ls('f4')+.8))})`;
+      scr=Math.max(scr,.6); }}
+  // social notifications at e7
+  { const a=Ls('e7')+.4,b=Le('e7')+.4; const N=[['#ff3b6b','১২.৪K লাইক','লিওনিডা ফিড'],['#7a5cff','২.১M ভিউ','ভিডিও ভাইরাল'],['#ff9f1a','৮৬K শেয়ার','#Leonida ট্রেন্ডিং']];
+    if(!$('nt0')) $('nts').innerHTML=N.map((n,i)=>`<div class="nt hide" id="nt${i}"><div class="ic" style="background:${n[0]}"></div><div class="tx">${n[1]}<small>${n[2]}</small></div></div>`).join('');
+    N.forEach((n,i)=>{const el=$('nt'+i),s=a+i*.7,v=vis(t,s,b,.01,.3);show(el,v>0);if(!v)return;const k=eback(P(t,s,s+.35));el.style.top=(230+i*115)+'px';el.style.opacity=v*P(t,s,s+.1);el.style.transform=`translateX(${(1-k)*160}px)`})}
+  $('scrim').style.opacity=scr*.9;
+  // promo
+  { const a=Ls('p2')-.3; const o=t>=a; show($('promo'),o); if(o){ $('pTint').style.opacity=P(t,a,a+.5);
+      const k=eio(P(t,Ls('p3')-.3,Ls('p3')+.2)), fin=eio(P(t,Ls('p6')-.3,Ls('p6')+.2)); const kk=k*(1-fin);
+      const ih=200-80*kk-40*fin, iy=300-110*kk-120*fin; $('pIcon').style.height=ih+'px';$('pIcon').style.left=(960-ih*0.6475/2)+'px';$('pIcon').style.top=(iy-ih/2)+'px';
+      $('pIcon').style.opacity=P(t,a+.1,a+.5); $('pIcon').style.transform=`scale(${.7+.3*eback(P(t,a+.1,a+.6))})`;
+      const ww=760-300*kk-60*fin; $('pWord').style.width=ww+'px';$('pWord').style.left=(960-ww/2)+'px';$('pWord').style.top=(iy+ih/2+30)+'px';
+      $('pWord').style.clipPath=`inset(0 ${100-100*eo(P(t,a+.5,a+1.2))}% 0 0)`;
+      $('pTag').style.opacity=vis(t,a+1.0,Ls('p3')-.3,.4,.3);
+      const card=(el,x,y)=>{const v=vis(t,x,y,.35,.3);el.style.opacity=v;el.style.display=v>0?'flex':'none';el.style.transform=`translateY(${(1-eo(P(t,x,x+.5)))*60}px)`};
+      card($('cA'),Ls('p3')-.1,Ls('p4')-.2);card($('cU'),Ls('p4')-.1,Ls('p5')-.2);card($('cW'),Ls('p5')-.1,Ls('p6')-.3);
+      $('uT').textContent=typeT('champion.gemten.com.bd',P(t,Ls('p4')+.6,Ls('p4')+2.8));$('nT').textContent=typeT('01603-754074',P(t,Ls('p5')+1.4,Ls('p5')+5.4));
+      $('pFin').style.display=t>=Ls('p6')-.2?'flex':'none';['r1','r2','r3'].forEach((id,i)=>{const v=P(t,Ls('p6')+.1+i*.3,Ls('p6')+.45+i*.3);$(id).style.opacity=v;$(id).style.transform=`translateY(${(1-eo(v))*30}px)`});
+      fl=Math.max(fl,vis(t,a-.02,a+.3,.02,.28)*.6);}}
+  // light leak sweeps at chapter starts + title
+  let lk=0,lx=0; for(const c of [...EV.ch.map(c=>c.t0),T0]){const v=vis(t,c-.1,c+1.6,.3,1.0);if(v>lk){lk=v;lx=P(t,c-.1,c+1.6)}}
+  $('leak').style.opacity=lk*.85; $('leak').style.background=`radial-gradient(ellipse 700px 900px at ${-200+lx*2300}px 40%,rgba(255,140,40,.75),rgba(255,60,20,.25) 45%,transparent 70%)`;
+  $('flash').style.opacity=fl;
+  $('black').style.opacity=Math.max(P(t,TL.total-1.0,TL.total), (t>3.4&&t<3.7)?1-P(t,3.5,3.7):0);
+}
+window.init=init;window.render=render;
+</script></body></html>

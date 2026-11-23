@@ -1,0 +1,143 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "epic cinematic action trailer score",
+   "hybrid orchestral with heavy trailer percussion",
+   "deep braams and sub bass impacts",
+   "dark modern crime thriller atmosphere",
+   "instrumental",
+   "huge wide punchy mix",
+   "high fidelity"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lyrics",
+   "rap",
+   "lo-fi",
+   "chiptune",
+   "thin mix",
+   "comedy"
+  ],
+  "sections": [
+   {
+    "section_name": "Presents",
+    "positive_local_styles": [
+     "near silence",
+     "low ominous drone",
+     "single deep sub boom at the very end"
+    ],
+    "negative_local_styles": [
+     "drums",
+     "melody"
+    ],
+    "duration_ms": 3500,
+    "lines": []
+   },
+   {
+    "section_name": "Action Montage",
+    "positive_local_styles": [
+     "explosive massive trailer hit on the downbeat",
+     "pounding taiko and toms",
+     "fast aggressive energy"
+    ],
+    "negative_local_styles": [
+     "calm"
+    ],
+    "duration_ms": 4500,
+    "lines": []
+   },
+   {
+    "section_name": "Hook",
+    "positive_local_styles": [
+     "emotional cinematic underscore",
+     "low sustained strings and pulsing synth",
+     "slow tension build",
+     "heartbeat-like pulse",
+     "rising toward a drop"
+    ],
+    "negative_local_styles": [
+     "happy",
+     "busy drums"
+    ],
+    "duration_ms": 19400,
+    "lines": []
+   },
+   {
+    "section_name": "Title Drop",
+    "positive_local_styles": [
+     "crescendo riser for four seconds",
+     "then a gigantic braam drop with full drums",
+     "epic main theme statement"
+    ],
+    "negative_local_styles": [
+     "quiet ending"
+    ],
+    "duration_ms": 9400,
+    "lines": []
+   },
+   {
+    "section_name": "Legacy",
+    "positive_local_styles": [
+     "heroic nostalgic epic",
+     "warm brass-like synth melody",
+     "mid-tempo cinematic drums",
+     "swelling strings",
+     "sense of history and greatness"
+    ],
+    "negative_local_styles": [
+     "dark",
+     "glitch"
+    ],
+    "duration_ms": 45600,
+    "lines": []
+   },
+   {
+    "section_name": "Leak",
+    "positive_local_styles": [
+     "dark tense suspense",
+     "ticking percussion and low brass hits",
+     "glitchy distorted textures",
+     "growing danger",
+     "explosive hit in the middle"
+    ],
+    "negative_local_styles": [
+     "happy",
+     "bright"
+    ],
+    "duration_ms": 34400,
+    "lines": []
+   },
+   {
+    "section_name": "Reveal",
+    "positive_local_styles": [
+     "triumphant rising reveal",
+     "big drums kick in",
+     "hype and excitement",
+     "neon Miami energy blended with orchestra"
+    ],
+    "negative_local_styles": [
+     "sad"
+    ],
+    "duration_ms": 20600,
+    "lines": []
+   },
+   {
+    "section_name": "World",
+    "positive_local_styles": [
+     "grand adventurous action score",
+     "driving rhythm",
+     "sweeping strings and synth arps",
+     "open world freedom and scale"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 35100,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}
