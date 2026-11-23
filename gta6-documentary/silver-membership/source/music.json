@@ -1,0 +1,97 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "high energy",
+   "fast tempo 128 BPM",
+   "premium sleek commercial music",
+   "modern electronic",
+   "gaming lounge vibe",
+   "punchy clean mix",
+   "instrumental"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lyrics",
+   "rap",
+   "lo-fi",
+   "sad",
+   "ambient",
+   "dark"
+  ],
+  "sections": [
+   {
+    "section_name": "Intro",
+    "positive_local_styles": [
+     "sleek energetic intro",
+     "shimmering metallic riser",
+     "hype build into a drop"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 5746,
+    "lines": []
+   },
+   {
+    "section_name": "Silver Drop",
+    "positive_local_styles": [
+     "big bright drop on the downbeat",
+     "premium energetic electronic beat",
+     "shiny bell-like synth hook",
+     "exciting"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 5134,
+    "lines": []
+   },
+   {
+    "section_name": "Benefits",
+    "positive_local_styles": [
+     "confident driving groove with space for a voiceover",
+     "punchy drums",
+     "plucky bright synths"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 11583,
+    "lines": []
+   },
+   {
+    "section_name": "Info",
+    "positive_local_styles": [
+     "steady energetic beat with space for a voiceover",
+     "clean punchy drums",
+     "light synth stabs"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 16451,
+    "lines": []
+   },
+   {
+    "section_name": "Outro",
+    "positive_local_styles": [
+     "big final hit",
+     "short shiny tag",
+     "clean ring out"
+    ],
+    "negative_local_styles": [
+     "slow",
+     "sad"
+    ],
+    "duration_ms": 6456,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}

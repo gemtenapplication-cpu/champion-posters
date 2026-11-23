@@ -1,0 +1,162 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@600;700;800&family=Noto+Serif+Bengali:wght@800;900&family=Montserrat:wght@600;700;800;900&family=Bebas+Neue&family=Anton&display=block" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow:hidden;background:transparent}
+body{font-family:'Anek Bangla',sans-serif;color:#fff;position:relative}
+body.h{width:1920px;height:1080px} body.v{width:1080px;height:1920px}
+.abs{position:absolute}.hide{display:none!important}
+:root{--blue:#2f7cf6;--navy:#0b1d4f;--sil1:#f4f6f9;--sil2:#aeb6c1;--sil3:#6c7682}
+.full{left:0;top:0;width:100%;height:100%}
+.ctr{left:0;width:100%;text-align:center;white-space:nowrap}
+.silv{background:linear-gradient(180deg,#ffffff 0%,#dfe4ea 35%,#9aa4b0 55%,#e9edf2 75%,#b9c1cb 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 0 #1b2230) drop-shadow(0 10px 24px rgba(0,0,0,.6))}
+#scrim{background:radial-gradient(ellipse 60% 45% at 50% 50%,rgba(3,8,25,.62),rgba(3,8,25,.2));opacity:0}
+#lg img.i{position:absolute;filter:drop-shadow(0 0 30px rgba(200,215,235,.9))}
+#lg img.w{position:absolute;filter:drop-shadow(0 6px 20px rgba(0,0,0,.8))}
+#wm{display:flex;align-items:center;gap:12px}
+#pm{font-family:'Montserrat';font-weight:900;letter-spacing:8px}
+#pmB{font-family:'Noto Serif Bengali';font-weight:900;text-shadow:0 6px 24px rgba(0,0,0,.85)}
+/* silver card */
+#cardWrap{perspective:1400px}
+#card{position:relative;border-radius:30px;overflow:hidden;transform-style:preserve-3d;
+  background:linear-gradient(135deg,#2a3038 0%,#59626d 22%,#c9d0d8 46%,#7c8692 58%,#3a414a 80%,#1f242b 100%);
+  box-shadow:0 30px 70px rgba(0,0,0,.65),inset 0 0 0 3px rgba(255,255,255,.35)}
+#card .shine{position:absolute;top:-20%;bottom:-20%;width:30%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg)}
+#card .chip{position:absolute;border-radius:10px;background:linear-gradient(135deg,#f6e3a1,#c9a54d 50%,#f2dc92);box-shadow:inset 0 0 0 2px rgba(0,0,0,.2)}
+#card .lg{position:absolute;display:flex;align-items:center;gap:12px}
+#card .tier{position:absolute;font-family:'Montserrat';font-weight:900;letter-spacing:10px}
+#card .num{position:absolute;font-family:'Montserrat';font-weight:700;letter-spacing:6px;color:rgba(255,255,255,.85);text-shadow:0 2px 4px rgba(0,0,0,.6)}
+#ten{font-family:'Anton';line-height:1}
+#ten small{font-size:.42em;margin-left:8px}
+#tenS{font-family:'Noto Serif Bengali';font-weight:900;text-shadow:0 4px 18px rgba(0,0,0,.9)}
+/* no fee + steps */
+#nofee{display:inline-flex;align-items:center;gap:16px;padding:12px 30px;border-radius:60px;background:linear-gradient(180deg,#f2f5f8,#a9b2bd);color:var(--navy);font-family:'Anton';letter-spacing:3px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.steps{display:flex;gap:22px;justify-content:center}
+.st{display:flex;align-items:center;gap:16px;padding:16px 24px;border-radius:20px;background:rgba(8,14,30,.85);border:2px solid #c6ced8;box-shadow:0 0 30px rgba(198,206,216,.25)}
+.st .n{width:62px;height:62px;flex:none;border-radius:50%;background:linear-gradient(180deg,#f2f5f8,#9aa4b0);color:var(--navy);font-family:'Anton';font-size:36px;display:flex;align-items:center;justify-content:center}
+.st .t{font-family:'Noto Serif Bengali';font-weight:900;white-space:nowrap}
+.st.ok{border-color:#5fe08a}.st.ok .n{background:linear-gradient(180deg,#7ff0a5,#24b45a);color:#fff}
+/* benefits */
+.ben{display:flex;gap:28px;justify-content:center}
+.bt{display:flex;flex-direction:column;align-items:center;gap:6px;padding:22px 34px;border-radius:24px;background:rgba(8,14,30,.86);border:2px solid #c6ced8;min-width:360px}
+.bt .big{font-family:'Anton';line-height:1}
+.bt .s{font-family:'Noto Serif Bengali';font-weight:900;color:#dfe5ec}
+/* info cards */
+.card2{position:absolute;display:flex;gap:26px;align-items:center;padding:24px 34px;background:rgba(6,12,30,.86);border:2px solid #c6ced8;border-radius:24px;box-shadow:0 0 40px rgba(198,206,216,.25)}
+.card2 .ic{width:110px;height:110px;flex:none;border-radius:26px;background:linear-gradient(145deg,#4aa0ff,#1f5fd6);display:flex;align-items:center;justify-content:center}
+.card2.wa .ic{background:linear-gradient(145deg,#3ee07a,#14a34a)}
+.card2 .k{font-size:30px;color:#d5dce4;font-weight:700}
+.card2 .v{font-size:50px;font-weight:800;line-height:1.25}
+.card2 .v.u{font-family:'Bebas Neue';font-weight:400;font-size:80px;letter-spacing:2px;line-height:1}
+.card2 .v.n{font-family:'Bebas Neue';font-weight:400;font-size:104px;letter-spacing:5px;line-height:1}
+/* sticker medal */
+#med{width:200px;height:200px}
+#medRing{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#f7f9fb,#8d97a3,#eef2f6,#7b8590,#f7f9fb,#9aa4b0,#f7f9fb);box-shadow:0 0 30px rgba(220,230,240,.45)}
+#medIn{position:absolute;inset:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3b4552,#141a22);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#medIn .a{font-family:'Anton';font-size:58px;line-height:.9}
+#medIn .b{font-family:'Montserrat';font-weight:900;font-size:18px;letter-spacing:3px;color:#cfd6de}
+/* final */
+#fin{display:flex;flex-direction:column;align-items:center;gap:14px}
+#finB{font-family:'Anton';letter-spacing:2px}
+.fr{display:flex;align-items:center;gap:16px;font-weight:800;padding:10px 26px;background:rgba(6,12,30,.84);border-radius:14px;border:1px solid rgba(198,206,216,.8);white-space:nowrap}
+.fr .i{width:46px;height:46px;border-radius:11px;background:var(--blue);display:flex;align-items:center;justify-content:center}.fr.wa .i{background:#1fbf5c}
+#cap{left:70px;width:940px;top:1500px;text-align:center;font-size:62px;font-weight:800;line-height:1.3}
+#cap span{display:inline-block;margin:0 8px;text-shadow:0 0 2px #000,0 4px 14px rgba(0,0,0,.95);-webkit-text-stroke:2px rgba(0,0,0,.6);paint-order:stroke fill}
+#cap span.on{color:#dfe7f2;background:linear-gradient(180deg,#fff,#aeb7c3);-webkit-background-clip:text;background-clip:text;-webkit-text-stroke:0;filter:drop-shadow(0 2px 0 #1b2230);transform:scale(1.08)}
+#flash{background:#fff;opacity:0}#black{background:#000;opacity:0}
+</style></head><body>
+<div id="scrim" class="abs full"></div>
+<div id="lg" class="abs full hide"><img class="i" src="../inv/brand/icon_white.png"><img class="w" src="../inv/brand/wordmark_clean.png"></div>
+<div id="wm" class="abs"><img src="../inv/brand/icon_white.png" style="height:56px"><img src="../inv/brand/wordmark_clean.png" style="width:250px"></div>
+<div id="pm" class="abs ctr silv hide">PLAY MORE. SAVE MORE.</div><div id="pmB" class="abs ctr hide">চ্যাম্পিয়নে খেলুন, প্রতিবার সাশ্রয়</div>
+<div id="cardWrap" class="abs hide"><div id="card"><div class="shine"></div><div class="chip"></div>
+  <div class="lg"><img src="../inv/brand/icon_white.png"><img src="../inv/brand/wordmark_clean.png"></div>
+  <div class="tier silv">SILVER MEMBER</div><div class="num">CHAMPION · 10% EVERY SESSION</div></div></div>
+<div id="ten" class="abs silv hide">10%<small>OFF</small></div><div id="tenS" class="abs hide">প্রতিটা সেশনে</div>
+<div id="nofeeW" class="abs ctr hide"><div id="nofee"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0b1d4f" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>NO FEE · কোনো ফি নেই</div></div>
+<div id="steps" class="abs ctr steps hide">
+  <div class="st" id="st1"><div class="n">1</div><div class="t">বুকিং করুন</div></div>
+  <div class="st" id="st2"><div class="n">2</div><div class="t">অ্যাকাউন্ট খুলুন</div></div>
+  <div class="st ok" id="st3"><div class="n">✓</div><div class="t">সিলভার মেম্বার</div></div></div>
+<div id="ben" class="abs ctr ben hide">
+  <div class="bt" id="b1"><div class="big silv">+10 PTS</div><div class="s">প্রতি ৳১০০ খরচে</div></div>
+  <div class="bt" id="b2"><div class="big silv">30 DAYS</div><div class="s">আগে পর্যন্ত বুকিং</div></div></div>
+<div id="cU" class="card2 hide"><div class="ic"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.9 2.8 16.1 0 19M12 2.5c-2.8 2.9-2.8 16.1 0 19"/></svg></div><div><div class="k">অ্যাকাউন্ট খুলুন · বুক করুন</div><div class="v u">champion.gemten.com.bd</div></div></div>
+<div id="cA" class="card2 hide"><div class="ic"><svg width="60" height="60" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div><div><div class="k">ঠিকানা</div><div class="v">রানীর বাজার, IFIC ব্যাংক বিল্ডিং<br>৪র্থ তলা, কুমিল্লা</div></div></div>
+<div id="cW" class="card2 wa hide"><div class="ic"><svg width="64" height="64" viewBox="0 0 24 24"><path fill="#fff" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2z"/></svg></div><div><div class="k">হোয়াটসঅ্যাপ</div><div class="v n">01603-754074</div></div></div>
+<div id="fin" class="abs ctr hide"><img id="finI" src="../inv/brand/icon_white.png"><img id="finW" src="../inv/brand/wordmark_clean.png"><div id="finB" class="silv">SILVER MEMBER · 10% OFF EVERY SESSION</div>
+  <div class="fr"><div class="i"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.9 2.8 16.1 0 19M12 2.5c-2.8 2.9-2.8 16.1 0 19"/></svg></div>champion.gemten.com.bd</div>
+  <div class="fr wa"><div class="i"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="#fff" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2z"/></svg></div>WhatsApp: 01603-754074</div>
+  <div class="fr"><div class="i"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>রানীর বাজার, IFIC ব্যাংক বিল্ডিং, ৪র্থ তলা, কুমিল্লা</div></div>
+<div id="med" class="abs hide"><div id="medRing"></div><div id="medIn"><div class="a silv">10%</div><div class="b">SILVER</div></div></div>
+<div id="cap" class="abs hide"></div>
+<div id="flash" class="abs full"></div><div id="black" class="abs full"></div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),P=(t,a,b)=>clamp((t-a)/(b-a)),eo=x=>1-Math.pow(1-x,3);
+const eback=x=>{const c1=2.0,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+function vis(t,a,b,fi=.25,fo=.25){if(t<a||t>b)return 0;return Math.min(fi?clamp((t-a)/fi):1,fo?clamp((b-t)/fo):1)}
+function show(el,on){el.classList.toggle('hide',!on)}
+const V=new URLSearchParams(location.search).get('fmt')==='v';
+let TL,L={};const S=i=>L[i].start,E=i=>L[i].start+L[i].dur;
+function pos(el,o){for(const k in o)el.style[k]=typeof o[k]==='number'?o[k]+'px':o[k]}
+let CW,CH;
+async function init(){document.body.className=V?'v':'h';TL=await (await fetch('timeline.json')).json();for(const l of TL.lines)L[l.id]=l;
+  CW=V?820:760; CH=Math.round(CW*0.63);
+  const c=$('card');c.style.width=CW+'px';c.style.height=CH+'px';
+  pos(c.querySelector('.chip'),{left:CW*.08,top:CH*.36,width:CW*.13,height:CH*.17});
+  const lg=c.querySelector('.lg');pos(lg,{left:CW*.08,top:CH*.1});lg.children[0].style.height=(CH*.17)+'px';lg.children[1].style.width=(CW*.42)+'px';
+  pos(c.querySelector('.tier'),{left:CW*.08,top:CH*.62,fontSize:CW*.07});pos(c.querySelector('.num'),{left:CW*.08,top:CH*.82,fontSize:CW*.028});
+  if(!V){pos($('pm'),{top:360,fontSize:96});pos($('pmB'),{top:500,fontSize:66});
+    pos($('cardWrap'),{left:170,top:230});pos($('ten'),{left:1030,top:290,fontSize:250});pos($('tenS'),{left:1050,top:590,fontSize:66});
+    pos($('nofeeW'),{top:300});$('nofee').style.fontSize='64px';pos($('steps'),{top:560});document.querySelectorAll('.st .t').forEach(e=>e.style.fontSize='44px');
+    pos($('ben'),{top:380});document.querySelectorAll('.bt .big').forEach(e=>e.style.fontSize='130px');document.querySelectorAll('.bt .s').forEach(e=>e.style.fontSize='44px');
+    for(const id of ['cU','cA','cW'])pos($(id),{left:310,top:640,width:1300});
+    pos($('fin'),{top:140});$('finI').style.height='130px';$('finW').style.width='600px';$('finB').style.fontSize='64px';document.querySelectorAll('.fr').forEach(e=>e.style.fontSize='34px');
+    pos($('med'),{right:60,top:60});pos($('wm'),{left:60,top:70});
+  }else{pos($('pm'),{top:250,fontSize:60});pos($('pmB'),{top:330,fontSize:56});
+    pos($('cardWrap'),{left:130,top:520});pos($('ten'),{left:0,width:1080,textAlign:'center',top:240,fontSize:150});pos($('tenS'),{left:0,width:1080,textAlign:'center',top:1080,fontSize:60});
+    pos($('nofeeW'),{top:270});$('nofee').style.fontSize='50px';pos($('steps'),{top:560,flexDirection:'column',alignItems:'center',gap:'24px'});document.querySelectorAll('.st .t').forEach(e=>e.style.fontSize='52px');
+    pos($('ben'),{top:560,flexDirection:'column',alignItems:'center'});document.querySelectorAll('.bt .big').forEach(e=>e.style.fontSize='130px');document.querySelectorAll('.bt .s').forEach(e=>e.style.fontSize='46px');
+    for(const id of ['cU','cA','cW'])pos($(id),{left:60,top:1500,width:960});
+    pos($('fin'),{top:220});$('finI').style.height='130px';$('finW').style.width='560px';$('finB').style.fontSize='44px';$('finB').style.whiteSpace='normal';$('finB').style.width='900px';document.querySelectorAll('.fr').forEach(e=>e.style.fontSize='32px');
+    pos($('med'),{right:30,top:478});$('med').style.transform='scale(.8)';pos($('wm'),{left:0,top:96,width:1080,justifyContent:'center'});}
+  await document.fonts.ready}
+function slam(el,t,a,b,s0=2){const v=vis(t,a,b,.01,.25);show(el,v>0);if(!v)return 0;const k=eback(P(t,a,a+.35));
+  const sh=t<a+.45?Math.sin(t*90)*8*(1-P(t,a,a+.45)):0;el.style.opacity=Math.min(1,P(t,a,a+.08))*v;el.style.transform=`translate(${sh}px,${sh*.6}px) scale(${s0-(s0-1)*k})`;return v}
+function render(t){
+  let scr=0,fl=0;
+  {const o=t<1.75;show($('lg'),o);if(o){const ih=V?220:240,iw=ih*0.6475,ww=V?640:700,cy=V?820:400,W=V?1080:1920;const i=$('lg').querySelector('.i'),w=$('lg').querySelector('.w');
+    const k=eback(P(t,.05,.5));i.style.height=ih+'px';i.style.left=(W/2-iw/2)+'px';i.style.top=(cy-ih/2)+'px';i.style.transform=`scale(${.5+.5*k})`;
+    w.style.width=ww+'px';w.style.left=(W/2-ww/2)+'px';w.style.top=(cy+ih/2+20)+'px';w.style.clipPath=`inset(0 ${100-100*eo(P(t,.3,.8))}% 0 0)`;
+    const o2=1-P(t,1.45,1.7);i.style.opacity=o2;w.style.opacity=o2;scr=Math.max(scr,.8*o2)}}
+  fl=Math.max(fl,vis(t,0,.3,.01,.29)*.8);
+  $('wm').style.opacity=(V?1:.85)*Math.min(P(t,1.6,2.0),1-P(t,S('q8')-.4,S('q8')));
+  {const a=S('s1'),b=E('s1')+.4;scr=Math.max(scr,slam($('pm'),t,a,b,1.5),slam($('pmB'),t,a+.5,b,1.8))}
+  // silver card + 10%
+  {const a=S('s2')-.1,b=E('s2')+.5,v=vis(t,a,b,.01,.3);show($('cardWrap'),v>0);if(v){const k=eo(P(t,a,a+.8));$('cardWrap').style.opacity=Math.min(1,P(t,a,a+.15))*v;
+     $('card').style.transform=`rotateY(${(1-k)*-75+Math.sin(t*1.2)*6}deg) rotateX(${(1-k)*15+Math.cos(t*1.1)*3}deg) translateZ(0)`;
+     const sh=$('card').querySelector('.shine');sh.style.left=(-40+((t-a)*70)%180)+'%';scr=Math.max(scr,.7*v)}
+   const ta=S('s2')+1.6;slam($('ten'),t,ta,b,2.4);const vs=vis(t,ta+.3,b,.25,.3);show($('tenS'),vs>0);$('tenS').style.opacity=vs;fl=Math.max(fl,vis(t,ta,ta+.25,.01,.24)*.75)}
+  // no fee + steps
+  {const a=S('s3')-.1,b=E('s3')+.5;scr=Math.max(scr,slam($('nofeeW'),t,a,b,1.6));const vs=vis(t,S('s3')+1.8,b,.2,.3);show($('steps'),vs>0);
+   if(vs)['st1','st2','st3'].forEach((id,i)=>{const s0=S('s3')+1.8+i*.45,k=eback(P(t,s0,s0+.4));const e=$(id);e.style.opacity=P(t,s0,s0+.1)*vs;e.style.transform=`scale(${.6+.4*k})`})}
+  // benefits
+  {const a=S('s4')-.1,b=E('s4')+.5,v=vis(t,a,b,.2,.3);show($('ben'),v>0);if(v){scr=Math.max(scr,v*.8);
+   [['b1',a],['b2',S('s4')+2.6]].forEach(([id,s0])=>{const k=eback(P(t,s0,s0+.4));const e=$(id);e.style.opacity=P(t,s0,s0+.1);e.style.transform=`scale(${.5+.5*k})`})}}
+  // cards
+  const card=(el,a,b)=>{const v=vis(t,a,b,.3,.25);show(el,v>0);if(v){el.style.opacity=v;el.style.transform=`translateY(${(1-eo(P(t,a,a+.4)))*60}px)`}return v};
+  scr=Math.max(scr,.6*card($('cU'),S('s5')-.15,S('q5')-.2),.6*card($('cA'),S('q5')-.15,S('q7')-.2),.6*card($('cW'),S('q7')-.15,S('q8')-.3));
+  // final
+  {const a=S('q8')-.3,o=t>=a;show($('fin'),o);if(o){$('fin').style.opacity=P(t,a,a+.4);$('finB').style.transform=`scale(${1.4-.4*eback(P(t,a+.2,a+.6))})`;
+    document.querySelectorAll('.fr').forEach((e,i)=>{const v=P(t,a+.5+i*.25,a+.85+i*.25);e.style.opacity=v;e.style.transform=`translateY(${(1-eo(v))*30}px)`});scr=Math.max(scr,.75)}
+   fl=Math.max(fl,vis(t,a,a+.3,.01,.29)*.6)}
+  // medal
+  {const a=E('s2')+.5;const v=t>=a?Math.min(1,P(t,a,a+.3))*(V?1-P(t,S('q8')-.4,S('q8')):1):0;show($('med'),v>0);if(v){$('med').style.opacity=v;$('medRing').style.transform=`rotate(${t*40}deg)`}}
+  if(V){let cap='';for(const l of TL.lines){if(['s5','q5','q7','q8'].includes(l.id))continue;if(t>=l.start-.05&&t<=l.start+l.dur+.25){const W=l.words,T=l.wt;let ci=0;for(let i=0;i<W.length;i++)if(t>=T[i])ci=i;const c0=Math.floor(ci/4)*4;cap=W.slice(c0,c0+4).map((w,j)=>`<span class="${(c0+j)===ci?'on':''}">${w}</span>`).join(' ');break}}
+    $('cap').innerHTML=cap;show($('cap'),!!cap)}
+  $('scrim').style.opacity=scr;$('flash').style.opacity=fl;$('black').style.opacity=P(t,TL.total-.5,TL.total);
+}
+window.init=init;window.render=render;
+</script></body></html>
