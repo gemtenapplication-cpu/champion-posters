@@ -1,12 +1,13 @@
 // Renders trailer frames with Playwright. Usage: node frames.js test <t1,t2,...> <outdir>   |   node frames.js all <outdir> [fps]
 const { chromium } = require('playwright'); const fs = require('fs'); const path = require('path');
 const [mode, a2, a3, a4] = process.argv.slice(2);
-const LANGQ = process.env.LANG_Q || 'en';
+const LANGQ = process.env.LANG_Q || 'en', FMT = process.env.FMT || 'h';
+const VP = FMT === 'v' ? { width: 1080, height: 1920 } : { width: 1920, height: 1080 };
 (async () => {
   const b = await chromium.launch();
-  const p = await b.newPage({ viewport: { width: 1920, height: 1080 } });
+  const p = await b.newPage({ viewport: VP });
   p.on('pageerror', e => console.error('PAGE ERROR', e.message));
-  await p.goto('http://127.0.0.1:8765/videos/opening-trailer/trailer.html?lang=' + LANGQ);
+  await p.goto('http://127.0.0.1:8765/videos/opening-trailer/trailer.html?lang=' + LANGQ + '&fmt=' + FMT);
   await p.waitForFunction(() => window.READY === true, null, { timeout: 60000 });
   const canvas = await p.$('#c');
   if (mode === 'test') {
