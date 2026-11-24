@@ -1,0 +1,96 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(165deg,#FFFFFF 0%,#F4F8FF 55%,#DCEBFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#2B83F612 2px,transparent 2px),linear-gradient(90deg,#2B83F612 2px,transparent 2px);background-size:54px 54px}
+.logo{position:absolute;top:58px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:196px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:234px;left:76px;font-family:Orbitron;font-weight:900;font-size:92px;line-height:1.04}
+h1 span{color:#2B83F6}
+
+.card{position:absolute;top:470px;left:80px;width:920px;height:660px;background:#fff;border:4px solid #2B83F6;border-radius:34px;box-shadow:0 22px 44px #1F6FE526;overflow:hidden}
+.top{display:flex;align-items:center;gap:26px;padding:28px 34px 22px;border-bottom:3px dashed #DCEBFF}
+.av{width:104px;height:104px;border-radius:26px;background:linear-gradient(150deg,#4DA3FF,#1F6FE5);display:flex;align-items:center;justify-content:center;flex:none}
+.av b{font-family:Orbitron;font-weight:900;font-size:40px;color:#fff}
+.role{flex:1}
+.role h2{font-family:Orbitron;font-weight:900;font-size:40px;letter-spacing:1px}
+.role p{font-weight:700;font-size:26px;color:#3a4a63;margin-top:4px}
+.badge{font-family:Orbitron;font-weight:700;font-size:16px;letter-spacing:3px;color:#1F6FE5;background:#F4F8FF;border:3px solid #4DA3FF;border-radius:30px;padding:10px 16px;white-space:nowrap}
+.chips{display:flex;gap:12px;padding:18px 34px 0}
+.chip{font-weight:700;font-size:22px;color:#1F6FE5;background:#F4F8FF;border-radius:14px;padding:6px 14px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:22px 34px 0}
+.col h3{font-family:Orbitron;font-weight:700;font-size:20px;letter-spacing:5px;color:#1F6FE5;margin-bottom:12px}
+.row{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+.ck{width:32px;height:32px;border-radius:9px;background:#2B83F6;flex:none;position:relative;margin-top:2px}
+.ck:after{content:"";position:absolute;left:11px;top:5px;width:8px;height:15px;border:solid #fff;border-width:0 4px 4px 0;transform:rotate(45deg)}
+.st{width:32px;height:32px;flex:none;margin-top:2px}
+.row span{font-weight:700;font-size:27px;line-height:1.15}
+.row span em{font-style:normal;color:#2B83F6}
+.apply{position:absolute;left:34px;right:34px;bottom:28px;height:96px;border-radius:22px;background:linear-gradient(100deg,#1F6FE5,#2B83F6 60%,#4DA3FF);display:flex;align-items:center;justify-content:space-between;padding:0 30px;color:#fff}
+.apply .l small{display:block;font-family:Orbitron;font-weight:700;font-size:15px;letter-spacing:4px;opacity:.9}
+.apply .l b{font-family:Orbitron;font-weight:900;font-size:30px}
+.btn{font-family:Orbitron;font-weight:900;font-size:22px;letter-spacing:3px;background:#fff;color:#1F6FE5;border-radius:16px;padding:16px 24px}
+
+.foot{position:absolute;left:80px;right:80px;top:1170px;display:flex;justify-content:space-between;align-items:center}
+.prompt{font-weight:700;font-size:30px;color:#0B0B0C}
+.prompt b{color:#2B83F6}
+.loc{font-weight:700;font-size:23px;color:#3a4a63;text-align:right;line-height:1.2}
+.tl{position:absolute;left:0;right:0;bottom:34px;text-align:center;font-family:Orbitron;font-weight:900;font-size:22px;letter-spacing:10px;color:#1F6FE5}
+</style></head><body>
+<div class="p">
+  <div class="grid"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick">JOB BOARD · TUESDAY</div>
+  <h1>Now Hiring:<br><span>Player 2.</span></h1>
+
+  <div class="card">
+    <div class="top">
+      <div class="av"><b>P2</b></div>
+      <div class="role">
+        <h2>Player 2 (Full Squad)</h2>
+        <p>The Champion · Ranir Bazar, Cumilla</p>
+      </div>
+      <div class="badge">OPEN ROLE</div>
+    </div>
+    <div class="chips">
+      <div class="chip">On-site: 4th Floor</div>
+      <div class="chip">Team play</div>
+      <div class="chip">Fair play only</div>
+    </div>
+    <div class="cols">
+      <div class="col">
+        <h3>REQUIREMENTS</h3>
+        <div class="row"><i class="ck"></i><span>Knows how to say <em>GG</em></span></div>
+        <div class="row"><i class="ck"></i><span>Homework done first</span></div>
+        <div class="row"><i class="ck"></i><span>Ready for a 1v1 rematch</span></div>
+        <div class="row"><i class="ck"></i><span>Brings good vibes</span></div>
+      </div>
+      <div class="col">
+        <h3>PERKS</h3>
+        <div class="row"><svg class="st" viewBox="0 0 24 24"><path fill="#2B83F6" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.7 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><span><em>2 PS5</em> stations on 55" screens</span></div>
+        <div class="row"><svg class="st" viewBox="0 0 24 24"><path fill="#2B83F6" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.7 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><span>Gaming PC with a <em>30"</em> monitor</span></div>
+        <div class="row"><svg class="st" viewBox="0 0 24 24"><path fill="#2B83F6" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.7 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><span>IFIC Bank Building, 4th Floor</span></div>
+        <div class="row"><svg class="st" viewBox="0 0 24 24"><path fill="#2B83F6" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.7 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></svg><span>Start date: <em>opening soon</em></span></div>
+      </div>
+    </div>
+    <div class="apply">
+      <div class="l"><small>HOW TO APPLY</small><b>champion.gemten.com.bd</b></div>
+      <div class="btn">BOOK ›</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="prompt">Tag the friend you'd <b>hire.</b></div>
+    <div class="loc">IFIC Bank Building (4th Floor)<br>Ranir Bazar, Cumilla</div>
+  </div>
+  <div class="tl">PLAY + CONNECT + WIN</div>
+</div>
+</body></html>
