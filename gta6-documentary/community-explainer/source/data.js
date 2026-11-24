@@ -174,7 +174,7 @@ DATA.build = function () {
   pos(C.k1, { left: 0, width: 1080, top: 420, fontSize: '84px', whiteSpace: 'normal', lineHeight: '1.05' }); C.k1.innerHTML = 'CHAMPION<br>COMMUNITY'; pos(C.k1b, { left: 40, width: 1000, top: 680, fontSize: '56px' }); pos(C.km, { left: 360, top: 860, width: 360 });
   pos(C.steps, { left: 40, top: 420, width: 1000, height: 1000 });
   C.st.forEach((c, i) => { pos(c, { left: (i % 2) * 510, top: Math.floor(i / 2) * 500, width: 490, height: 470, padding: '30px 28px' }); c.querySelector('.sn').style.fontSize = '64px'; c.querySelector('.sa').style.fontSize = '34px'; c.querySelector('.sb').style.fontSize = '36px'; pos(c.querySelector('img'), { right: 16, bottom: 10, width: 170 }) });
-  pos(C.handle, { left: 0, top: 1450, fontSize: '48px' }); pos(C.min1, { left: 0, top: 1450, fontSize: '44px' });
+  pos(C.handle, { left: 0, top: 1660, fontSize: '48px' }); pos(C.min1, { left: 0, top: 1660, fontSize: '44px' });
   pos(C.duel, { left: 0, width: 1080, top: 520, flexDirection: 'column', gap: '30px' }); C.duel.querySelectorAll('.ps').forEach(e => e.style.fontSize = '140px'); C.duel.querySelectorAll('.pn').forEach(e => e.style.fontSize = '34px'); C.duel.querySelectorAll('.pl,.pd').forEach(e => e.style.fontSize = '32px'); C.duel.querySelector('.vs').style.fontSize = '90px';
   pos(C.conf, { left: 0, top: 1380, fontSize: '42px' });
   pos(C.one, { left: 0, width: 1080, top: 380, fontSize: '96px' }); pos(C.tiles, { left: 0, width: 1080, top: 560, flexDirection: 'column', alignItems: 'center', gap: '30px' }); C.tl.forEach(d => { d.style.width = '640px'; d.style.flexDirection = 'row'; d.querySelector('.tt').style.fontSize = '58px' });
