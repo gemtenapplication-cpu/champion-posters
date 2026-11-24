@@ -1,0 +1,90 @@
+{
+ "composition_plan": {
+  "positive_global_styles": [
+   "cinematic hybrid trailer music",
+   "modern epic electronic",
+   "premium gaming venue reveal",
+   "instrumental",
+   "no vocals"
+  ],
+  "negative_global_styles": [
+   "vocals",
+   "singing",
+   "lyrics",
+   "rap",
+   "lo-fi",
+   "comedy"
+  ],
+  "sections": [
+   {
+    "section_name": "Cold open",
+    "positive_local_styles": [
+     "dark cinematic atmosphere",
+     "rising sub riser",
+     "sparse piano note"
+    ],
+    "negative_local_styles": [
+     "vocals"
+    ],
+    "duration_ms": 3000,
+    "lines": []
+   },
+   {
+    "section_name": "Reveal build",
+    "positive_local_styles": [
+     "cinematic pulse",
+     "building tension",
+     "ticking arpeggiated synth",
+     "tribal toms",
+     "growing intensity"
+    ],
+    "negative_local_styles": [
+     "vocals"
+    ],
+    "duration_ms": 16000,
+    "lines": []
+   },
+   {
+    "section_name": "Drop",
+    "positive_local_styles": [
+     "energetic epic electronic drop",
+     "heavy bass",
+     "punchy trap drums",
+     "hype gaming trailer energy"
+    ],
+    "negative_local_styles": [
+     "vocals"
+    ],
+    "duration_ms": 16200,
+    "lines": []
+   },
+   {
+    "section_name": "Final lift",
+    "positive_local_styles": [
+     "riser",
+     "drum fill",
+     "build to finale"
+    ],
+    "negative_local_styles": [
+     "vocals"
+    ],
+    "duration_ms": 3000,
+    "lines": []
+   },
+   {
+    "section_name": "Finale",
+    "positive_local_styles": [
+     "huge final impact hit",
+     "then cinematic ambient tail",
+     "fading out"
+    ],
+    "negative_local_styles": [
+     "vocals"
+    ],
+    "duration_ms": 5800,
+    "lines": []
+   }
+  ]
+ },
+ "respect_sections_durations": true
+}
