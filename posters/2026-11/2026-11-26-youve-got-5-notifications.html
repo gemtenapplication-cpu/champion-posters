@@ -1,0 +1,96 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Orbitron;font-weight:900;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-900-normal.woff2)}
+@font-face{font-family:Orbitron;font-weight:700;src:url(../../node_modules/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:700;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2)}
+@font-face{font-family:Rajdhani;font-weight:600;src:url(../../node_modules/@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden}
+.p{position:relative;width:1080px;height:1350px;background:linear-gradient(160deg,#FFFFFF 0%,#F4F8FF 50%,#DCEBFF 100%);font-family:Rajdhani,sans-serif;color:#0B0B0C;overflow:hidden}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#2B83F622 2.5px,transparent 2.5px);background-size:40px 40px}
+.logo{position:absolute;top:58px;left:80px;width:400px}
+.tag{position:absolute;top:74px;right:70px;font-family:Orbitron;font-weight:700;font-size:18px;letter-spacing:5px;color:#fff;background:#2B83F6;border-radius:40px;padding:11px 22px}
+.kick{position:absolute;top:196px;left:80px;font-family:Orbitron;font-weight:700;font-size:22px;letter-spacing:8px;color:#1F6FE5}
+h1{position:absolute;top:236px;left:76px;font-family:Orbitron;font-weight:900;font-size:84px;line-height:1.06}
+h1 span{color:#2B83F6}
+.bell{position:absolute;top:214px;right:84px;width:150px;height:150px;border-radius:40px;background:linear-gradient(140deg,#4DA3FF,#1F6FE5);box-shadow:0 18px 36px #1F6FE540;display:flex;align-items:center;justify-content:center}
+.bell svg{width:84px;height:84px}
+.bell b{position:absolute;top:-16px;right:-16px;width:58px;height:58px;border-radius:50%;background:#0B0B0C;color:#fff;font-family:Orbitron;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center;border:5px solid #F4F8FF}
+.sub{position:absolute;top:436px;left:82px;font-weight:700;font-size:33px;color:#3a4a63}
+.sub b{color:#1F6FE5}
+
+.screen{position:absolute;top:508px;left:80px;width:920px;height:640px;border-radius:44px;background:linear-gradient(170deg,#EAF2FF,#D2E5FF);border:4px solid #2B83F6;box-shadow:0 24px 48px #1F6FE526;padding:24px 30px}
+.sb{display:flex;justify-content:space-between;align-items:center;font-family:Orbitron;font-weight:700;font-size:17px;letter-spacing:4px;color:#1F6FE5;padding:0 8px 16px}
+.sb .ic{display:flex;gap:8px;align-items:flex-end}
+.sb .ic i{display:block;width:8px;background:#1F6FE5;border-radius:2px}
+.n{display:flex;align-items:center;gap:22px;height:102px;margin-bottom:12px;padding:0 24px;background:#ffffffEE;border-radius:26px;box-shadow:0 6px 16px #1F6FE51A}
+.n .ap{flex:none;width:66px;height:66px;border-radius:18px;display:flex;align-items:center;justify-content:center}
+.n .ap svg{width:40px;height:40px}
+.n .tx{flex:1;min-width:0}
+.n .top{display:flex;justify-content:space-between;font-family:Orbitron;font-weight:700;font-size:15px;letter-spacing:3px;color:#7a8aa3;margin-bottom:4px}
+.n .msg{font-weight:700;font-size:30px;line-height:1.1;color:#0B0B0C;white-space:nowrap}
+.n .msg b{color:#1F6FE5}
+.n.hot{border:3px solid #4DA3FF;background:#fff}
+.num{flex:none;width:44px;height:44px;border-radius:50%;background:#F4F8FF;border:3px solid #4DA3FF;font-family:Orbitron;font-weight:900;font-size:19px;color:#1F6FE5;display:flex;align-items:center;justify-content:center}
+.a1{background:#0B0B0C}.a2{background:#2B83F6}.a3{background:#1F6FE5}.a4{background:#4DA3FF}.a5{background:linear-gradient(140deg,#4DA3FF,#1F6FE5)}
+
+.foot{position:absolute;top:1178px;left:80px;width:920px;display:flex;gap:18px}
+.f{flex:1;background:#fff;border:3px solid #CFE2FF;border-radius:24px;padding:16px 22px}
+.f small{display:block;font-family:Orbitron;font-weight:700;font-size:14px;letter-spacing:4px;color:#2B83F6;margin-bottom:4px}
+.f p{font-weight:700;font-size:26px;line-height:1.15}
+.f.c{flex:none;width:300px;background:#2B83F6;border-color:#2B83F6;color:#fff}
+.f.c small{color:#DCEBFF}
+.trophy{position:absolute;bottom:216px;right:40px;width:0}
+</style></head>
+<body><div class="p">
+  <div class="dots"></div>
+  <img class="logo" src="../../brand/logo-color-on-light.png">
+  <div class="tag">OPENING SOON</div>
+  <div class="kick">THURSDAY UPDATE</div>
+  <h1>You've Got<br><span>5 Notifications.</span></h1>
+  <div class="bell">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a1.6 1.6 0 0 1 1.6 1.6v.6A6.5 6.5 0 0 1 18.5 10.5v4.2l2 2.6v1.2h-17v-1.2l2-2.6v-4.2A6.5 6.5 0 0 1 10.4 4.2v-.6A1.6 1.6 0 0 1 12 2zm-2.6 18h5.2a2.6 2.6 0 0 1-5.2 0z"/></svg>
+    <b>5</b>
+  </div>
+  <div class="sub">Swipe through. <b>Every one is good news.</b></div>
+
+  <div class="screen">
+    <div class="sb"><span>THURSDAY</span><span class="ic"><i style="height:8px"></i><i style="height:13px"></i><i style="height:18px"></i><i style="height:23px"></i></span></div>
+
+    <div class="n hot">
+      <div class="ap a1"><svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c.6-4.6 4-7.2 8.5-7.2s7.9 2.6 8.5 7.2z"/></svg></div>
+      <div class="tx"><div class="top"><span>PLAYER 2</span><span>NOW</span></div><div class="msg">Free after class? <b>Rematch at Champion.</b></div></div>
+      <div class="num">1</div>
+    </div>
+
+    <div class="n">
+      <div class="ap a2"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></div>
+      <div class="tx"><div class="top"><span>CHAMPION · CONSOLE</span><span>2M</span></div><div class="msg"><b>2 PS5 stations</b> on 55" screens.</div></div>
+      <div class="num">2</div>
+    </div>
+
+    <div class="n">
+      <div class="ap a3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><rect x="3" y="3.5" width="18" height="11" rx="1.2"/><path d="M9 18h6M12 14.5V18"/><rect x="4" y="19.5" width="16" height="2" rx=".8" fill="#fff" stroke="none"/></svg></div>
+      <div class="tx"><div class="top"><span>CHAMPION · PC</span><span>5M</span></div><div class="msg"><b>1 gaming PC</b> with a 30" monitor.</div></div>
+      <div class="num">3</div>
+    </div>
+
+    <div class="n">
+      <div class="ap a4"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a7 7 0 0 1 7 7c0 5.2-7 13-7 13S5 14.2 5 9a7 7 0 0 1 7-7zm0 4.2A2.8 2.8 0 1 0 12 11.8 2.8 2.8 0 0 0 12 6.2z"/></svg></div>
+      <div class="tx"><div class="top"><span>MAPS</span><span>8M</span></div><div class="msg">IFIC Bank Building, <b>4th Floor</b>.</div></div>
+      <div class="num">4</div>
+    </div>
+
+    <div class="n">
+      <div class="ap a5"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8.5 15l2.5 2.5 4.5-4.5"/></svg></div>
+      <div class="tx"><div class="top"><span>BOOKING</span><span>12M</span></div><div class="msg">Book your slot: <b>champion.gemten.com.bd</b></div></div>
+      <div class="num">5</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="f"><small>FIND US</small><p>IFIC Bank Building (4th Floor)<br>Ranir Bazar, Cumilla</p></div>
+    <div class="f c"><small>COMMENT</small><p>Which one would<br>you tap first? 1–5</p></div>
+  </div>
+</div></body></html>
